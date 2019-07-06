@@ -28,21 +28,22 @@ function handleCardClick(event) {
   // }
 
 
-  // if (firstCardClicked === null) {
+  if (firstCardClicked === null) {
+    /* this grabs the "2nd DIV of the .card-container", which is always "image2" */
+    firstCardClicked = $(".card-container div:nth-child(2)").attr("class");
+    console.log(firstCardClicked);
+  } else /* if (firstCardClicked !== null)  */ {
+    secondCardClicked = $(".card-container div:nth-child(2)").attr("class");
+    console.log(secondCardClicked);
+  }
+}
 
-  //   // firstCardClicked = $(".card-container div:nth-child(2)").val();
 
-  //   /* this grabs the "lfg-bgi hidden" class */
-  //   // firstCardClicked = $(this).attr("class");
-  //   // firstCardClicked = $(event.currentTarget).attr("class");
+    // firstCardClicked = $(".card-container div:nth-child(2)").val();
 
-  //   /* this grabs the "aside-box" class */
-  //   // firstCardClicked = $("div:nth-of-type(2)").attr("class");
+/* this grabs the "lfg-bgi hidden" class */
+    // firstCardClicked = $(this).attr("class");
+    // firstCardClicked = $(event.currentTarget).attr("class");
 
-  //   /* this grabs the "2nd DIV of the .card-container", which is always "image2" */
-  //   firstCardClicked = $(".card-container div:nth-child(2)").attr("class");
-  //   console.log(firstCardClicked);
-  // } else /* if (firstCardClicked !== null)  */ {
-  //   secondCardClicked = $(".card-container div:nth-child(2)").attr("class");
-  //   console.log(secondCardClicked);
-  // }
+/* this grabs the "aside-box" class */
+    // firstCardClicked = $("div:nth-of-type(2)").attr("class");
