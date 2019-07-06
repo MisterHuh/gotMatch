@@ -4,6 +4,9 @@ var firstCardClicked = null;
 var secondCardClicked = null;
 var matches = null;
 
+var firstCardSource = null;
+var secondCardSource = null;
+
 function initializeApp() {
   console.log("ready to roll")
 
@@ -20,30 +23,50 @@ function handleCardClick(event) {
   $("div .lfz-bgi").addClass("hidden"); // selects ALL .lfz-bgi cards
   */
 
-  // if (firstCardClicked === null) {
-  //   $("div").on("click", function() {
-  //     firstCardClicked = $("#container .card-container div:eq(3)").attr("class");
-  //     alert(firstCardClicked);
-  //   })
-  // }
-
-
   if (firstCardClicked === null) {
-    /* this grabs the "2nd DIV of the .card-container", which is always "image2" */
-    firstCardClicked = $(".card-container div:nth-child(2)").attr("class");
-    console.log(firstCardClicked);
-  } else /* if (firstCardClicked !== null)  */ {
-    secondCardClicked = $(".card-container div:nth-child(2)").attr("class");
-    console.log(secondCardClicked);
+    firstCardClicked = $(event.target);
+    firstCardSource = firstCardClicked.next().css("background-image");
+    console.log("firstCardClicked: ", firstCardClicked)
+    console.log("firstCardSource: ", firstCardSource);
+  } else {
+    secondCardClicked = $(event.target);
+    secondCardSource = secondCardClicked.next().css("background-image");
+    console.log("secondCardClicked: ", secondCardClicked)
+    console.log("secondCardSource: ", secondCardSource);
+
+    if (firstCardSource === secondCardSource) {
+      matches++;
+      console.log("cards match!" + "\n" + "current count: " + matches);
+      console.log("firstCardClicked: " + firstCardClicked + "\n" + "secondCardClicked: " + secondCardClicked + "\n" + "firstCardSource: " + firstCardSource + "\n" + "secondCardSource: " + secondCardSource)
+
+      /* reset all cards */
+      firstCardClicked = null;
+      secondCardClicked = null;
+      firstCardSource = null;
+      secondCardSource = null;
+
+      console.log("all cards resetted")
+
+    } else if (firstCardSource !== secondCardSource) {
+
+      /* rest all cards + timeout */
+      setTimeout(removeHidden, 1500);
+
+      console.log("cards don't match!" + "\n" + "current count: " + matches);
+
+      console.log("all cards resetted");
+    }
   }
 }
 
 
-    // firstCardClicked = $(".card-container div:nth-child(2)").val();
+var removeHidden = function() {
+  firstCardClicked.removeClass("hidden");
+  secondCardClicked.removeClass("hidden");
 
-/* this grabs the "lfg-bgi hidden" class */
-    // firstCardClicked = $(this).attr("class");
-    // firstCardClicked = $(event.currentTarget).attr("class");
+  firstCardClicked = null;
+  secondCardClicked = null;
 
-/* this grabs the "aside-box" class */
-    // firstCardClicked = $("div:nth-of-type(2)").attr("class");
+  firstCardSource = null;
+  secondCardSource = null;
+}

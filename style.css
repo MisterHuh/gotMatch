@@ -23,7 +23,8 @@ aside {
   width: 11%;
   text-align: center;
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 3px;
+  vertical-align: top;
 }
 
 .aside-box {
