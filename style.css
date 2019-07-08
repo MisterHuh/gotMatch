@@ -24,7 +24,7 @@ aside {
   text-align: center;
   display: inline-block;
   margin-top: 3px;
-  vertical-align: top;
+  /* vertical-align: top; */
 }
 
 .aside-box {
@@ -48,6 +48,7 @@ main {
   border: 1px solid green;
   position: relative;
   text-align: center;
+  display: inline-block;
 }
 
 .card-container {
@@ -137,4 +138,9 @@ Evie = 3 & 14
   opacity: 0.7;
   position: absolute;
   top: 0;
+} */
+
+/* .modal-footer {
+  text-align: center;
+  margin: auto;
 } */

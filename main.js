@@ -5,15 +5,20 @@ var secondCardClicked = null;
 var firstCardSource = null;
 var secondCardSource = null;
 var matches = null;
-var max_mathes = 2;
+var max_matches = 2;
 
 function initializeApp() {
 
-  testModal;
+  $("#myBtn").on("click", function () {
+    $("#myModal").modal();
+  });
 
-  console.log("ready to roll")
+   console.log("ready to roll")
 
   $(".lfz-bgi").on("click", handleCardClick);
+
+  $("#myModal").on(max_matches === matches, winCondition);
+
 }
 
 function handleCardClick(event) {
@@ -42,7 +47,7 @@ function handleCardClick(event) {
       console.log("cards match!" + "\n" + "current count: " + matches);
       console.log("firstCardClicked: " + firstCardClicked + "\n" + "secondCardClicked: " + secondCardClicked + "\n" + "firstCardSource: " + firstCardSource + "\n" + "secondCardSource: " + secondCardSource)
 
-      /* reset all cards */
+      /* re-set all cards */
       firstCardClicked = null;
       secondCardClicked = null;
       firstCardSource = null;
@@ -52,7 +57,7 @@ function handleCardClick(event) {
 
     } else if (firstCardSource !== secondCardSource) {
 
-      /* rest all cards + timeout */
+      /* re-set all cards + timeout */
       setTimeout(removeHidden, 1500);
 
       console.log("cards don't match!" + "\n" + "current count: " + matches);
@@ -74,8 +79,11 @@ var removeHidden = function() {
   secondCardSource = null;
 }
 
-var testModal = function () {
-  $("#myBtn").on("click", function () {
-    $("#myModal").modal();
-  });
-};
+function winCondition() {
+  var myModal = $("#myModal");
+
+  if (matches === max_matches) {
+    myModal.removeClass("hidden");
+    myModal.modal();
+  }
+}
