@@ -2,12 +2,15 @@ $( document ).ready(initializeApp);
 
 var firstCardClicked = null;
 var secondCardClicked = null;
-var matches = null;
-
 var firstCardSource = null;
 var secondCardSource = null;
+var matches = null;
+var max_mathes = 2;
 
 function initializeApp() {
+
+  testModal;
+
   console.log("ready to roll")
 
   $(".lfz-bgi").on("click", handleCardClick);
@@ -70,3 +73,9 @@ var removeHidden = function() {
   firstCardSource = null;
   secondCardSource = null;
 }
+
+var testModal = function () {
+  $("#myBtn").on("click", function () {
+    $("#myModal").modal();
+  });
+};
