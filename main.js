@@ -5,10 +5,9 @@ var secondCardClicked = null;
 var firstCardSource = null;
 var secondCardSource = null;
 var matches = 0;
-var max_matches = 2;
+var max_matches = 9;
 var attempts = 0;
 var games_played = 0;
-
 
 function initializeApp() {
 
@@ -16,7 +15,7 @@ function initializeApp() {
 
   $(".lfz-bgi").on("click", handleCardClick);
 
-  /* $("winButton").on("click", resetGame); to be made after winCondition */
+  $(".winButton").on("click", resetStats);
 
 }
 
@@ -33,18 +32,18 @@ function handleCardClick(event) {
   if (firstCardClicked === null) {
     firstCardClicked = $(event.target);
     firstCardSource = firstCardClicked.next().css("background-image");
-    // console.log("firstCardClicked: ", firstCardClicked);
-    // console.log("firstCardSource: ", firstCardSource);
+    console.log("firstCardClicked: ", firstCardClicked);
+    console.log("firstCardSource: ", firstCardSource);
   } else {
     secondCardClicked = $(event.target);
     secondCardSource = secondCardClicked.next().css("background-image");
     attempts++; // attempt counter added //
-    // console.log("secondCardClicked: ", secondCardClicked)
-    // console.log("secondCardSource: ", secondCardSource);
+    console.log("secondCardClicked: ", secondCardClicked)
+    console.log("secondCardSource: ", secondCardSource);
     displayStats()
     if (firstCardSource === secondCardSource) {
       displayStats()
-      matches++;
+      matches++; // matches counter added //
       console.log("cards match!" + "\n" + "current count: " + matches + "\n" + "attempts: " + attempts);
       // console.log("firstCardClicked: " + firstCardClicked + "\n" + "secondCardClicked: " + secondCardClicked + "\n" + "firstCardSource: " + firstCardSource + "\n" + "secondCardSource: " + secondCardSource)
 
@@ -68,7 +67,7 @@ function handleCardClick(event) {
   }
   /* "modal" popup via jQuery removeClass */
   if (max_matches === matches) {
-    games_played++;
+    // games_played++;
     console.log("games played: " + games_played)
     $(".winCondition").removeClass("hidden");
   }
@@ -89,6 +88,9 @@ var removeHidden = function() {
 function calculateAccuracy() {
   var accuracy = matches / attempts * 100;
   var answer = accuracy.toFixed(2);
+  if (isNaN(answer)) {
+    answer = 0
+  }
   return answer + "%";
 }
 
@@ -99,7 +101,18 @@ function calculateAccuracy() {
 // }
 
 function displayStats() {
+  // $("aside div:nth-child(2)").text(games_played);
+  $("aside div:nth-child(4)").text(attempts);
+  $("aside div:nth-child(6)").text(calculateAccuracy)
+}
+
+function resetStats() {
+  matches = 0;
+  attempts = 0;
+  games_played++;
   $("aside div:nth-child(2)").text(games_played);
   $("aside div:nth-child(4)").text(attempts);
   $("aside div:nth-child(6)").text(calculateAccuracy)
+  $(".lfz-bgi").removeClass("hidden");
+  $(".winCondition").addClass("hidden");
 }
