@@ -4,20 +4,19 @@ var firstCardClicked = null;
 var secondCardClicked = null;
 var firstCardSource = null;
 var secondCardSource = null;
-var matches = null;
+var matches = 0;
 var max_matches = 2;
+var attempts = 0;
+var games_played = 0;
+
 
 function initializeApp() {
-
-  $("#myBtn").on("click", function () {
-    $("#myModal").modal();
-  });
 
    console.log("ready to roll")
 
   $(".lfz-bgi").on("click", handleCardClick);
 
-  $("#myModal").on(max_matches === matches, winCondition);
+  /* $("winButton").on("click", resetGame); to be made after winCondition */
 
 }
 
@@ -34,18 +33,20 @@ function handleCardClick(event) {
   if (firstCardClicked === null) {
     firstCardClicked = $(event.target);
     firstCardSource = firstCardClicked.next().css("background-image");
-    console.log("firstCardClicked: ", firstCardClicked)
-    console.log("firstCardSource: ", firstCardSource);
+    // console.log("firstCardClicked: ", firstCardClicked);
+    // console.log("firstCardSource: ", firstCardSource);
   } else {
     secondCardClicked = $(event.target);
     secondCardSource = secondCardClicked.next().css("background-image");
-    console.log("secondCardClicked: ", secondCardClicked)
-    console.log("secondCardSource: ", secondCardSource);
-
+    attempts++; // attempt counter added //
+    // console.log("secondCardClicked: ", secondCardClicked)
+    // console.log("secondCardSource: ", secondCardSource);
+    displayStats()
     if (firstCardSource === secondCardSource) {
+      displayStats()
       matches++;
-      console.log("cards match!" + "\n" + "current count: " + matches);
-      console.log("firstCardClicked: " + firstCardClicked + "\n" + "secondCardClicked: " + secondCardClicked + "\n" + "firstCardSource: " + firstCardSource + "\n" + "secondCardSource: " + secondCardSource)
+      console.log("cards match!" + "\n" + "current count: " + matches + "\n" + "attempts: " + attempts);
+      // console.log("firstCardClicked: " + firstCardClicked + "\n" + "secondCardClicked: " + secondCardClicked + "\n" + "firstCardSource: " + firstCardSource + "\n" + "secondCardSource: " + secondCardSource)
 
       /* re-set all cards */
       firstCardClicked = null;
@@ -58,12 +59,18 @@ function handleCardClick(event) {
     } else if (firstCardSource !== secondCardSource) {
 
       /* re-set all cards + timeout */
-      setTimeout(removeHidden, 1500);
+      setTimeout(removeHidden, 200);
 
-      console.log("cards don't match!" + "\n" + "current count: " + matches);
+      console.log("cards don't match!" + "\n" + "current count: " + matches + "\n" + "attempts: " + attempts);
 
       console.log("all cards resetted");
     }
+  }
+  /* "modal" popup via jQuery removeClass */
+  if (max_matches === matches) {
+    games_played++;
+    console.log("games played: " + games_played)
+    $(".winCondition").removeClass("hidden");
   }
 }
 
@@ -79,11 +86,20 @@ var removeHidden = function() {
   secondCardSource = null;
 }
 
-function winCondition() {
-  var myModal = $("#myModal");
+function calculateAccuracy() {
+  var accuracy = matches / attempts * 100;
+  var answer = accuracy.toFixed(2);
+  return answer + "%";
+}
 
-  if (matches === max_matches) {
-    myModal.removeClass("hidden");
-    myModal.modal();
-  }
+// function displayStats() {
+//   $("#gamesPlayed").text(games_played);
+//   $("#attempts").text(attempts);
+//   $("#accuracy").text(calculateAccuracy);
+// }
+
+function displayStats() {
+  $("aside div:nth-child(2)").text(games_played);
+  $("aside div:nth-child(4)").text(attempts);
+  $("aside div:nth-child(6)").text(calculateAccuracy)
 }

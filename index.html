@@ -3,59 +3,28 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <script src="main.js"></script>
 
-  <!-- <script>
-  $(document).ready(function () {
-      $("#myBtn").click(function () {
-        $("#myModal").modal();
-      });
-    });
-  </script> -->
+  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+  <script src="main.js"></script>
 
 </head>
 
 
 <body>
-<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info" id="myBtn">Test Modal</button>
-
-<!-- Modal -->
-<div class="modal" id="myModal" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Congratulations!</h4>
-      </div>
-      <div class="modal-body">
-        <p>You won the game!</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" id="reset">Click here to play again!</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
 
   <header>LFZ Memory Match</header>
 
-  <aside>
+  <aside class="displayStats">
     stats
     <div class="aside-box">Games Played</div>
-    <div class="aside-box">0</div>
+    <div class="aside-box" id="gamesPlayed">0</div>
     <div class="aside-box">Attempts</div>
-    <div class="aside-box">0</div>
+    <div class="aside-box" id="attempts">0</div>
     <div class="aside-box">Accuracy</div>
-    <div class="aside-box">0%</div>
+    <div class="aside-box" id="accuracy">0%</div>
   </aside>
 
   <main>
@@ -82,7 +51,7 @@
         <div class="image4"></div>
       </div>
 
-      <!-- <div class="card-container">
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image5"></div>
       </div>
@@ -150,7 +119,12 @@
       <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image18"></div>
-      </div> -->
+      </div>
+
+      <div class="winCondition hidden">
+      <div class="winText">Congratulations you won!!</div>
+        <button class="winButton">Click here to play again!</button>
+      </div>
 
   </div>
 
