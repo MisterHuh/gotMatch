@@ -1,28 +1,30 @@
 body {
   background-color: beige;
   border: 1px solid black;
-  height: 100vmin;
-  width: 100%;
-  padding: 15px;
+  height: 550px;
+  width: 850px;
+  position: relative;
+  /* background-image: url("./assets/images/blind-robot.jpg");
+  background-position: center;
+  background-size: cover; */
 }
 
 header {
-  border: 1px solid black;
+  border: 3.5px solid pink;
   text-align: center;
-  padding: 2%;
-  width: 60%;
+  padding: 1%;
+  width: 97%;
+  margin: auto;
 }
 
 aside {
-  border: 1px solid black;
-  height: 17%;
+  border: 3.5px solid red;
+  height: 92%;
   width: 11%;
   text-align: center;
-  /* padding: 2.5%; */
   display: inline-block;
-  /* margin-top: 20px; */
-  /* margin: auto; */
-  /* margin-top: -50px; */
+  margin-top: 3px;
+  /* vertical-align: top; */
 }
 
 .aside-box {
@@ -32,24 +34,126 @@ aside {
 }
 
 main {
-  height: 23%;
-  width: 52%;
-  /* padding: 88px; */
-  border: 1px solid black;
+  height: 92%;
+  width: 86%;
+  border: 3.5px solid yellow;
   display: inline-block;
+  position: relative;
+  /* margin-top: -20%; */
+  vertical-align: top;
 }
 
 #container {
-  height: 50%;
+  height: 100%;
+  width: 100%;
+  border: 1px solid green;
+  position: relative;
+  text-align: center;
+  display: inline-block;
 }
 
+.card-container {
+  position: relative;
+  border: 2px solid black;
+  height: 30%;
+  width: 15%;
+  display: inline-block;
+  padding: 2px;
+}
+
+
 .lfz-bgi {
-  border: 1px solid black;
-  background-color: black;
-  /* display: inline-block; */
-  padding: 30px;
+  background-color: pink;
+  padding: 50px;
+  width: 3%;
+  height: 2%;
+  margin: 3px;
+  background-image: url("./assets/images/lfz-card.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+}
+
+.image1, .image2, .image3, .image4, .image5, .image6, .image7, .image8, .image9, .image10, .image11, .image12, .image13, .image14, .image15, .image16, .image17, .image18 {
+  padding: 50px;
   width: 3%;
   height: 25%;
-  float: right;
+  float: left;
   margin: 3px;
+  background-size: cover;
+  background-position: center;
+}
+
+/*
+Bill = 1 & 10
+Cody = 2 & 15
+Evie = 3 & 14
+*/
+
+.image1, .image10 {
+  background-image: url("./assets/images/bill.jpg");
+}
+
+.image2, .image15 {
+  background-image: url("./assets/images/cody.jpg");
+}
+
+.image3, .image14 {
+  background-image: url("./assets/images/evie.jpg");
+}
+
+.image4, .image18 {
+  background-image: url("./assets/images/tj.jpg");
+}
+
+.image5, .image16 {
+  background-image: url("./assets/images/dan.jpg");
+}
+
+.image6, .image13 {
+  background-image: url("./assets/images/brett.jpg");
+}
+
+.image7, .image17 {
+  background-image: url("./assets/images/scott.jpg");
+}
+
+.image8, .image12 {
+  background-image: url("./assets/images/tim-d.jpg");
+}
+
+.image9, .image11 {
+  background-image: url("./assets/images/tim-h.jpg");
+}
+
+
+.hidden {
+  display: none;
+}
+
+.winCondition {
+  background-color: white;
+  /* opacity: 0.2; */
+  border: 5px solid rebeccapurple;
+  height: 140px;
+  width: 100%;
+  display: absolute;
+  margin: auto;
+  /* display: none; */
+}
+
+.winText {
+  font-size: large;
+  border: 5px solid green;
+  text-align: center;
+  padding: 20px;
+}
+
+.winButton {
+  margin: 18px 25px 0px 290px;
+  text-align: center;
+  padding: 5px;
+  /* display: flex;
+  justify-content: center;
+  float: center;  */
 }

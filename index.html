@@ -3,7 +3,13 @@
 <html>
 
 <head>
+
   <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+  <script src="main.js"></script>
+
 </head>
 
 
@@ -11,108 +17,113 @@
 
   <header>LFZ Memory Match</header>
 
-  <aside>
+  <aside class="displayStats">
     stats
     <div class="aside-box">Games Played</div>
-    <div class="aside-box">0</div>
+    <div class="aside-box" id="gamesPlayed">0</div>
     <div class="aside-box">Attempts</div>
-    <div class="aside-box">0</div>
+    <div class="aside-box" id="attempts">0</div>
     <div class="aside-box">Accuracy</div>
-    <div class="aside-box">0%</div>
+    <div class="aside-box" id="accuracy">0%</div>
   </aside>
 
   <main>
 
-    <div id="container">
+    <div id="container-fluid" >
 
-      <div>
-        <div class="lfz-bgi"></div>
-        <div class="image1"></div>
-      </div>
-
-      <div>
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image2"></div>
       </div>
 
-      <div>
+      <div class="card-container">
+        <div class="lfz-bgi"></div>
+        <div class="image1"></div>
+      </div>
+
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image3"></div>
       </div>
 
-      <div>
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image4"></div>
       </div>
 
-      <div>
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image5"></div>
       </div>
 
-      <div>
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image6"></div>
       </div>
 
-      <div>
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image7"></div>
       </div>
 
-      <div>
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image8"></div>
       </div>
 
-      <div>
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image9"></div>
       </div>
 
-      <div>
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image10"></div>
       </div>
 
-      <div>
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image11"></div>
       </div>
 
-      <div>
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image12"></div>
       </div>
 
-      <div>
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image13"></div>
       </div>
 
-      <div>
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image14"></div>
       </div>
 
-      <div>
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image15"></div>
       </div>
 
-      <div>
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image16"></div>
       </div>
 
-      <div>
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image17"></div>
       </div>
 
-      <div>
+      <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image18"></div>
+      </div>
+
+      <div class="winCondition hidden">
+      <div class="winText">Congratulations you won!!</div>
+        <button class="winButton">Click here to play again!</button>
       </div>
 
   </div>
