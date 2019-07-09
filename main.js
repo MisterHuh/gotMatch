@@ -1,5 +1,10 @@
 $( document ).ready(initializeApp);
 
+/* shufflig cards:
+while setTimeout is happening
+prevent the handlerCardClick from running
+by adding a return in the click handler to get out of the function */
+
 var firstCardClicked = null;
 var secondCardClicked = null;
 var firstCardSource = null;
@@ -72,7 +77,6 @@ function handleCardClick(event) {
     $(".winCondition").removeClass("hidden");
   }
 }
-
 
 var removeHidden = function() {
   firstCardClicked.removeClass("hidden");

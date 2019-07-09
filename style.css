@@ -1,26 +1,44 @@
+
 body {
   background-color: beige;
-  border: 1px solid black;
-  height: 550px;
-  width: 850px;
+  /* border: 3px solid black; */
+  height:850px;
+  width: 1800px;
   position: relative;
-  /* background-image: url("./assets/images/blind-robot.jpg");
-  background-position: center;
-  background-size: cover; */
+  background-image: url("./assets/images/blind-robot.jpg");
+  /* background-position: center; */
+  background-size: cover;
 }
 
+/* body {
+  background-color: beige;
+  border: 3px solid black;
+  height:100vh;
+  width: 100vw;
+  position: relative;
+  background-image: url("./assets/images/blind-robot.jpg");
+  background-position: center;
+  background-size: cover;
+} */
+
 header {
-  border: 3.5px solid pink;
+  /* border: 3.5px solid pink; */
   text-align: center;
-  padding: 1%;
+  font-weight: 700;
+  color: white;
+  padding: 6px;
   width: 97%;
   margin: auto;
+  font-size: 50px;
 }
 
 aside {
-  border: 3.5px solid red;
-  height: 92%;
-  width: 11%;
+  font-size: 25px;
+  font-weight: 1000;
+  color: white;
+  /* border: 3.5px solid red; */
+  height: 90%;
+  width: 19%;
   text-align: center;
   display: inline-block;
   margin-top: 3px;
@@ -28,15 +46,20 @@ aside {
 }
 
 .aside-box {
+  border: 2px solid black;
+  height:65px;
+  width: 95%;
   background-color: lightskyblue;
-  border: 1px solid black;
-  margin: 4px;
+  font-weight: 1000;
+  color: black;
+  margin: 45px 4px 45px 5px;
+  /* text-align: inherit; */
 }
 
 main {
-  height: 92%;
-  width: 86%;
-  border: 3.5px solid yellow;
+  height: 90%;
+  width: 80%;
+  /* border: 3.5px solid yellow; */
   display: inline-block;
   position: relative;
   /* margin-top: -20%; */
@@ -46,7 +69,7 @@ main {
 #container {
   height: 100%;
   width: 100%;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   position: relative;
   text-align: center;
   display: inline-block;
@@ -54,20 +77,24 @@ main {
 
 .card-container {
   position: relative;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   height: 30%;
   width: 15%;
   display: inline-block;
   padding: 2px;
+  margin: 5px;
 }
 
 
 .lfz-bgi {
   background-color: pink;
-  padding: 50px;
-  width: 3%;
-  height: 2%;
-  margin: 3px;
+  padding: 83px;
+  width: 15%;
+  height: 30%;
+  margin-top: 6px;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: 8px;
   background-image: url("./assets/images/lfz-card.jpg");
   background-size: cover;
   background-position: center;
@@ -75,11 +102,13 @@ main {
 }
 
 .image1, .image2, .image3, .image4, .image5, .image6, .image7, .image8, .image9, .image10, .image11, .image12, .image13, .image14, .image15, .image16, .image17, .image18 {
-  padding: 50px;
-  width: 3%;
-  height: 25%;
-  float: left;
-  margin: 3px;
+  padding: 83px;
+  width: 15%;
+  height: 30%;
+  margin-top: 7px;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
   background-size: cover;
   background-position: center;
 }
@@ -131,28 +160,41 @@ Evie = 3 & 14
   display: none;
 }
 
+/* working winConditoin
 .winCondition {
   background-color: white;
-  /* opacity: 0.2; */
   border: 5px solid rebeccapurple;
-  height: 140px;
-  width: 100%;
-  display: absolute;
-  margin: auto;
-  /* display: none; */
+  height: 20%;
+  width: 35%;
+  position: absolute;
+} */
+
+.winCondition {
+  background-color: beige;
+  /* border: 5px solid rebeccapurple; */
+  height: 20vh;
+  width: 25vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
 }
 
 .winText {
-  font-size: large;
-  border: 5px solid green;
+  font-size: 160%;
+  font-weight: bold;
+  /* border: 5px solid green; */
   text-align: center;
   padding: 20px;
 }
 
 .winButton {
-  margin: 18px 25px 0px 290px;
+  margin-top: 2%;
+  font-weight: bold;
+  font-size: 135%;
   text-align: center;
-  padding: 5px;
+  padding: 15px;
   /* display: flex;
   justify-content: center;
   float: center;  */
