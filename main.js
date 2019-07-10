@@ -10,7 +10,7 @@ var secondCardClicked = null;
 var firstCardSource = null;
 var secondCardSource = null;
 var matches = 0;
-var max_matches = 9;
+var max_matches = 1;
 var attempts = 0;
 var games_played = 0;
 
@@ -37,14 +37,14 @@ function handleCardClick(event) {
   if (firstCardClicked === null) {
     firstCardClicked = $(event.target);
     firstCardSource = firstCardClicked.next().css("background-image");
-    console.log("firstCardClicked: ", firstCardClicked);
-    console.log("firstCardSource: ", firstCardSource);
+    // console.log("firstCardClicked: ", firstCardClicked);
+    // console.log("firstCardSource: ", firstCardSource);
   } else {
     secondCardClicked = $(event.target);
     secondCardSource = secondCardClicked.next().css("background-image");
     attempts++; // attempt counter added //
-    console.log("secondCardClicked: ", secondCardClicked)
-    console.log("secondCardSource: ", secondCardSource);
+    // console.log("secondCardClicked: ", secondCardClicked)
+    // console.log("secondCardSource: ", secondCardSource);
     displayStats()
     if (firstCardSource === secondCardSource) {
       displayStats()
@@ -73,7 +73,6 @@ function handleCardClick(event) {
   /* "modal" popup via jQuery removeClass */
   if (max_matches === matches) {
     // games_played++;
-    console.log("games played: " + games_played)
     $(".winCondition").removeClass("hidden");
   }
 }
@@ -93,7 +92,7 @@ function calculateAccuracy() {
   var accuracy = matches / attempts * 100;
   var answer = accuracy.toFixed(2);
   if (isNaN(answer)) {
-    answer = 0
+    answer = 0.00
   }
   return answer + "%";
 }
@@ -120,3 +119,11 @@ function resetStats() {
   $(".lfz-bgi").removeClass("hidden");
   $(".winCondition").addClass("hidden");
 }
+
+// loop that runs 18 times
+/* card container
+bgi
+image#
+
+before appending, empty out the #container using .empty jQuery
+*/
