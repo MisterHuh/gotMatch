@@ -23,12 +23,6 @@ function handleCardClick(event) {
   console.log(event);
   $(event.currentTarget).addClass("hidden");
 
-  /*
-  $("div:first-child").addClass("hidden"); // selects all divs that are first childs
-  $(".lfz-bgi").addClass("hidden"); // selects ALL .lfz-bgi cards
-  $("div .lfz-bgi").addClass("hidden"); // selects ALL .lfz-bgi cards
-  */
-
   if (firstCardClicked === null) {
     firstCardClicked = $(event.target);
     firstCardSource = firstCardClicked.next().css("background-image");
@@ -53,7 +47,7 @@ function handleCardClick(event) {
       firstCardSource = null;
       secondCardSource = null;
 
-      console.log("all cards resetted")
+      console.log("all cards resetted");
 
     } else if (firstCardSource !== secondCardSource) {
 
@@ -67,7 +61,7 @@ function handleCardClick(event) {
   }
   /* "modal" popup via jQuery removeClass */
   if (max_matches === matches) {
-    // games_played++;
+    console.log("You Won!");
     $(".winCondition").removeClass("hidden");
   }
 }
@@ -92,12 +86,6 @@ function calculateAccuracy() {
   return answer + "%";
 }
 
-// function displayStats() {
-//   $("#gamesPlayed").text(games_played);
-//   $("#attempts").text(attempts);
-//   $("#accuracy").text(calculateAccuracy);
-// }
-
 function displayStats() {
   // $("aside div:nth-child(2)").text(games_played);
   $("aside div:nth-child(4)").text(attempts);
@@ -105,16 +93,15 @@ function displayStats() {
 }
 
 function resetStats() {
-  // debugger;
   matches = 0;
   attempts = 0;
   games_played++;
-  // max_matches += matches;
   $("aside div:nth-child(2)").text(games_played);
   $("aside div:nth-child(4)").text(attempts);
   $("aside div:nth-child(6)").text("0.00%")
-  $(".lfz-bgi").removeClass("hidden");
+  // $(".lfz-bgi").removeClass("hidden");
   $(".winCondition").addClass("hidden");
+  $("#container").empty();
   createSkeleton();
   shuffleThemCards();
 }
@@ -123,7 +110,7 @@ var imageArray = ["image1", "image2", "image3", "image4", "image5", "image6", "i
 
 function createSkeleton() {
 
-  $("#container").empty();
+  // $("#container").empty();
 
   // this calls the randomly generated cards
   var images = shuffleThemCards();

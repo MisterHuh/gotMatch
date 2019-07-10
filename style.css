@@ -185,6 +185,7 @@ Evie = 3 & 14
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 25px;
+  z-index: 1;
 }
 
 .winText {
