@@ -1,10 +1,5 @@
 $( document ).ready(initializeApp);
 
-/* shufflig cards:
-while setTimeout is happening
-prevent the handlerCardClick from running
-by adding a return in the click handler to get out of the function */
-
 var firstCardClicked = null;
 var secondCardClicked = null;
 var firstCardSource = null;
@@ -110,20 +105,75 @@ function displayStats() {
 }
 
 function resetStats() {
+  // debugger;
   matches = 0;
   attempts = 0;
   games_played++;
+  // max_matches += matches;
   $("aside div:nth-child(2)").text(games_played);
   $("aside div:nth-child(4)").text(attempts);
-  $("aside div:nth-child(6)").text(calculateAccuracy)
+  $("aside div:nth-child(6)").text("0.00%")
   $(".lfz-bgi").removeClass("hidden");
   $(".winCondition").addClass("hidden");
+  createSkeleton();
+  shuffleThemCards();
 }
 
-// loop that runs 18 times
-/* card container
-bgi
-image#
+var imageArray = ["image1", "image2", "image3", "image4", "image5", "image6", "image7", "image8", "image9", "image10", "image11", "image12", "image13", "image14", "image15", "image16", "image17", "image18"];
 
-before appending, empty out the #container using .empty jQuery
-*/
+function createSkeleton() {
+
+  $("#container").empty();
+
+  // this calls the randomly generated cards
+  var images = shuffleThemCards();
+
+  // #1 define the basic skeleton
+  for (var index = 0; index < 18; index++) {
+
+    var container = $("#container");
+    var cardContainer = $("<div>");
+    var lfzBgi = $("<div>");
+    var frontImages = $("<div>");
+
+    // #2 add classes to the newly created <div>s
+    cardContainer.addClass("card-container");
+    lfzBgi.addClass("lfz-bgi");
+    frontImages.addClass(images[index]);
+
+    // #3 append individual -> cardContainer, cardContainer -> DOM
+    cardContainer.append(lfzBgi)
+    cardContainer.append(frontImages);
+    container.append(cardContainer);
+  }
+
+  // only add if necessary
+  var fixEverything = $(".lfz-bgi");
+  fixEverything.on("click", handleCardClick);
+  return
+}
+
+function shuffleThemCards() {
+
+  // creating a replica of the imageArray
+  // newArray = imageArray does NOT work
+  var newArray = [];
+  for (var i = 0; i < imageArray.length; i++) {
+    newArray.push(imageArray[i]);
+  }
+
+  var spliceIndex = imageArray.length; // counting down from 18? 17?
+  var randomArray = []; // randomly arranged sequence
+  for (var iteration = 0; iteration < imageArray.length; iteration++, spliceIndex--) {
+    var randomIndex = Math.floor(Math.random() * spliceIndex); // picking the "random'th" index
+
+    var spliceVal = newArray.splice(randomIndex, 1);
+    // from the newArray, remove the "random'th" index and store it into spliceVal
+    // this will guarantee that the "chosen" index will NOT be used again and be removed
+
+    randomArray.push(spliceVal);
+    // push the "random'th" index to the randomArray[];
+  }
+
+  return randomArray;
+}
