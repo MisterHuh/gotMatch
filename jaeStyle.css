@@ -1,0 +1,12 @@
+.front, .back {
+  background-size: cover;
+  background-position: center;
+}
+
+.front {
+  background-image: url("./GoT/card_back_01.jpg")
+}
+
+.back {
+  background-image: url("./GoT/jamie_01.1.jpeg")
+}

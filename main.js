@@ -1,44 +1,50 @@
-$( document ).ready(initializeApp);
+$( document ).ready( initializeApp ); // when document is loaded, call initializeApp()
 
 var firstCardClicked = null;
 var secondCardClicked = null;
 var firstCardSource = null;
 var secondCardSource = null;
-var matches = 0;
-var max_matches = 9;
-var attempts = 0;
-var games_played = 0;
+var matches = 0;                // side bar - keeping track of matches STATS
+var max_matches = 9;            // side bar - win condtion; not part of STATS
+var attempts = 0;               // side bar - keeping track of the % of correct attempts STATS
+var games_played = 0;           // side bar - keeping track of games played STATS
 
-function initializeApp() {
+function initializeApp() {    // runs when document is loaded
 
-   console.log("ready to roll")
+  console.log("ready to roll")   // logs out mesage
+  createSkeleton();               // calls createSkeleton()
+  shuffleThemCards();             // calls shufleThemCards()
 
-  $(".lfz-bgi").on("click", handleCardClick);
+  $(".lfz-bgi").on("click", handleCardClick); // onClick, trigger handleCardClick()
 
-  $(".winButton").on("click", resetStats);
+  $(".winButton").on("click", resetStats);    // onClick, trigger resetStats()
 
 }
 
 function handleCardClick(event) {
-  console.log(event);
+  // console.log(event);
   $(event.currentTarget).addClass("hidden");
+  console.log("FIRST: ", firstCardClicked);
+  console.log("SECOND: ", secondCardClicked);
+
 
   if (firstCardClicked === null) {
     firstCardClicked = $(event.target);
-    firstCardSource = firstCardClicked.next().css("background-image");
-    // console.log("firstCardClicked: ", firstCardClicked);
+    firstCardSource = firstCardClicked.next().css("background-image"); // pulls the source url for first card
+    console.log("THIRD firstCardClicked: ", firstCardClicked);
     // console.log("firstCardSource: ", firstCardSource);
   } else {
     secondCardClicked = $(event.target);
-    secondCardSource = secondCardClicked.next().css("background-image");
+    secondCardSource = secondCardClicked.next().css("background-image"); // pulls the source url for second card
     attempts++; // attempt counter added //
-    // console.log("secondCardClicked: ", secondCardClicked)
+    console.log("FOURTH secondCardClicked: ", secondCardClicked)
     // console.log("secondCardSource: ", secondCardSource);
     displayStats()
-    if (firstCardSource === secondCardSource) {
+
+    if (firstCardSource === secondCardSource) {   // nested conditional; can this be placed somewhere else?
       displayStats()
       matches++; // matches counter added //
-      console.log("cards match!" + "\n" + "current count: " + matches + "\n" + "attempts: " + attempts);
+      // console.log("cards match!" + "\n" + "current count: " + matches + "\n" + "attempts: " + attempts);
       // console.log("firstCardClicked: " + firstCardClicked + "\n" + "secondCardClicked: " + secondCardClicked + "\n" + "firstCardSource: " + firstCardSource + "\n" + "secondCardSource: " + secondCardSource)
 
       /* re-set all cards */
@@ -47,18 +53,21 @@ function handleCardClick(event) {
       firstCardSource = null;
       secondCardSource = null;
 
-      console.log("all cards resetted");
+      console.log("SIXTH all cards resetted");
 
     } else if (firstCardSource !== secondCardSource) {
 
       /* re-set all cards + timeout */
-      setTimeout(removeHidden, 200);
+      setTimeout(removeHidden, 2000);
 
       console.log("cards don't match!" + "\n" + "current count: " + matches + "\n" + "attempts: " + attempts);
 
-      console.log("all cards resetted");
+      // console.log("all cards resetted");
     }
   }
+
+
+
   /* "modal" popup via jQuery removeClass */
   if (max_matches === matches) {
     console.log("You Won!");
@@ -67,6 +76,7 @@ function handleCardClick(event) {
 }
 
 var removeHidden = function() {
+  console.log("FIFTH removeHidden activated");
   firstCardClicked.removeClass("hidden");
   secondCardClicked.removeClass("hidden");
 
@@ -76,6 +86,18 @@ var removeHidden = function() {
   firstCardSource = null;
   secondCardSource = null;
 }
+
+// function removeHidden() {
+//   console.log("removeHidden activated");
+//   firstCardClicked.removeClass("hidden");
+//   secondCardClicked.removeClass("hidden");
+
+//   firstCardClicked = null;
+//   secondCardClicked = null;
+
+//   firstCardSource = null;
+//   secondCardSource = null;
+// }
 
 function calculateAccuracy() {
   var accuracy = matches / attempts * 100;
