@@ -12,8 +12,8 @@ var games_played = 0;           // side bar - keeping track of games played STAT
 function initializeApp() {    // runs when document is loaded
 
   console.log("ready to roll")   // logs out mesage
-  createSkeleton();               // calls createSkeleton()
-  shuffleThemCards();             // calls shufleThemCards()
+  // createSkeleton();               // calls createSkeleton()
+  // shuffleThemCards();             // calls shufleThemCards()
 
   $(".lfz-bgi").on("click", handleCardClick); // onClick, trigger handleCardClick()
 
@@ -32,6 +32,7 @@ function handleCardClick(event) {
     firstCardClicked = $(event.target);
     firstCardSource = firstCardClicked.next().css("background-image"); // pulls the source url for first card
     console.log("THIRD firstCardClicked: ", firstCardClicked);
+    return firstCardClicked, firstCardSource
     // console.log("firstCardSource: ", firstCardSource);
   } else {
     secondCardClicked = $(event.target);
@@ -58,7 +59,7 @@ function handleCardClick(event) {
     } else if (firstCardSource !== secondCardSource) {
 
       /* re-set all cards + timeout */
-      setTimeout(removeHidden, 2000);
+      setTimeout(removeHidden, 500);
 
       console.log("cards don't match!" + "\n" + "current count: " + matches + "\n" + "attempts: " + attempts);
 
@@ -75,20 +76,8 @@ function handleCardClick(event) {
   }
 }
 
-var removeHidden = function() {
-  console.log("FIFTH removeHidden activated");
-  firstCardClicked.removeClass("hidden");
-  secondCardClicked.removeClass("hidden");
-
-  firstCardClicked = null;
-  secondCardClicked = null;
-
-  firstCardSource = null;
-  secondCardSource = null;
-}
-
-// function removeHidden() {
-//   console.log("removeHidden activated");
+// var removeHidden = function() {
+//   console.log("FIFTH removeHidden activated");
 //   firstCardClicked.removeClass("hidden");
 //   secondCardClicked.removeClass("hidden");
 
@@ -98,6 +87,18 @@ var removeHidden = function() {
 //   firstCardSource = null;
 //   secondCardSource = null;
 // }
+
+function removeHidden() {
+  console.log("removeHidden activated");
+  firstCardClicked.removeClass("hidden");
+  secondCardClicked.removeClass("hidden");
+
+  firstCardClicked = null;
+  secondCardClicked = null;
+
+  firstCardSource = null;
+  secondCardSource = null;
+}
 
 function calculateAccuracy() {
   var accuracy = matches / attempts * 100;
