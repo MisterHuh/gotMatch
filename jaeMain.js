@@ -2,7 +2,7 @@ $(document).ready(initializeApp);
 
 var firstCard, secondCard, firstCardSource, secondCardSource, accuracy;
 var correctMatches = 0;
-var winConditionMatches = 1;
+var winConditionMatches = 2;
 var attempts = 0;
 var gamesPlayed = 0;
 
@@ -14,16 +14,20 @@ function initializeApp() {
 function flipCard(event) {
   $(event.currentTarget).addClass("hidden");
   if (!firstCardSource) {
-    console.log("first card")
     firstCard = $(event.target);
     firstCardSource = firstCard.next().css("background-image");
   } else {
     $('.lfz-bgi').off("click")
-    console.log("second card")
     secondCard = $(event.target);
     secondCardSource = secondCard.next().css("background-image");
     attempts++;
-    firstCardSource === secondCardSource ? setTimeout(resetCards, 0) : setTimeout(unflipCards, 750)
+    // firstCardSource === secondCardSource ? setTimeout(resetCards, 0) : setTimeout(unflipCards, 750)
+    if (firstCardSource === secondCardSource) {
+      correctMatches++;
+      resetCards();
+    } else {
+      setTimeout(unflipCards, 750)
+    }
     displayStats();
   }
   console.log("# of matches: ", correctMatches)
@@ -32,7 +36,7 @@ function flipCard(event) {
 }
 
 function resetCards() {
-  firstCardSource === secondCardSource ? correctMatches++ : false;
+  // firstCardSource === secondCardSource ? correctMatches++ : false;
   firstCard = null;
   firstCardSource = null;
   secondCard = null;
@@ -71,6 +75,7 @@ function wonTheGame() {
   if (correctMatches === winConditionMatches) {
     gamesPlayed++;
     $(".winCondition").removeClass("hidden");
+    $('.lfz-bgi').off("click")
   }
 }
 
