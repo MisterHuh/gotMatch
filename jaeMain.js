@@ -2,7 +2,7 @@ $(document).ready(initializeApp);
 
 var firstCard, secondCard, firstCardSource, secondCardSource, accuracy;
 var correctMatches = 0;
-var winConditionMatches = 2;
+var winConditionMatches = 1;
 var attempts = 0;
 var gamesPlayed = 0;
 
@@ -23,7 +23,7 @@ function flipCard(event) {
     secondCard = $(event.target);
     secondCardSource = secondCard.next().css("background-image");
     attempts++;
-    firstCardSource === secondCardSource ? setTimeout(resetCards, 0) : setTimeout(unflipCards, 1750)
+    firstCardSource === secondCardSource ? setTimeout(resetCards, 0) : setTimeout(unflipCards, 750)
     displayStats();
   }
   console.log("# of matches: ", correctMatches)
@@ -44,11 +44,9 @@ function unflipCards() {
   firstCard.removeClass("hidden");
   secondCard.removeClass("hidden");
   resetCards();
-
 }
 
 function displayStats() {
-  console.log("displayStats fired")
   calculateAccuracy();
   $("#attempts").text(attempts);
   isNaN(accuracy) ? accuracy = 0 : accuracy;
