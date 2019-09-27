@@ -1,6 +1,6 @@
 $(document).ready(initializeApp);
 
-var firstCard, secondCard, firstCardSource, secondCardSource, accuracy
+var firstCard, secondCard, firstCardSource, secondCardSource, accuracy;
 var correctMatches = 0;
 var winConditionMatches = 2;
 var attempts = 0;
@@ -18,20 +18,17 @@ function flipCard(event) {
     firstCard = $(event.target);
     firstCardSource = firstCard.next().css("background-image");
   } else {
-    // $('.lfz-bgi').off("click")
+    $('.lfz-bgi').off("click")
     console.log("second card")
     secondCard = $(event.target);
     secondCardSource = secondCard.next().css("background-image");
     attempts++;
-    firstCardSource === secondCardSource ? resetCards() : setTimeout(unflipCards, 1750)
+    firstCardSource === secondCardSource ? setTimeout(resetCards, 0) : setTimeout(unflipCards, 1750)
     displayStats();
-    // $(".lfz-bgi").on("click", flipCard);
   }
-  // $(".lfz-bgi").on("click", flipCard);
   console.log("# of matches: ", correctMatches)
   console.log("===================")
   wonTheGame();
-  // $(".lfz-bgi").on("click", flipCard);
 }
 
 function resetCards() {
@@ -40,13 +37,14 @@ function resetCards() {
   firstCardSource = null;
   secondCard = null;
   secondCardSource = null;
-  // $(".lfz-bgi").on("click", flipCard);
+  $(".lfz-bgi").on("click", flipCard);
 }
 
 function unflipCards() {
   firstCard.removeClass("hidden");
   secondCard.removeClass("hidden");
   resetCards();
+
 }
 
 function displayStats() {
@@ -56,7 +54,6 @@ function displayStats() {
   isNaN(accuracy) ? accuracy = 0 : accuracy;
   $("#accuracy").text(accuracy + "%");
   $("#gamesPlayed").text(gamesPlayed);
-  // $(".lfz-bgi").on("click", flipCard);
 }
 
 function calculateAccuracy() {
