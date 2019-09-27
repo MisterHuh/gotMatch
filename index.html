@@ -3,12 +3,10 @@
 <html>
 
 <head>
-
   <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!-- <script src="main.js"></script> -->
   <script src="jaeMain.js"></script>
-
 </head>
 
 
@@ -20,22 +18,23 @@
           </div>
         </div>
 
-  <header>LFZ Memory Match</header>
+  <header>
+    <h4>Memory Match</h4>
+  </header>
 
-  <aside class="displayStats">
-    Stats
-    <div class="aside-box">Games Played</div>
-    <div class="aside-box" id="gamesPlayed">0</div>
-    <div class="aside-box">Attempts</div>
-    <div class="aside-box" id="attempts">0</div>
-    <div class="aside-box">Accuracy</div>
-    <div class="aside-box" id="accuracy">0%</div>
-  </aside>
+  <!-- <div class="stats-flex-container">
+    <div class="indiv-stats down">Stats</div> -->
+    <!-- Stats -->
+    <!-- <div class="indiv-stats">Games Played</div>
+    <div class="indiv-stats down" id="gamesPlayed">0</div>
+    <div class="indiv-stats up">Attempts</div>
+    <div class="indiv-stats down" id="attempts">0</div>
+    <div class="indiv-stats up">Accuracy</div>
+    <div class="indiv-stats down" id="accuracy">0%</div>
+  </div> -->
 
   <main>
-
-    <div id="container" >
-
+    <div id="cards-flex-container" >
       <!-- <div class="card-container">
         <div class="lfz-bgi"></div>
         <div class="image2"></div>
@@ -125,9 +124,35 @@
         <div class="lfz-bgi"></div>
         <div class="image18"></div>
       </div> -->
-
   </div>
 
+  <div class="flex-container">
+
+    <div class="stats-flex-container bottom-box-sizing">
+
+      <div class="flex-container ">
+        <div class="indiv-stats"> Games Played</div>
+        <div class="indiv-stats" id="gamesPlayed">0</div>
+      </div>
+
+      <div class="flex-container">
+        <div class="indiv-stats">Attempts</div>
+        <div class="indiv-stats" id="attempts">0</div>
+      </div>
+
+      <div class="flex-container">
+        <div class="indiv-stats">Accuracy</div>
+        <div class="indiv-stats" id="accuracy">0</div>
+      </div>
+
+    </div>
+
+    <div class="quotes bottom-box-sizing">
+      <div>muuh queen</div>
+      <div class="margin"></div>
+      <div> - John Snow</div>
+    </div>
+  </div>
 
 
   </main>

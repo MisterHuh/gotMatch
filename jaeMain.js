@@ -86,21 +86,21 @@ function randomCardOrder() {
   for (var index = 0; index < 18; index++, spliceIndex--) {
     var randomNumber = Math.floor(Math.random() * spliceIndex);
     var randomIndex = imageArray.splice(randomNumber, 1);
-    randomArray.push(randomIndex);
+    randomArray.push(randomIndex + " sizing");
   }
   return randomArray;
 }
 
 function createStructure() {
-  $("#container").empty();
+  $("#cards-flex-container").empty();
   var images = randomCardOrder();
   for (var index = 0; index < 18; index++) {
-    var container = $("#container");
+    var container = $("#cards-flex-container");
     var cardContainer = $("<div>");
     var lfzBgi = $("<div>");
     var frontImages = $("<div>");
     cardContainer.addClass("card-container");
-    lfzBgi.addClass("lfz-bgi");
+    lfzBgi.addClass("lfz-bgi sizing");
     frontImages.addClass(images[index]);
     cardContainer.append(lfzBgi);
     cardContainer.append(frontImages);
