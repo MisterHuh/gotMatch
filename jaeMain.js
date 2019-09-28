@@ -1,6 +1,6 @@
 $(document).ready(initializeApp);
 
-var firstCard, secondCard, firstCardSource, secondCardSource, accuracy;
+var firstCard, secondCard, firstCardSource, secondCardSource, accuracy, quotes, quoteAuthor;
 var correctMatches = 0;
 var winConditionMatches = 2;
 var attempts = 0;
@@ -23,6 +23,7 @@ function flipCard(event) {
     attempts++;
     // firstCardSource === secondCardSource ? setTimeout(resetCards, 0) : setTimeout(unflipCards, 750)
     if (firstCardSource === secondCardSource) {
+      displayQuotes();
       correctMatches++;
       resetCards();
     } else {
@@ -33,6 +34,15 @@ function flipCard(event) {
   console.log("# of matches: ", correctMatches)
   console.log("===================")
   wonTheGame();
+}
+
+function displayQuotes() {  /* will need a switch statement for each of the match */
+  $("#quotes").empty();
+  $("#author").empty();
+  quotes = "you've got a match";
+  quoteAuthor = "The Night King";
+  $("#quotes").append(quotes);
+  $("#author").append(quoteAuthor);
 }
 
 function resetCards() {
@@ -86,7 +96,7 @@ function randomCardOrder() {
   for (var index = 0; index < 18; index++, spliceIndex--) {
     var randomNumber = Math.floor(Math.random() * spliceIndex);
     var randomIndex = imageArray.splice(randomNumber, 1);
-    randomArray.push(randomIndex + " sizing");
+    randomArray.push(randomIndex + " backImages");
   }
   return randomArray;
 }
@@ -100,7 +110,7 @@ function createStructure() {
     var lfzBgi = $("<div>");
     var frontImages = $("<div>");
     cardContainer.addClass("card-container");
-    lfzBgi.addClass("lfz-bgi sizing");
+    lfzBgi.addClass("lfz-bgi");
     frontImages.addClass(images[index]);
     cardContainer.append(lfzBgi);
     cardContainer.append(frontImages);
