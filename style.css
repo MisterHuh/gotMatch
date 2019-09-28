@@ -4,7 +4,6 @@
   src: url("./GoT/Game\ of\ Thrones.ttf");
 }
 
-/* is the format of having a header / main necessary? */
 body {
   height:100vh;
   width: 100vw;
@@ -13,39 +12,49 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   position: fixed;
-  margin: 0% 1%;
+  /* margin: 0% 10px; */
 }
 
 header {
-  /* border: 1px solid hotpink; */
-  /* text-align: center; */
+  border: 1px solid hotpink;
+    margin: 0% auto;
+  /* justify-content: center; */
 }
 
 /* instead of using a <h4>, use a div instead? */
 h4 {
-  border: 1px solid black;
-  margin: 0.5% auto auto auto;
   text-align: center;
-  font-weight: 700;
+  border: 1px solid black;
+  margin: 0%;
   font-family: gameOfThrones;
   color: black;
-  font-size: 350%;
+  font-size: 200%;
   height: 5vh;
-  width: 100vh;
 }
 
 .flex-container {
   display: flex;
   flex-direction: row;
-  height: 20%;
-  width: 100%;
+  /* border: 1px solid rebeccapurple; */
+  /* height: 20%;
+  width: 100%; */
 }
 
 .stats-flex-container {
   display: flex;
+  /* display: inline; */
   flex-direction: column;
   display: inline-block;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  background-color: #686763;
+  border-radius: 35px;
+  margin: 0% .5%;
+}
+
+.bottom-box-container {
+  /* border: 1px solid rebeccapurple; */
+  display: flex;
+  flex-direction: row;
 }
 
 .bottom-box-sizing {
@@ -58,7 +67,11 @@ h4 {
   font-family: gameOfThrones;
   font-weight: 700;
   color: black;
-  font-size: 350%;
+  font-size: 150%;
+  background-color: #b08941;
+  border-radius: 35px;
+  margin: 0% .5%;
+  text-align: center;
 }
 
 .margin {
@@ -69,16 +82,17 @@ h4 {
   border: 1px solid black;
   height: 5%;
   width: 50%;
-  background-color: #fff9f3 ;
+  /* background-color: #fff9f3 ; */
   font-weight: 1000;
-  font-size: 200%;
+  font-size: 150%;
   font-family: gameOfThrones;
   color: black;
 }
 
 main {
-  height: 95vh; /* fit to screen sizing = 95vh */
-  width: 100vw;  /* fit to screen sizing = 84vw */
+  margin-top: 0.5%;
+  height: 95vh;
+  width: 100vw;
   border: 1px solid yellow;
   display: inline-block;
   vertical-align: top;
@@ -86,25 +100,28 @@ main {
 
 #cards-flex-container {
   border: 1px solid blue;
-  height: 80%;
+  height: 78%;
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   position: relative;
+  margin-bottom: 1%;
   /* text-align: center; */
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .card-container {
   position: relative;
-  border: 1px solid green;
+  border: 1px solid rgb(98, 160, 98);
   flex: 0 1 calc(16% - 8px);
+  /* justify-content: center; */
+  /* text-align: center; */
 }
 
 .sizing { /* this is for the cards */
-  height: 95%;
-  width: 60%;
+  height: 100%;
+  width: 50%;
   background-size: cover;
   background-position: center;
   border-radius: 25px;
@@ -113,52 +130,45 @@ main {
 .lfz-bgi {
   background-image: url("./GoT/card_back_03.jpg");
   position: absolute;
-  display: none;
+  /* margin: 0% auto; */
+
+  /* display: none; */
 }
 
 .image1, .image10 {
   background-image: url("./GoT/3dragons_02.jpg");
-  margin: 0% auto;
 }
 
 .image2, .image15 {
   background-image: url("./GoT/tkk_02.1.jpg");
-  margin: 0% auto;
 }
 
 .image3, .image14 {
   background-image: url("./GoT/arya&sansa_01.1.jpg");
-  margin: 0% auto;
 }
 
 .image4, .image18 {
   background-image: url("./GoT/jamie_01.1.jpeg");
-  margin: 0% auto;
 }
 
 .image5, .image16 {
   background-image: url("./GoT/tormund_01.jpg");
-  margin: 0% auto;
 }
 
 .image6, .image13 {
   background-image: url("./GoT/dany_02.1.jpg");
-  margin: 0% auto;
 }
 
 .image7, .image17 {
   background-image: url("./GoT/jonSnow_01.jpg");
-  margin: 0% auto;
 }
 
 .image8, .image12 {
   background-image: url("./GoT/joffrey_01.jpeg");
-  margin: 0% auto;
 }
 
 .image9, .image11 {
   background-image: url("./GoT/tyrion_03.1.jpg");
-  margin: 0% auto;
 }
 
 .hidden {
