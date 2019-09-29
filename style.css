@@ -6,9 +6,10 @@
 
 body {
   height:100vh;
-  background-image: url("./GoT/background_04.jpg");
+  /* background-image: url("./GoT/background_04.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
+  background-color: #fffff0;
   position: fixed;
   /* border: 1px solid black; */
   margin: 0;
@@ -42,6 +43,9 @@ header {
   /* border: 1px solid red; */
   background-color: #9b1c31;
   border-radius: 20px;
+  background-image: url("https://media.giphy.com/media/KfxjdU2sw6X77klGGR/giphy.gif");
+  background-size: cover;
+  background-position: center;
 }
 
 .bottom-box-container {
@@ -63,12 +67,22 @@ header {
   font-size: 150%;
   background-color: #015d75;
   border-radius: 10px;
-  text-align: center;
+  background-image: url("https://media.giphy.com/media/XBwWNIY6WY7g4/giphy.gif");
+  background-size: cover;
+  background-position: center;
+  /* text-align: center; */
+  /* justify-content: center; */
 }
 
 #quotes, #author {
-  text-align: center;
+  /* text-align: center; */
   border: 1px solid black;
+  /* margin-right: auto; */
+  /* margin-left: auto; */
+}
+
+#author {
+  /* text-align: right; */
 }
 
 .margin {
@@ -130,54 +144,81 @@ main {
 }
 
 .lfz-bgi {
-  background-image: url("./GoT/card_back_03.jpg");
+  /* background-image: url("./GoT/card_back_03.jpg"); */
+  background-image: url("./GoT/background_04.jpg");
   position: absolute;
   height: 100%;
   width: 100%;
   background-size: cover;
   background-position: center;
   border-radius: 25px;
-  display: none;
+  /* display: none; */
 }
 
-.image1, .image10 {
+/* need image */
+.aryaStark {
   background-image: url("./GoT/3dragons_02.jpg");
 }
 
-.image2, .image15 {
+/* need image */
+.cerseiLannister {
   background-image: url("./GoT/tkk_02.1.jpg");
 }
 
-.image3, .image14 {
+/* need image */
+.branStark {
   background-image: url("./GoT/arya&sansa_01.1.jpg");
 }
 
-.image4, .image18 {
+/* Jamie Lannister */
+.jamieLannister {
   background-image: url("./GoT/jamie_01.1.jpeg");
 }
 
-.image5, .image16 {
+.tormundGiantsbane {
   background-image: url("./GoT/tormund_01.jpg");
 }
 
-.image6, .image13 {
+.daenerysTargaryen {
   background-image: url("./GoT/dany_02.1.jpg");
 }
 
-.image7, .image17 {
+.jonSnow {
   background-image: url("./GoT/jonSnow_01.jpg");
 }
 
-.image8, .image12 {
+.joffreyBaratheon {
   background-image: url("./GoT/joffrey_01.jpeg");
 }
 
-.image9, .image11 {
+.tyrionLannister {
   background-image: url("./GoT/tyrion_03.1.jpg");
 }
 
 .hidden {
   display: none;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+
+  45% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.style {
+  opacity: 0;
+  animation-name: fadeInOut;
+  animation-delay: 0.325s;
+  animation-duration: 0.750s;
+  /* animation-fill-mode: forwards; */
 }
 
 .winCondition {

@@ -1,10 +1,53 @@
 $(document).ready(initializeApp);
 
-var firstCard, secondCard, firstCardSource, secondCardSource, accuracy, quotes, quoteAuthor;
+var firstCard, secondCard, firstCardSource, secondCardSource, accuracy, quotes, quoteAuthor, firstCardQuote, nextCard;
 var correctMatches = 0;
-var winConditionMatches = 2;
+var winConditionMatches = 9;
 var attempts = 0;
 var gamesPlayed = 0;
+
+var quoteList = [
+  { // 0
+    author: "Tyrion Lannister",
+    quote: "That's what I do. I drink and I know things"
+  },
+  { // 1
+    author: "Daenerys Targaryen",
+    quote: "My reign has just begun."
+  },
+  { // 2
+    author: "Cersei Lannister",
+    quote: "When you play the game of thrones, you win or you die."
+  },
+  { // 3
+    author: "Arya Stark",
+    quote: "A girl has no name"
+  },
+  { // 4
+    author: "Jon Snow",
+    quote: "I don't want it"
+  },
+  { // 5
+    author: "Jamie Lannister",
+    quote: "The things I do for love"
+  },
+  { // 6
+    author: "Tormund Giantsbane",
+    quote: "The big woman still here?"
+  },
+  { // 7
+    author: "Bran Stark",
+    quote: "I'm waiting for an old friend"
+  },
+  { // 8
+    author: "Joffrey Baratheon",
+    quote: "I'm telling mother!"
+  },
+  { // 9
+    author: "Ned Stark",
+    quote: "Winter is coming"
+  },
+]
 
 function initializeApp() {
   console.log("rock and roll");
@@ -15,7 +58,10 @@ function flipCard(event) {
   $(event.currentTarget).addClass("hidden");
   if (!firstCardSource) {
     firstCard = $(event.target);
-    firstCardSource = firstCard.next().css("background-image");
+    nextCard = firstCard.next()
+    firstCardSource = nextCard.css("background-image");
+    nextCard = firstCard.next()
+    firstCardQuote = nextCard[0]["classList"][0]
   } else {
     $('.lfz-bgi').off("click")
     secondCard = $(event.target);
@@ -23,7 +69,7 @@ function flipCard(event) {
     attempts++;
     // firstCardSource === secondCardSource ? setTimeout(resetCards, 0) : setTimeout(unflipCards, 750)
     if (firstCardSource === secondCardSource) {
-      displayQuotes();
+      findQuotes(firstCardQuote);
       correctMatches++;
       resetCards();
     } else {
@@ -36,11 +82,47 @@ function flipCard(event) {
   wonTheGame();
 }
 
-function displayQuotes() {  /* will need a switch statement for each of the match */
+function findQuotes(firstCardQuote) {
+  switch(firstCardQuote) {
+    case "tyrionLannister":
+      displayQuotes(0);
+      break;
+    case "daenerysTargaryen":
+      displayQuotes(1);
+      break;
+    case "creseiLannister":
+      displayQuotes(2);
+      break;
+    case "aryaStark":
+      displayQuotes(3);
+      break;
+    case "jonSnow":
+      displayQuotes(4);
+      break;
+    case "jamieLannister":
+      displayQuotes(5);
+      break;
+    case "tormundGiantsbane":
+      displayQuotes(6);
+      break;
+    case "branStark":
+      displayQuotes(7);
+      break;
+    case "joffreyBaratheon":
+      displayQuotes(8);
+      break;
+    default:
+      displayQuotes(9)
+  }
+}
+
+function displayQuotes(index) {
   $("#quotes").empty();
   $("#author").empty();
-  quotes = "you've got a match";
-  quoteAuthor = "The Night King";
+  quotes = quoteList[index]["quote"];
+  quoteAuthor = quoteList[index]["author"];
+  $("#quotes").addClass("style");
+  $("#author").addClass("style");
   $("#quotes").append(quotes);
   $("#author").append(quoteAuthor);
 }
@@ -90,7 +172,7 @@ function wonTheGame() {
 }
 
 function randomCardOrder() {
-  var imageArray = ["image1", "image2", "image3", "image4", "image5", "image6", "image7", "image8", "image9", "image10", "image11", "image12", "image13", "image14", "image15", "image16", "image17", "image18"];
+  var imageArray = ["aryaStark", "cerseiLannister", "branStark", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "branStark", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
   var randomArray = [];
   var spliceIndex = imageArray.length;
   for (var index = 0; index < 18; index++, spliceIndex--) {
@@ -103,6 +185,8 @@ function randomCardOrder() {
 
 function createStructure() {
   $("#cards-flex-container").empty();
+  $("#quotes").empty();
+  $("#author").empty();
   var images = randomCardOrder();
   for (var index = 0; index < 18; index++) {
     var container = $("#cards-flex-container");
@@ -118,5 +202,7 @@ function createStructure() {
   }
   $(".lfz-bgi").on("click", flipCard);
   $(".winButton").on("click", resetStats);
+  $("#quotes").append(quoteList[9]["quote"]);
+  $("#author").append(quoteList[9]["author"]);
   displayStats();
 }
