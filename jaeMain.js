@@ -9,15 +9,15 @@ var gamesPlayed = 0;
 var quoteList = [
   { // 0
     author: "~ Tyrion Lannister",
-    quote: "That's what I do. I drink and I know things"
+    quote: "That's what I do." + "<br/>" + "I drink and I know things"
   },
   { // 1
-    author: "~ Daenerys Targaryen",
-    quote: "My reign has just begun."
+    author: "~ Cersei Lannister",
+    quote: "When you play the game of thrones," + "<br/>" + "you win or you die."
   },
   { // 2
-    author: "~ Cersei Lannister",
-    quote: "When you play the game of thrones, you win or you die."
+    author: "~Daenerys Targaryen",
+    quote: "My reign has just begun."
   },
   { // 3
     author: "~ Arya Stark",
@@ -87,10 +87,10 @@ function findQuotes(firstCardQuote) {
     case "tyrionLannister":
       displayQuotes(0);
       break;
-    case "daenerysTargaryen":
+    case "cerseiLannister":
       displayQuotes(1);
       break;
-    case "cerseiLannister":
+    case "daenerysTargaryen":
       displayQuotes(2);
       break;
     case "aryaStark":
@@ -119,11 +119,17 @@ function findQuotes(firstCardQuote) {
 function displayQuotes(index) {
   $("#quotes").empty();
   $("#author").empty();
+  $("#quotes").removeClass();
+  $("#author").removeClass();
   quotes = quoteList[index]["quote"];
   quoteAuthor = quoteList[index]["author"];
-  $("#quotes").addClass("style");
-  $("#author").addClass("style");
-  // addFadeIn();
+  if (index <= 1) {
+    $("#quotes").addClass("styleDouble");
+    $("#author").addClass("styleDouble");
+  } else {
+    $("#quotes").addClass("style");
+    $("#author").addClass("style");
+  }
   $("#quotes").append(quotes);
   $("#author").append(quoteAuthor);
 }
@@ -173,8 +179,9 @@ function wonTheGame() {
 }
 
 function randomCardOrder() {
-  // var imageArray = ["aryaStark", "cerseiLannister", "branStark", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "branStark", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
-  var imageArray = ["tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister" ]
+  var imageArray = ["aryaStark", "cerseiLannister", "branStark", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "branStark", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
+  // var imageArray = ["tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister" ]
+  // var imageArray = ["jamieLannister", "jamieLannister", "jamieLannister", "jamieLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister"]
   var randomArray = [];
   var spliceIndex = imageArray.length;
   for (var index = 0; index < 18; index++, spliceIndex--) {
@@ -204,9 +211,10 @@ function createStructure() {
   }
   $(".lfz-bgi").on("click", flipCard);
   $(".winButton").on("click", resetStats);
-  $("#quotes").addClass("style");
-  $("#author").addClass("style");
-  $("#quotes").append(quoteList[9]["quote"]);
-  $("#author").append(quoteList[9]["author"]);
+  displayQuotes(9);
+  // $("#quotes").addClass("style");
+  // $("#author").addClass("style");
+  // $("#quotes").append(quoteList[9]["quote"]);
+  // $("#author").append(quoteList[9]["author"]);
   displayStats();
 }
