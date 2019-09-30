@@ -22,12 +22,16 @@ header {
 
 .title {
   text-align: center;
+  vertical-align: middle;
+  line-height: 8vh;
   /* border: 1px solid black; */
   height: 100%;
   width: 100%;
   font-family: gameOfThrones;
   color: black;
   font-size: 275%;
+  /* padding: auto; */
+  /* margin-top: auto 0; */
 }
 
 /* .stats-container {
@@ -75,10 +79,11 @@ header {
 }
 
 #quotes, #author {
-  /* text-align: center; */
-  border: 1px solid black;
-  /* margin-right: auto; */
-  /* margin-left: auto; */
+  /* vertical-align: middle; */
+  /* border: 1px solid black; */
+  position: relative;
+  top: 25%;
+  margin-bottom: 2%
 }
 
 #author {
@@ -122,6 +127,7 @@ main {
   position: relative;
   padding-right: 3%;
   padding-left: 3%;
+  justify-content: center;
 }
 
 .card-container {
@@ -200,25 +206,30 @@ main {
 }
 
 @keyframes fadeInOut {
-  0% {
-    opacity: 0;
-  }
-
-  45% {
-    opacity: 0.5;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  /* 45% { opacity: 0.5; } */
+  100% { opacity: 1; }
 }
 
 .style {
-  opacity: 0;
+
+  /* -webkit-animation: fadeInOut 2s infinite; */
+  /* animation: fadeInOut 2.5s ease-in-out backwards; */
+
+  /* animation-name: fadeInOut;
+ 	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s; */
+
+  /* opacity: 0;
   animation-name: fadeInOut;
   animation-delay: 0.325s;
   animation-duration: 0.750s;
-  /* animation-fill-mode: forwards; */
+  animation-fill-mode: forwards; */
+
+  /* visibility: visible; */
+  opacity: 0;
+  transition: opacity 2s ease-in;
 }
 
 .winCondition {
