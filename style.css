@@ -6,10 +6,10 @@
 
 body {
   height:100vh;
-  background-image: url("./GoT/background_04.jpg");
+  background-image: url("./GoT/changeTheme.gif");
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: #fffff0;
+  background-color: #6699cc;
   position: fixed;
   /* border: 1px solid black; */
   margin: 0;
