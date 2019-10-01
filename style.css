@@ -34,7 +34,7 @@ header {
 
 .title {
   text-align: center;
-  vertical-align: middle;
+  vertical-align: center;
   line-height: 8vh;
   /* border: 1px solid black; */
   height: 100%;
@@ -44,13 +44,33 @@ header {
   font-size: 275%;
 }
 
-.stats-flex-container {
+.bottom-box-container {
+  border: 1px solid rebeccapurple;
+  height: 12%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  display: inline-block;
-  /* border: 1px solid white; */
+  justify-content: space-evenly;
+  /* position: fixed;
+  bottom: 0 */
+}
+
+.bottom-box-sizing {
+  height: 100%;
+  width: 40%;
+  text-align: center;
+  font-size: 100%;
+}
+.stats-flex-container {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* text-align: justify; */
+  /* display: table; */
+  border: 1px solid yellow;
   background-color: #9b1c31;
   border-radius: 15px;
+  position: relative;
   /* background-image: url("https://media.giphy.com/media/KfxjdU2sw6X77klGGR/giphy.gif"); */
   background-image: url("./GoT/statsFire.png");
   background-size: cover;
@@ -58,22 +78,40 @@ header {
   /* background-repeat: no-repeat; */
 }
 
-.bottom-box-container {
-  border: 1px solid rebeccapurple;
-  height: 12%;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  position: fixed;
-  bottom: 0
+.stats-container {
+  /* padding-top: */
+  /* display: table-cell; */
+  /* vertical-align: top; */
+  /* top: 50%; */
+  /* position: absolute; */
+  /* transform: translateY(-50%); */
+  /* top: 0; */
+  /* right: 0; */
+  /* bottom: 0; */
+  /* left: 0; */
+  height: 33%;
+  /* line-height: 33%; */
+  /* vertical-align: middle; */
+  /* line-height: normal; */
+  /* margin: auto; */
+  /* display: inline-block; */
+  /* vertical-align: center; */
+  /* border: 1px solid black; */
 }
 
-.bottom-box-sizing {
-  height: 90%;
-  width: 40%;
-  text-align: center;
-  /* margin: 2% */
-  font-size: 110%;
+.indiv-stats {
+  font-weight: 1000;
+  font-family: gameOfThrones;
+  color: black;
+  display: inline-block;
+  position: relative;
+  top: 5%;
+  /* justify-content: center; */
+  /* align-content: center; */
+  /* vertical-align: middle; */
+  /* align-items: center; */
+  /* line-height: 33%; */
+  /* line-height: normal; */
 }
 
 .quotes {
@@ -98,23 +136,11 @@ header {
   top: 15%
 }
 
-.indiv-stats {
-  height: 5%;
-  width: 100%;
-  font-weight: 1000;
-  font-family: gameOfThrones;
-  color: black;
-  display: inline-block;
-}
-
 #gamesPlayed, #attempts, #accuracy {
   display: inline-block;
   font-size: 150%
 }
 
-.stats-container {
-  height: 33%
-}
 #cards-flex-container {
   border: 1px solid blue;
   height: 88%;
@@ -289,62 +315,41 @@ header {
   and (max-device-width: 667px)
   and (orientation: portrait) {
     header {
-      height: 7vh;
+      height: 6vh;
     }
     .title {
-      line-height: 7vh;
+      line-height: 6vh;
       font-size: 300%;
     }
     main {
-      height: 93vh;
-    }
-    #cards-flex-container {
       height: 80vh;
-      padding-right: 1%;
-      padding-left: 1%;
-    }
-    .card-container {
-      height: 15%;
-      width: 30.5%;
-      margin: 1%;
     }
     .winCondition {
-      width: 40%;
+      width: 50%;
+      top: 30%;
     }
-    .bottom-box-container {
-      height: 8vh;
-      margin: 3% 2%;
-    }
-    .bottom-box-sizing {
-      width: 45%;
-    }
-    .quotes {
-      font-size: 130%;
-    }
-    #quotes {
-      margin-bottom: 3.5%;
-    }
-    .style {
+    .indiv-stats {
       top: 25%;
     }
+    .style {
+      top: 33%;
+    }
     .styleDouble {
-      top: 10%
+      top: 30%
+    }
+    .card-container {
+      height: 28%;
+      width: 14%;
     }
   }
 
-  /* Landscape */
+/* Landscape */
 @media only screen
   and (min-device-width: 375px)
   and (max-device-width: 667px)
   and (orientation: Landscape) {
     .title {
       font-size: 220%;
-      margin-top: 1%;
-    }
-    #cards-flex-container {
-      height: 80vh;
-      padding-right: 0%;
-      padding-left: 0%;
     }
     .bottom-box-container {
       height: 15vh;
@@ -359,7 +364,7 @@ header {
       font-size: 90%;
     }
     .winCondition {
-      width: 30%;
+      width: 40%;
     }
     .winText {
       font-size: 130%;

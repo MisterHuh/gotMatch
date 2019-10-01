@@ -179,8 +179,8 @@ function wonTheGame() {
 }
 
 function randomCardOrder() {
-  var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
-  // var imageArray = ["tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister" ]
+  // var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
+  var imageArray = ["tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister" ]
   // var imageArray = ["jamieLannister", "jamieLannister", "jamieLannister", "jamieLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister"]
   var randomArray = [];
   var spliceIndex = imageArray.length;
