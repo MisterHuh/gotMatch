@@ -6,6 +6,7 @@
 
 body {
   height:100vh;
+  width: 100vw;
   background-image: url("./GoT/changeTheme.gif");
   background-size: cover;
   background-repeat: no-repeat;
@@ -18,8 +19,16 @@ body {
   background-repeat: no-repeat; */
 }
 
+main {
+  height: 90vh;
+  /* border: 1px solid yellow; */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
 header {
-  /* border: 1px solid hotpink; */
+  border: 1px solid hotpink;
   height: 8vh;
 }
 
@@ -42,20 +51,29 @@ header {
   /* border: 1px solid red; */
   background-color: #9b1c31;
   border-radius: 15px;
-  background-image: url("https://media.giphy.com/media/KfxjdU2sw6X77klGGR/giphy.gif");
+  /* background-image: url("https://media.giphy.com/media/KfxjdU2sw6X77klGGR/giphy.gif"); */
+  background-image: url("./GoT/fireGif.gif");
   background-size: cover;
   background-position: center;
+  /* background-repeat: no-repeat; */
 }
 
 .bottom-box-container {
-  /* border: 1px solid rebeccapurple; */
+  border: 1px solid rebeccapurple;
+  height: 12%;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
+  position: fixed;
+  bottom: 0
 }
 
 .bottom-box-sizing {
+  height: 90%;
   width: 40%;
   text-align: center;
+  margin-top: 0.5%;
+  font-size: 110%;
 }
 
 .quotes {
@@ -63,11 +81,10 @@ header {
   font-family: gameOfThrones;
   font-weight: 700;
   color: black;
-  font-size: 150%;
   background-color: #015d75;
   border-radius: 15px;
-  background-image: url("https://media.giphy.com/media/XBwWNIY6WY7g4/giphy.gif");
-  /* background-image: url("./GoT/SneakyPowerfulChihuahua-mobile.mp4"); */
+  /* background-image: url("https://media.giphy.com/media/XBwWNIY6WY7g4/giphy.gif"); */
+  background-image: url("./GoT/quotesGif.png");
   background-size: cover;
   background-position: center;
   /* opacity: 0.8; */
@@ -86,7 +103,6 @@ header {
   height: 5%;
   width: 100%;
   font-weight: 1000;
-  font-size: 150%;
   font-family: gameOfThrones;
   color: black;
   display: inline-block;
@@ -97,33 +113,31 @@ header {
   font-size: 150%
 }
 
-main {
-  height: 90vh;
-  width: 100vw;
-  /* border: 1px solid yellow; */
-  display: flex;
-  flex-direction: column;
-}
+
 
 #cards-flex-container {
   border: 1px solid blue;
-  height: 75vh;
+  height: 88%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   position: relative;
-  padding-right: 3%;
-  padding-left: 3%;
+  /* padding-right: 2%;
+  padding-left: 2%; */
+  /* padding-top: 1%; */
+  /* padding-bottom: 1%; */
   justify-content: center;
+  align-content: stretch;
+  /* padding: 2% */
 }
 
 .card-container {
   position: relative;
   border: 1px solid red;
-  display: flex;
   height: 30%;
-  width: 14.5%;
-  margin: 0.5%;
+  width: 13%;
+  margin: 0.5% 1%;
+  /* flex: 0 1 calc(10% - 8px) */
 }
 
 .backImages {
@@ -139,12 +153,13 @@ main {
 .lfz-bgi {
   border: 1px solid blue;
   /* background-image: url("./GoT/card_back_03.jpg"); */
-  background-image: url("./GoT/tumblrTest01.08.png");
+  background-image: url("./GoT/tumblrTest01.01.png");
   position: absolute;
   height: 100%;
   width: 100%;
   background-size: cover;
   background-position: center;
+  /* background-repeat: no-repeat; */
   border-radius: 25px;
   /* transition: transform .5s; */
   /* display: none; */
