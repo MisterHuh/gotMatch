@@ -48,11 +48,11 @@ header {
   display: flex;
   flex-direction: column;
   display: inline-block;
-  /* border: 1px solid red; */
+  /* border: 1px solid white; */
   background-color: #9b1c31;
   border-radius: 15px;
   /* background-image: url("https://media.giphy.com/media/KfxjdU2sw6X77klGGR/giphy.gif"); */
-  background-image: url("./GoT/fireGif.gif");
+  background-image: url("./GoT/statsFire.png");
   background-size: cover;
   background-position: center;
   /* background-repeat: no-repeat; */
@@ -72,7 +72,7 @@ header {
   height: 90%;
   width: 40%;
   text-align: center;
-  margin-top: 0.5%;
+  /* margin: 2% */
   font-size: 110%;
 }
 
@@ -84,7 +84,7 @@ header {
   background-color: #015d75;
   border-radius: 15px;
   /* background-image: url("https://media.giphy.com/media/XBwWNIY6WY7g4/giphy.gif"); */
-  background-image: url("./GoT/quotesGif.png");
+  background-image: url("./GoT/quotesSnow3.png");
   background-size: cover;
   background-position: center;
   /* opacity: 0.8; */
@@ -99,7 +99,6 @@ header {
 }
 
 .indiv-stats {
-  /* border: 1px solid black; */
   height: 5%;
   width: 100%;
   font-weight: 1000;
@@ -113,8 +112,9 @@ header {
   font-size: 150%
 }
 
-
-
+.stats-container {
+  height: 33%
+}
 #cards-flex-container {
   border: 1px solid blue;
   height: 88%;
@@ -145,7 +145,7 @@ header {
   width: 100%;
   background-size: cover;
   background-position: center;
-  border-radius: 25px;
+  border-radius: 15px;
   border: 1px solid black;
 
 }
@@ -153,14 +153,14 @@ header {
 .lfz-bgi {
   border: 1px solid blue;
   /* background-image: url("./GoT/card_back_03.jpg"); */
-  background-image: url("./GoT/tumblrTest01.01.png");
+  background-image: url("./GoT/chair.jpg");
   position: absolute;
   height: 100%;
   width: 100%;
   background-size: cover;
   background-position: center;
   /* background-repeat: no-repeat; */
-  border-radius: 25px;
+  border-radius: 15px;
   /* transition: transform .5s; */
   /* display: none; */
 }
@@ -169,44 +169,40 @@ header {
   transform: scale(1.05);
 } */
 
-/* need image */
 .aryaStark {
-  background-image: url("./GoT/arya_03.jpg");
+  background-image: url("./GoT/arya.png");
 }
 
-/* need image */
 .cerseiLannister {
-  background-image: url("./GoT/tkk_02.1.jpg");
+  background-image: url("./GoT/cersei.png");
 }
 
-/* need image */
-.branStark {
-  background-image: url("./GoT/arya&sansa_01.1.jpg");
+.hodor {
+  background-image: url("./GoT/hodor.png");
 }
 
-/* Jamie Lannister */
 .jamieLannister {
-  background-image: url("./GoT/jamie_01.1.jpeg");
+  background-image: url("./GoT/jamie.png");
 }
 
 .tormundGiantsbane {
-  background-image: url("./GoT/tormund_01.jpg");
+  background-image: url("./GoT/tormund.png");
 }
 
 .daenerysTargaryen {
-  background-image: url("./GoT/dany_02.1.jpg");
+  background-image: url("./GoT/daenerys.png");
 }
 
 .jonSnow {
-  background-image: url("./GoT/jonSnow_01.jpg");
+  background-image: url("./GoT/jonSnow.png");
 }
 
 .joffreyBaratheon {
-  background-image: url("./GoT/joffrey_01.jpeg");
+  background-image: url("./GoT/joffrey.png");
 }
 
 .tyrionLannister {
-  background-image: url("./GoT/tyrion_03.1.jpg");
+  background-image: url("./GoT/tyrion.png");
 }
 
 .hidden {
@@ -227,7 +223,7 @@ header {
 
 .style {
   position: relative;
-  top: 20%;
+  top: 25%;
   /* border: 1px solid black; */
 
   /* animation: fadeInOut 2 */
@@ -269,7 +265,7 @@ header {
   color: black;
   text-align: center;
   padding: 4%;
-  background-image: url("./GoT/theWall.jpeg");
+  background-image: url("./GoT/modal.jpg");
   background-size: cover;
   background-position: center;
   border-radius: 15px;

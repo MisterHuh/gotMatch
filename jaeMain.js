@@ -36,8 +36,8 @@ var quoteList = [
     quote: "The big woman still here?"
   },
   { // 7
-    author: "~ Bran Stark",
-    quote: "I'm waiting for an old friend"
+    author: "~ Hodor",
+    quote: "Hodor!"
   },
   { // 8
     author: "~ Joffrey Baratheon",
@@ -105,7 +105,7 @@ function findQuotes(firstCardQuote) {
     case "tormundGiantsbane":
       displayQuotes(6);
       break;
-    case "branStark":
+    case "hodor":
       displayQuotes(7);
       break;
     case "joffreyBaratheon":
@@ -179,7 +179,7 @@ function wonTheGame() {
 }
 
 function randomCardOrder() {
-  var imageArray = ["aryaStark", "cerseiLannister", "branStark", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "branStark", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
+  var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
   // var imageArray = ["tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister" ]
   // var imageArray = ["jamieLannister", "jamieLannister", "jamieLannister", "jamieLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister"]
   var randomArray = [];
