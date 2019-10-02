@@ -171,12 +171,17 @@ main {
   width: 10%;
   border-radius: 15px;
   margin: 0% 2%;
-  /* opacity: 1;
-  transition: opacity 2s; */
 }
-/* .gifContainer.fade {
+#quotes, #author {
+  opacity: 0;
+  transition: opacity 2s;
+}
+#author.fade {
   opacity: 1;
-} */
+}
+#quotes.fade {
+  opacity: 1;
+}
 .gifSize {
   height: 100%;
   width: 100%;

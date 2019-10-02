@@ -1,6 +1,8 @@
 $(document).ready(initializeApp);
 
-var firstCard, secondCard, firstCardSource, secondCardSource, accuracy, quotes, quoteAuthor, firstCardQuote, nextCard;
+
+/* organize the global variables */
+var firstCard, secondCard, firstCardSource, secondCardSource, accuracy, firstCardQuote, nextCard;
 var correctMatches = 0;
 var winConditionMatches = 9;
 var attempts = 0;
@@ -71,7 +73,6 @@ function flipCard(event) {
     firstCard = $(event.target);
     nextCard = firstCard.next()
     firstCardSource = nextCard.css("background-image");
-    nextCard = firstCard.next()
     firstCardQuote = nextCard[0]["classList"][0]
   } else {
     $('.frontImages').off("click")
@@ -133,6 +134,7 @@ function displayGifQuote(index) {
   img.addClass("gifSize");
   $("#gif").append(img);
 
+  var quotes, quoteAuthor;
   $("#quotes").empty();
   $("#author").empty();
   $("#quotes").removeClass();
@@ -146,14 +148,19 @@ function displayGifQuote(index) {
     $("#quotes").addClass("singleLineQuotes");
     $("#author").addClass("singleLineQuotes");
   }
-  // var test = document.getElementById("gif");
-  // function fade() {
-  //  test.classList.toggle("fade");
-  //  console.log("fade triggered");
-  // }
-  // fade();
+
+  var author = document.getElementById("author");
+  var quotesT = document.getElementById("quotes");
+  fade(author, quotesT);
+
   $("#quotes").append(quotes);
   $("#author").append(quoteAuthor);
+}
+
+function fade(author, quotesT) {
+  author.classList.toggle("fade");
+  quotesT.classList.toggle("fade");
+  console.log("fade triggered");
 }
 
 function resetCards() {
@@ -201,8 +208,8 @@ function wonTheGame() {
 }
 
 function randomCardOrder() {
-  var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
-  // var imageArray = ["cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "cerseiLannister", "cerseiLannister"]
+  // var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
+  var imageArray = ["cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "cerseiLannister", "cerseiLannister"]
   var randomArray = [];
   var spliceIndex = imageArray.length;
   for (var index = 0; index < 18; index++, spliceIndex--) {
