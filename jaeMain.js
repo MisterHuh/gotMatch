@@ -5,7 +5,7 @@ var correctMatches = 0;
 var winConditionMatches = 9;
 var attempts = 0;
 var gamesPlayed = 0;
-var gifContainer = $("<img>");
+var gifContainer = $("<img>"); // add sizing to fit the div
 
 var charList = [
   { // 0

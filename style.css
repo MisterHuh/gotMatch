@@ -24,7 +24,7 @@ body {
   z-index: 1;
 }
 .modalText {
-  font-size: 150%;
+  font-size: 190%;
   font-weight: bold;
   border: 3px ridge #dfe8e4;
   text-align: center;
@@ -185,7 +185,7 @@ main {
 }
 .singleLineQuotes {
   position: relative;
-  top: 25%;
+  top: 28%;
 }
 .doubleLineQuotes {
   position: relative;
@@ -250,6 +250,62 @@ main {
     }
   }
 
+  /* ----------- iPhone X ----------- */
+
+/* Portrait */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px)
+  and (orientation: portrait) {
+    .title {
+      padding-top: 10%;
+    }
+    #cardWrapper {
+      margin-bottom: -3%;
+    }
+    .cardContainer {
+      margin: 7.5% 1%;
+    }
+    .singleLineQuotes {
+      top: 30%;
+    }
+    .doubleLineQuotes {
+      top: 24%;
+    }
+  }
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px)
+  and (orientation: Landscape) {
+    .title {
+      font-size: 200%;
+      padding-top: 0.5%;
+    }
+    .modalContainer {
+      width: 33%;
+    }
+    .modalText {
+      font-size: 140%;
+    }
+    .modalButton {
+      font-size: 70%;
+    }
+    .bottomContainer {
+      font-size: 60%;
+      width: 37%;
+    }
+    .stats {
+      top: 0%;
+    }
+    .gifContainer {
+      width: 10%;
+    }
+    .doubleLineQuotes {
+      top: 8%;
+    }
+  }
 /* ----------- iPhone 6, 7 and 8 ----------- */
 
 /* Portrait */
@@ -329,58 +385,5 @@ main {
     }
     .doubleLineQuotes {
       font-size: 90%;
-    }
-  }
-
-  /* ----------- iPhone X ----------- */
-
-/* Portrait */
-@media only screen
-  and (min-device-width: 375px)
-  and (max-device-width: 812px)
-  and (orientation: portrait) {
-    .title {
-      padding-top: 10%;
-    }
-    #cardWrapper {
-      margin-bottom: -3%;
-    }
-    .cardContainer {
-      margin: 7.5% 1%;
-    }
-    .doubleLineQuotes {
-      top: 24%;
-    }
-  }
-
-/* Landscape */
-@media only screen
-  and (min-device-width: 375px)
-  and (max-device-width: 812px)
-  and (orientation: Landscape) {
-    .title {
-      font-size: 200%;
-      padding-top: 0.5%;
-    }
-    .modalContainer {
-      width: 33%;
-    }
-    .modalText {
-      font-size: 140%;
-    }
-    .modalButton {
-      font-size: 70%;
-    }
-    .bottomContainer {
-      font-size: 60%;
-    }
-    .stats {
-      top: 0%;
-    }
-    .gifContainer {
-      width: 10%;
-    }
-    .doubleLineQuotes {
-      top: 8%;
     }
   }
