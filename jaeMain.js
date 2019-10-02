@@ -5,7 +5,6 @@ var correctMatches = 0;
 var winConditionMatches = 9;
 var attempts = 0;
 var gamesPlayed = 0;
-var gifContainer = $("<img>"); // add sizing to fit the div
 
 var charList = [
   { // 0
@@ -81,8 +80,7 @@ function flipCard(event) {
     attempts++;
     // firstCardSource === secondCardSource ? setTimeout(resetCards, 0) : setTimeout(unflipCards, 750)
     if (firstCardSource === secondCardSource) {
-      findQuotes(firstCardQuote);
-      findGif(firstCardQuote);
+      findAuthor(firstCardQuote);
       correctMatches++;
       resetCards();
     } else {
@@ -93,68 +91,48 @@ function flipCard(event) {
   wonTheGame();
 }
 
-function findGif(firstCardQuote) {
-  console.log("findGif triggered");
+function findAuthor(firstCardQuote) {
   switch(firstCardQuote) {
     case "tyrionLannister":
-      displayGif(0);
+      displayGifQuote(0);
       break;
     case "cerseiLannister":
-      displayGif(1);
+      displayGifQuote(1);
       break;
     case "daenerysTargaryen":
-      displayGif(2);
-      break;
-    default:
-      displayGif(9)
-  }
-}
-
-function displayGif(index) {
-  console.log("displayGif triggered");
-  console.log("gif url is: ", charList[index]["gif"]);
-  var source = charList[index]["gif"]
-  var test = gifContainer.attr("src", source);
-  console.log("test is: ", test);
-  // $("#gif").append(`<img src='${source}' />`);
-  $("#gif").append(test);
-}
-
-function findQuotes(firstCardQuote) {
-  switch(firstCardQuote) {
-    case "tyrionLannister":
-      displayQuotes(0);
-      break;
-    case "cerseiLannister":
-      displayQuotes(1);
-      break;
-    case "daenerysTargaryen":
-      displayQuotes(2);
+      displayGifQuote(2);
       break;
     case "aryaStark":
-      displayQuotes(3);
+      displayGifQuote(3);
       break;
     case "jonSnow":
-      displayQuotes(4);
+      displayGifQuote(4);
       break;
     case "jamieLannister":
-      displayQuotes(5);
+      displayGifQuote(5);
       break;
     case "tormundGiantsbane":
-      displayQuotes(6);
+      displayGifQuote(6);
       break;
     case "hodor":
-      displayQuotes(7);
+      displayGifQuote(7);
       break;
     case "joffreyBaratheon":
-      displayQuotes(8);
+      displayGifQuote(8);
       break;
     default:
-      displayQuotes(9)
+      displayGifQuote(9)
   }
 }
 
-function displayQuotes(index) {
+function displayGifQuote(index) {
+  $("img").remove();
+  var gifContainer = $("<img>");
+  var source = charList[index]["gif"]
+  var img = gifContainer.attr("src", source);
+  img.addClass("gifSize");
+  $("#gif").append(img);
+
   $("#quotes").empty();
   $("#author").empty();
   $("#quotes").removeClass();
@@ -168,6 +146,12 @@ function displayQuotes(index) {
     $("#quotes").addClass("singleLineQuotes");
     $("#author").addClass("singleLineQuotes");
   }
+  // var test = document.getElementById("gif");
+  // function fade() {
+  //  test.classList.toggle("fade");
+  //  console.log("fade triggered");
+  // }
+  // fade();
   $("#quotes").append(quotes);
   $("#author").append(quoteAuthor);
 }
@@ -217,8 +201,8 @@ function wonTheGame() {
 }
 
 function randomCardOrder() {
-  // var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
-  var imageArray = ["cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "cerseiLannister", "cerseiLannister"]
+  var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
+  // var imageArray = ["cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "cerseiLannister", "cerseiLannister"]
   var randomArray = [];
   var spliceIndex = imageArray.length;
   for (var index = 0; index < 18; index++, spliceIndex--) {
@@ -239,18 +223,15 @@ function createStructure() {
     var cardContainer = $("<div>");
     var lfzBgi = $("<div>");
     var frontImages = $("<div>");
-    // gifContainer.attr("src", "./GoT/aryaGIf.gif");
     cardContainer.addClass("cardContainer");
     lfzBgi.addClass("frontImages");
     frontImages.addClass(images[index]);
     cardContainer.append(lfzBgi);
     cardContainer.append(frontImages);
     container.append(cardContainer);
-
   }
   $(".frontImages").on("click", flipCard);
   $(".modalButton").on("click", resetStats);
-  displayQuotes(9);
-  displayGif(9);
+  displayGifQuote(9);
   displayStats();
 }
