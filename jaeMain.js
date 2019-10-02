@@ -63,7 +63,7 @@ function flipCard(event) {
     nextCard = firstCard.next()
     firstCardQuote = nextCard[0]["classList"][0]
   } else {
-    $('.lfz-bgi').off("click")
+    $('.frontImages').off("click")
     secondCard = $(event.target);
     secondCardSource = secondCard.next().css("background-image");
     attempts++;
@@ -77,8 +77,6 @@ function flipCard(event) {
     }
     displayStats();
   }
-  console.log("# of matches: ", correctMatches)
-  console.log("===================")
   wonTheGame();
 }
 
@@ -140,7 +138,7 @@ function resetCards() {
   firstCardSource = null;
   secondCard = null;
   secondCardSource = null;
-  $(".lfz-bgi").on("click", flipCard);
+  $(".frontImages").on("click", flipCard);
 }
 
 function unflipCards() {
@@ -165,7 +163,7 @@ function resetStats() {
   accuracy = 0;
   attempts = 0;
   correctMatches = 0;
-  $(".winCondition").addClass("hidden");
+  $(".modalContainer").addClass("hidden");
   createStructure();
   displayStats();
 }
@@ -173,15 +171,13 @@ function resetStats() {
 function wonTheGame() {
   if (correctMatches === winConditionMatches) {
     gamesPlayed++;
-    $(".winCondition").removeClass("hidden");
-    $('.lfz-bgi').off("click")
+    $(".modalContainer").removeClass("hidden");
+    $('.frontImages').off("click")
   }
 }
 
 function randomCardOrder() {
-  // var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
-  var imageArray = ["tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "jonSnow", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister" ]
-  // var imageArray = ["jamieLannister", "jamieLannister", "jamieLannister", "jamieLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister"]
+  var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
   var randomArray = [];
   var spliceIndex = imageArray.length;
   for (var index = 0; index < 18; index++, spliceIndex--) {
@@ -193,28 +189,24 @@ function randomCardOrder() {
 }
 
 function createStructure() {
-  $("#cards-flex-container").empty();
+  $("#cardWrapper").empty();
   $("#quotes").empty();
   $("#author").empty();
   var images = randomCardOrder();
   for (var index = 0; index < 18; index++) {
-    var container = $("#cards-flex-container");
+    var container = $("#cardWrapper");
     var cardContainer = $("<div>");
     var lfzBgi = $("<div>");
     var frontImages = $("<div>");
-    cardContainer.addClass("card-container");
-    lfzBgi.addClass("lfz-bgi");
+    cardContainer.addClass("cardContainer");
+    lfzBgi.addClass("frontImages");
     frontImages.addClass(images[index]);
     cardContainer.append(lfzBgi);
     cardContainer.append(frontImages);
     container.append(cardContainer);
   }
-  $(".lfz-bgi").on("click", flipCard);
-  $(".winButton").on("click", resetStats);
+  $(".frontImages").on("click", flipCard);
+  $(".modalButton").on("click", resetStats);
   displayQuotes(9);
-  // $("#quotes").addClass("style");
-  // $("#author").addClass("style");
-  // $("#quotes").append(quoteList[9]["quote"]);
-  // $("#author").append(quoteList[9]["author"]);
   displayStats();
 }

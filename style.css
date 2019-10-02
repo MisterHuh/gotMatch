@@ -3,100 +3,157 @@
   font-family: gameOfThrones;
   src: url("./GoT/Game\ of\ Thrones.ttf");
 }
-
 body {
+  /* border: 1px solid black; */
   height:100vh;
   width: 100vw;
   background-image: url("./GoT/changeTheme.gif");
   background-size: cover;
-  background-repeat: no-repeat;
   background-color: #6699cc;
   position: fixed;
-  /* border: 1px solid black; */
   margin: 0;
-  /* background-image: url("./GoT/giphy (1).gif");
+}
+.modalContainer {
+  /* border: 1px solid red */
+  width: 25%;
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  z-index: 1;
+}
+.modalText {
+  font-size: 150%;
+  font-weight: bold;
+  border: 3px ridge #dfe8e4;
+  color: black;
+  text-align: center;
+  padding: 4%;
+  background-image: url("./GoT/modal.jpg");
   background-size: cover;
-  background-repeat: no-repeat; */
+  background-position: center;
+  border-radius: 15px;
 }
-
-main {
-  height: 90vh;
-  /* border: 1px solid yellow; */
-  display: flex;
-  flex-direction: column;
-  position: relative;
+.modalButton {
+  margin-top: 4%;
+  font-weight: bold;
+  font-size: 75%;
+  text-align: center;
+  padding: 2.5%;
 }
-
 header {
-  border: 1px solid hotpink;
+  /* border: 1px solid hotpink; */
   height: 8vh;
 }
-
 .title {
+  /* border: 1px solid black; */
   text-align: center;
   vertical-align: center;
   line-height: 8vh;
-  /* border: 1px solid black; */
   height: 100%;
   width: 100%;
   font-family: gameOfThrones;
   color: black;
   font-size: 275%;
 }
-
-.bottom-box-container {
-  border: 1px solid rebeccapurple;
+main {
+  /* border: 1px solid yellow; */
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+#cardWrapper {
+  /* border: 1px solid blue; */
+  height: 88%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: center;
+  align-content: stretch;
+}
+.hidden {
+  display: none;
+}
+.cardContainer {
+  /* border: 1px solid red; */
+  position: relative;
+  height: 30%;
+  width: 13%;
+  margin: 0.5% 1%;
+}
+.backImages {
+  /* border: 1px solid black; */
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+}
+.frontImages {
+  /* border: 1px solid blue; */
+  background-image: url("./GoT/chair.jpg");
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+}
+.aryaStark {
+  background-image: url("./GoT/arya.png");
+}
+.cerseiLannister {
+  background-image: url("./GoT/cersei.png");
+}
+.hodor {
+  background-image: url("./GoT/hodor.png");
+}
+.jamieLannister {
+  background-image: url("./GoT/jamie.png");
+}
+.tormundGiantsbane {
+  background-image: url("./GoT/tormund.png");
+}
+.daenerysTargaryen {
+  background-image: url("./GoT/daenerys.png");
+}
+.jonSnow {
+  background-image: url("./GoT/jonSnow.png");
+}
+.joffreyBaratheon {
+  background-image: url("./GoT/joffrey.png");
+}
+.tyrionLannister {
+  background-image: url("./GoT/tyrion.png");
+}
+.bottomWrapper {
+  /* border: 1px solid rebeccapurple; */
   height: 12%;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  /* position: fixed;
-  bottom: 0 */
 }
-
-.bottom-box-sizing {
+.bottomContainer {
   height: 100%;
   width: 40%;
   text-align: center;
   font-size: 100%;
 }
 .stats-flex-container {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* text-align: justify; */
-  /* display: table; */
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
   background-color: #9b1c31;
   border-radius: 15px;
   position: relative;
-  /* background-image: url("https://media.giphy.com/media/KfxjdU2sw6X77klGGR/giphy.gif"); */
   background-image: url("./GoT/statsFire.png");
   background-size: cover;
   background-position: center;
-  /* background-repeat: no-repeat; */
 }
 
 .stats-container {
-  /* padding-top: */
-  /* display: table-cell; */
-  /* vertical-align: top; */
-  /* top: 50%; */
-  /* position: absolute; */
-  /* transform: translateY(-50%); */
-  /* top: 0; */
-  /* right: 0; */
-  /* bottom: 0; */
-  /* left: 0; */
   height: 33%;
-  /* line-height: 33%; */
-  /* vertical-align: middle; */
-  /* line-height: normal; */
-  /* margin: auto; */
-  /* display: inline-block; */
-  /* vertical-align: center; */
-  /* border: 1px solid black; */
 }
 
 .indiv-stats {
@@ -106,12 +163,6 @@ header {
   display: inline-block;
   position: relative;
   top: 5%;
-  /* justify-content: center; */
-  /* align-content: center; */
-  /* vertical-align: middle; */
-  /* align-items: center; */
-  /* line-height: 33%; */
-  /* line-height: normal; */
 }
 
 .quotes {
@@ -121,11 +172,9 @@ header {
   color: black;
   background-color: #015d75;
   border-radius: 15px;
-  /* background-image: url("https://media.giphy.com/media/XBwWNIY6WY7g4/giphy.gif"); */
   background-image: url("./GoT/quotesSnow3.png");
   background-size: cover;
   background-position: center;
-  /* opacity: 0.8; */
 }
 
 #quotes {
@@ -141,171 +190,51 @@ header {
   font-size: 150%
 }
 
-#cards-flex-container {
-  border: 1px solid blue;
-  height: 88%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  position: relative;
-  /* padding-right: 2%;
-  padding-left: 2%; */
-  /* padding-top: 1%; */
-  /* padding-bottom: 1%; */
-  justify-content: center;
-  align-content: stretch;
-  /* padding: 2% */
-}
-
-.card-container {
-  position: relative;
-  border: 1px solid red;
-  height: 30%;
-  width: 13%;
-  margin: 0.5% 1%;
-  /* flex: 0 1 calc(10% - 8px) */
-}
-
-.backImages {
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px;
-  border: 1px solid black;
-
-}
-
-.lfz-bgi {
-  border: 1px solid blue;
-  /* background-image: url("./GoT/card_back_03.jpg"); */
-  background-image: url("./GoT/chair.jpg");
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  /* background-repeat: no-repeat; */
-  border-radius: 15px;
-  /* transition: transform .5s; */
-  /* display: none; */
-}
-
-/* .lfz-bgi:hover {
-  transform: scale(1.05);
-} */
-
-.aryaStark {
-  background-image: url("./GoT/arya.png");
-}
-
-.cerseiLannister {
-  background-image: url("./GoT/cersei.png");
-}
-
-.hodor {
-  background-image: url("./GoT/hodor.png");
-}
-
-.jamieLannister {
-  background-image: url("./GoT/jamie.png");
-}
-
-.tormundGiantsbane {
-  background-image: url("./GoT/tormund.png");
-}
-
-.daenerysTargaryen {
-  background-image: url("./GoT/daenerys.png");
-}
-
-.jonSnow {
-  background-image: url("./GoT/jonSnow.png");
-}
-
-.joffreyBaratheon {
-  background-image: url("./GoT/joffrey.png");
-}
-
-.tyrionLannister {
-  background-image: url("./GoT/tyrion.png");
-}
-
-.hidden {
-  display: none;
-}
-
-@keyframes fadeInOut {
-  0% { opacity: 0; }
-  /* 45% { opacity: 0.5; } */
-  100% { opacity: 1; }
-}
-
 .styleDouble {
   position: relative;
   top: 14%;
-  /* border: 1px solid black; */
 }
 
 .style {
   position: relative;
   top: 25%;
-  /* border: 1px solid black; */
-
-  /* animation: fadeInOut 2 */
-
-  /* -webkit-animation: fadeInOut 2s infinite; */
-  /* animation: fadeInOut 2.5s ease-in-out backwards; */
-
-  /* animation-name: fadeInOut;
- 	animation-iteration-count: 1;
-	animation-timing-function: ease-in;
-	animation-duration: 2s; */
-
-  /* opacity: 0;
-  animation-name: fadeInOut;
-  animation-delay: 0.325s;
-  animation-duration: 0.750s;
-  animation-fill-mode: forwards; */
-
-  /* visibility: visible;
-  opacity: 1;
-  transition: opacity 2s ease-in; */
 }
 
-.winCondition {
-  width: 25%;
-  position: absolute;
-  top: 33%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 25px;
-  z-index: 1;
-  /* border: 1px solid red */
-}
 
-.winText {
-  font-size: 150%;
-  font-weight: bold;
-  border: 3px ridge #dfe8e4;
-  color: black;
-  text-align: center;
-  padding: 4%;
-  background-image: url("./GoT/modal.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px;
-}
 
-.winButton {
-  margin-top: 4%;
-  font-weight: bold;
-  font-size: 75%;
-  text-align: center;
-  padding: 2.5%;
-  /* background-color: #dfe8e4; */
-}
+  /* ----------- iPad ----------- */
 
+/* Portrait */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: portrait) {
+    .modalContainer {
+      width: 43%;
+    }
+    #quotes {
+      margin-bottom: 3%;
+    }
+    .style {
+      top:35%;
+    }
+    .styleDouble {
+      top: 26%;
+    }
+    .indiv-stats {
+      top: 25%;
+    }
+  }
+
+  /* Landscape */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: Landscape) {
+    .modalContainer {
+      width: 40%;
+    }
+  }
 
 /* ----------- iPhone 6, 7 and 8 ----------- */
 
@@ -321,12 +250,15 @@ header {
       line-height: 6vh;
       font-size: 300%;
     }
-    main {
-      height: 80vh;
-    }
-    .winCondition {
-      width: 50%;
+    .modalContainer {
+      width: 45%;
       top: 30%;
+    }
+    .bottomContainer {
+      font-size: 150%;
+    }
+    #quotes {
+      margin-bottom: 4%;
     }
     .indiv-stats {
       top: 25%;
@@ -335,10 +267,10 @@ header {
       top: 33%;
     }
     .styleDouble {
-      top: 30%
+      top: 20%
     }
-    .card-container {
-      height: 28%;
+    .cardContainer {
+      height: 25%;
       width: 14%;
     }
   }
@@ -351,7 +283,7 @@ header {
     .title {
       font-size: 220%;
     }
-    .bottom-box-container {
+    .bottomWrapper {
       height: 15vh;
     }
     .indiv-stats {
@@ -363,13 +295,13 @@ header {
     .styleDouble {
       font-size: 90%;
     }
-    .winCondition {
-      width: 40%;
+    .modalContainer {
+      width: 35%;
     }
-    .winText {
+    .modalText {
       font-size: 130%;
     }
-    .winButton {
+    .modalButton {
       font-size: 65%;
     }
   }
