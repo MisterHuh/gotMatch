@@ -5,49 +5,61 @@ var correctMatches = 0;
 var winConditionMatches = 9;
 var attempts = 0;
 var gamesPlayed = 0;
+var gifContainer = $("<img>");
 
-var quoteList = [
+var charList = [
   { // 0
-    author: "~ Tyrion Lannister",
-    quote: "That's what I do." + "<br/>" + "I drink and I know things"
+    author: "Tyrion Lannister",
+    quote: "That's what I do." + "<br/>" + "I drink and I know things",
+    gif: "./GoT/tyrionGif.gif"
   },
   { // 1
-    author: "~ Cersei Lannister",
-    quote: "When you play the game of thrones," + "<br/>" + "you win or you die."
+    author: "Cersei Lannister",
+    quote: "When you play the game of thrones," + "<br/>" + "you win or you die.",
+    gif: "./GoT/cerseiGif.gif"
   },
   { // 2
-    author: "~Daenerys Targaryen",
-    quote: "My reign has just begun."
+    author: "Daenerys Targaryen",
+    quote: "My reign has just begun.",
+    gif: "./GoT/daenerysGif.gif"
   },
   { // 3
-    author: "~ Arya Stark",
-    quote: "A girl has no name"
+    author: "Arya Stark",
+    quote: "A girl has no name",
+    gif: "./GoT/aryaGIf.gif"
   },
   { // 4
-    author: "~ Jon Snow",
-    quote: "I don't want it"
+    author: "Jon Snow",
+    quote: "I don't want it",
+    gif: "./GoT/jonGif.gif"
   },
   { // 5
-    author: "~ Jamie Lannister",
-    quote: "The things I do for love"
+    author: "Jamie Lannister",
+    quote: "The things I do for love",
+    gif: "./GoT/jamieGif.gif"
   },
   { // 6
-    author: "~ Tormund Giantsbane",
-    quote: "The big woman still here?"
+    author: "Tormund Giantsbane",
+    quote: "The big woman still here?",
+    gif: "./GoT/tormundGif.webp"
   },
   { // 7
-    author: "~ Hodor",
-    quote: "Hodor!"
+    author: "Hodor",
+    quote: "Hodor!",
+    gif: "./GoT/hodorGif.gif"
   },
   { // 8
-    author: "~ Joffrey Baratheon",
-    quote: "I'm telling mother!"
+    author: "Joffrey Baratheon",
+    quote: "I'm telling mother!",
+    gif: "./GoT/joffreyGif.gif"
   },
   { // 9
-    author: "~ Ned Stark",
-    quote: "Winter is coming"
+    author: "Ned Stark",
+    quote: "Winter is coming",
+    gif: "./GoT/firstGif.gif"
   },
-]
+];
+
 
 function initializeApp() {
   console.log("rock and roll");
@@ -70,6 +82,7 @@ function flipCard(event) {
     // firstCardSource === secondCardSource ? setTimeout(resetCards, 0) : setTimeout(unflipCards, 750)
     if (firstCardSource === secondCardSource) {
       findQuotes(firstCardQuote);
+      findGif(firstCardQuote);
       correctMatches++;
       resetCards();
     } else {
@@ -78,6 +91,33 @@ function flipCard(event) {
     displayStats();
   }
   wonTheGame();
+}
+
+function findGif(firstCardQuote) {
+  console.log("findGif triggered");
+  switch(firstCardQuote) {
+    case "tyrionLannister":
+      displayGif(0);
+      break;
+    case "cerseiLannister":
+      displayGif(1);
+      break;
+    case "daenerysTargaryen":
+      displayGif(2);
+      break;
+    default:
+      displayGif(9)
+  }
+}
+
+function displayGif(index) {
+  console.log("displayGif triggered");
+  console.log("gif url is: ", charList[index]["gif"]);
+  var source = charList[index]["gif"]
+  var test = gifContainer.attr("src", source);
+  console.log("test is: ", test);
+  // $("#gif").append(`<img src='${source}' />`);
+  $("#gif").append(test);
 }
 
 function findQuotes(firstCardQuote) {
@@ -119,14 +159,14 @@ function displayQuotes(index) {
   $("#author").empty();
   $("#quotes").removeClass();
   $("#author").removeClass();
-  quotes = quoteList[index]["quote"];
-  quoteAuthor = quoteList[index]["author"];
+  quotes = charList[index]["quote"];
+  quoteAuthor = "~ " + charList[index]["author"];
   if (index <= 1) {
-    $("#quotes").addClass("styleDouble");
-    $("#author").addClass("styleDouble");
+    $("#quotes").addClass("doubleLineQuotes");
+    $("#author").addClass("doubleLineQuotes");
   } else {
-    $("#quotes").addClass("style");
-    $("#author").addClass("style");
+    $("#quotes").addClass("singleLineQuotes");
+    $("#author").addClass("singleLineQuotes");
   }
   $("#quotes").append(quotes);
   $("#author").append(quoteAuthor);
@@ -177,7 +217,8 @@ function wonTheGame() {
 }
 
 function randomCardOrder() {
-  var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
+  // var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
+  var imageArray = ["cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "cerseiLannister", "cerseiLannister"]
   var randomArray = [];
   var spliceIndex = imageArray.length;
   for (var index = 0; index < 18; index++, spliceIndex--) {
@@ -198,15 +239,18 @@ function createStructure() {
     var cardContainer = $("<div>");
     var lfzBgi = $("<div>");
     var frontImages = $("<div>");
+    // gifContainer.attr("src", "./GoT/aryaGIf.gif");
     cardContainer.addClass("cardContainer");
     lfzBgi.addClass("frontImages");
     frontImages.addClass(images[index]);
     cardContainer.append(lfzBgi);
     cardContainer.append(frontImages);
     container.append(cardContainer);
+
   }
   $(".frontImages").on("click", flipCard);
   $(".modalButton").on("click", resetStats);
   displayQuotes(9);
+  displayGif(9);
   displayStats();
 }

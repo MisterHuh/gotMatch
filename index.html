@@ -1,58 +1,41 @@
 <!DOCTYPE html>
 
 <html>
-
 <head>
   <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <!-- <script src="main.js"></script> -->
   <script src="jaeMain.js"></script>
 </head>
-
-
 <body>
-
         <div class="modalContainer">
           <div class="modalText">Congratulations you won!!
             <button class="modalButton">Click to play again!</button>
           </div>
         </div>
-
   <header>
     <div class="title">Memory Match</div class="title">
   </header>
-
   <main>
-
-    <div id="cardWrapper" >
-    </div>
-
+    <div id="cardWrapper"></div>
     <div class="bottomWrapper">
-
-      <div class="stats-flex-container bottomContainer">
-        <div class="stats-container">
-          <div class="indiv-stats"> Games Played : <div id="gamesPlayed">0</div></div>
+      <div class="statsWrapper bottomContainer">
+        <div class="statsContainer">
+          <div class="stats"> Games Played : <div id="gamesPlayed">0</div></div>
         </div>
-
-        <div class="stats-container">
-          <div class="indiv-stats">Attempts : <div id="attempts">0</div></div>
+        <div class="statsContainer">
+          <div class="stats">Attempts : <div id="attempts">0</div></div>
         </div>
-
-        <div class="stats-container">
-          <div class="indiv-stats">Accuracy : <div id="accuracy">0</div></div>
+        <div class="statsContainer">
+          <div class="stats">Accuracy : <div id="accuracy">0</div></div>
         </div>
-
       </div>
-
-      <div class="quotes bottomContainer">
+      <!-- <div class="gifContainer" id="gif"</div> -->
+      <img class="gifContainer" id="gif"></img>
+      <div class="quotesContainer bottomContainer">
         <div id="quotes"></div>
         <div id="author"></div>
       </div>
-
     </div>
-
   </main>
-
 </body>
-
 </html>

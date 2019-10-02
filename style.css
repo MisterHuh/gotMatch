@@ -15,7 +15,7 @@ body {
 }
 .modalContainer {
   /* border: 1px solid red */
-  width: 25%;
+  width: 30%;
   position: absolute;
   top: 33%;
   left: 50%;
@@ -27,10 +27,13 @@ body {
   font-size: 150%;
   font-weight: bold;
   border: 3px ridge #dfe8e4;
-  color: black;
   text-align: center;
   padding: 4%;
   background-image: url("./GoT/modal.jpg");
+  color: black;
+  /* for gif background
+  background-image: url("./GoT/firstGif1.gif");
+  color: white; */
   background-size: cover;
   background-position: center;
   border-radius: 15px;
@@ -49,13 +52,13 @@ header {
 .title {
   /* border: 1px solid black; */
   text-align: center;
-  vertical-align: center;
   line-height: 8vh;
   height: 100%;
   width: 100%;
   font-family: gameOfThrones;
   color: black;
   font-size: 275%;
+  padding-top: 1%;
 }
 main {
   /* border: 1px solid yellow; */
@@ -72,7 +75,7 @@ main {
   flex-wrap: wrap;
   position: relative;
   justify-content: center;
-  align-content: stretch;
+  align-content: center;
 }
 .hidden {
   display: none;
@@ -87,7 +90,6 @@ main {
 .backImages {
   /* border: 1px solid black; */
   height: 100%;
-  width: 100%;
   background-size: cover;
   background-position: center;
   border-radius: 15px;
@@ -134,73 +136,61 @@ main {
   height: 12%;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 .bottomContainer {
-  height: 100%;
-  width: 40%;
+  width: 37%;
   text-align: center;
   font-size: 100%;
-}
-.stats-flex-container {
-  /* border: 1px solid yellow; */
-  background-color: #9b1c31;
+  font-family: gameOfThrones;
+  font-weight: 1000;
+  color: black;
   border-radius: 15px;
-  position: relative;
-  background-image: url("./GoT/statsFire.png");
   background-size: cover;
   background-position: center;
 }
-
-.stats-container {
+.statsWrapper {
+  /* border: 1px solid yellow; */
+  background-color: #9b1c31;
+  background-image: url("./GoT/statsFire.png");
+}
+.statsContainer {
   height: 33%;
 }
-
-.indiv-stats {
-  font-weight: 1000;
-  font-family: gameOfThrones;
-  color: black;
+.stats {
   display: inline-block;
   position: relative;
   top: 5%;
 }
-
-.quotes {
-  /* border: 1px solid rebeccapurple; */
-  font-family: gameOfThrones;
-  font-weight: 700;
-  color: black;
-  background-color: #015d75;
-  border-radius: 15px;
-  background-image: url("./GoT/quotesSnow3.png");
-  background-size: cover;
-  background-position: center;
-}
-
-#quotes {
-  margin-bottom: 2%;
-}
-
-.quoteSizing {
-  top: 15%
-}
-
 #gamesPlayed, #attempts, #accuracy {
   display: inline-block;
   font-size: 150%
 }
-
-.styleDouble {
-  position: relative;
-  top: 14%;
+.gifContainer {
+  border: 1px solid black;
+  width: 10%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  margin: 0% 2%;
 }
-
-.style {
+.quotesContainer {
+  /* border: 1px solid rebeccapurple; */
+  background-color: #015d75;
+  background-image: url("./GoT/quotesSnow3.png");
+}
+#quotes {
+  margin-bottom: 2%;
+}
+.singleLineQuotes {
   position: relative;
   top: 25%;
 }
-
-
+.doubleLineQuotes {
+  position: relative;
+  top: 14%;
+}
 
   /* ----------- iPad ----------- */
 
@@ -209,20 +199,35 @@ main {
   and (min-device-width: 768px)
   and (max-device-width: 1024px)
   and (orientation: portrait) {
+    .title {
+      font-size: 500%;
+      padding-top: 6%;
+    }
     .modalContainer {
       width: 43%;
+    }
+    .cardContainer {
+      height: 20%;
+      width: 14%;
+      margin: 5.5% 1%;
+    }
+    .bottomContainer {
+      width: 35%;
+    }
+    .stats {
+      top: 25%
+    }
+    .gifContainer {
+      width: 20%;
     }
     #quotes {
       margin-bottom: 3%;
     }
-    .style {
+    .singleLineQuotes {
       top:35%;
     }
-    .styleDouble {
+    .doubleLineQuotes {
       top: 26%;
-    }
-    .indiv-stats {
-      top: 25%;
     }
   }
 
@@ -234,6 +239,15 @@ main {
     .modalContainer {
       width: 40%;
     }
+    .title {
+      padding-top: 1.5%;
+    }
+    .bottomContainer {
+      width: 36%;
+    }
+    .gifContainer {
+      width: 12%;
+    }
   }
 
 /* ----------- iPhone 6, 7 and 8 ----------- */
@@ -243,35 +257,44 @@ main {
   and (min-device-width: 375px)
   and (max-device-width: 667px)
   and (orientation: portrait) {
+    .modalContainer {
+      width: 45%;
+      top: 30%;
+    }
     header {
       height: 6vh;
     }
     .title {
       line-height: 6vh;
-      font-size: 300%;
+      font-size: 450%;
+      padding-top: 6%;
     }
-    .modalContainer {
-      width: 45%;
-      top: 30%;
+    .cardWrapper {
+      padding: 1%;
+    }
+    .cardContainer {
+      height: 21%;
+      width: 14%;
+      margin: 6.5% 1%;
     }
     .bottomContainer {
       font-size: 150%;
+      width: 36%;
+    }
+    .stats {
+      top: 25%;
+    }
+    .gifContainer {
+      width: 21%;
     }
     #quotes {
       margin-bottom: 4%;
     }
-    .indiv-stats {
-      top: 25%;
-    }
-    .style {
+    .singleLineQuotes {
       top: 33%;
     }
-    .styleDouble {
+    .doubleLineQuotes {
       top: 20%
-    }
-    .cardContainer {
-      height: 25%;
-      width: 14%;
     }
   }
 
@@ -280,21 +303,6 @@ main {
   and (min-device-width: 375px)
   and (max-device-width: 667px)
   and (orientation: Landscape) {
-    .title {
-      font-size: 220%;
-    }
-    .bottomWrapper {
-      height: 15vh;
-    }
-    .indiv-stats {
-      font-size: 90%
-    }
-    .quotes {
-      font-size: 100%;
-    }
-    .styleDouble {
-      font-size: 90%;
-    }
     .modalContainer {
       width: 35%;
     }
@@ -303,5 +311,76 @@ main {
     }
     .modalButton {
       font-size: 65%;
+    }
+    .title {
+      font-size: 220%;
+    }
+    .cardContainer {
+      margin: 0.5% 1.5%;
+    }
+    .bottomWrapper {
+      height: 15vh;
+    }
+    .stats {
+      font-size: 90%
+    }
+    .quotesContainer {
+      font-size: 100%;
+    }
+    .doubleLineQuotes {
+      font-size: 90%;
+    }
+  }
+
+  /* ----------- iPhone X ----------- */
+
+/* Portrait */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px)
+  and (orientation: portrait) {
+    .title {
+      padding-top: 10%;
+    }
+    #cardWrapper {
+      margin-bottom: -3%;
+    }
+    .cardContainer {
+      margin: 7.5% 1%;
+    }
+    .doubleLineQuotes {
+      top: 24%;
+    }
+  }
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px)
+  and (orientation: Landscape) {
+    .title {
+      font-size: 200%;
+      padding-top: 0.5%;
+    }
+    .modalContainer {
+      width: 33%;
+    }
+    .modalText {
+      font-size: 140%;
+    }
+    .modalButton {
+      font-size: 70%;
+    }
+    .bottomContainer {
+      font-size: 60%;
+    }
+    .stats {
+      top: 0%;
+    }
+    .gifContainer {
+      width: 10%;
+    }
+    .doubleLineQuotes {
+      top: 8%;
     }
   }
