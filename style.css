@@ -1,13 +1,13 @@
 
 @font-face {
   font-family: gameOfThrones;
-  src: url("./GoT/Game\ of\ Thrones.ttf");
+  src: url("./assets/Game\ of\ Thrones.ttf");
 }
 body {
   /* border: 1px solid black; */
   height:100vh;
   width: 100vw;
-  background-image: url("./GoT/changeTheme.gif");
+  background-image: url("./assets/bodyBackground.gif");
   background-size: cover;
   background-color: #6699cc;
   position: fixed;
@@ -31,7 +31,7 @@ body {
   border: 3px ridge #dfe8e4;
   text-align: center;
   padding: 4%;
-  background-image: url("./GoT/modal.jpg");
+  background-image: url("./assets/modal.jpg");
   color: black;
   background-size: cover;
   background-position: center;
@@ -95,7 +95,7 @@ main {
 }
 .frontImages {
   /* border: 1px solid blue; */
-  background-image: url("./GoT/chair.jpg");
+  background-image: url("./assets/chair.jpg");
   position: absolute;
   height: 100%;
   width: 100%;
@@ -104,31 +104,31 @@ main {
   border-radius: 15px;
 }
 .aryaStark {
-  background-image: url("./GoT/arya.png");
+  background-image: url("./assets/arya.png");
 }
 .cerseiLannister {
-  background-image: url("./GoT/cersei.png");
+  background-image: url("./assets/cersei.png");
 }
 .hodor {
-  background-image: url("./GoT/hodor.png");
+  background-image: url("./assets/hodor.png");
 }
 .jamieLannister {
-  background-image: url("./GoT/jamie.png");
+  background-image: url("./assets/jamie.png");
 }
 .tormundGiantsbane {
-  background-image: url("./GoT/tormund.png");
+  background-image: url("./assets/tormund.png");
 }
 .daenerysTargaryen {
-  background-image: url("./GoT/daenerys.png");
+  background-image: url("./assets/daenerys.png");
 }
 .jonSnow {
-  background-image: url("./GoT/jonSnow.png");
+  background-image: url("./assets/jonSnow.png");
 }
 .joffreyBaratheon {
-  background-image: url("./GoT/joffrey.png");
+  background-image: url("./assets/joffrey.png");
 }
 .tyrionLannister {
-  background-image: url("./GoT/tyrion.png");
+  background-image: url("./assets/tyrion.png");
 }
 .bottomWrapper {
   /* border: 1px solid rebeccapurple; */
@@ -151,7 +151,7 @@ main {
 .statsWrapper {
   /* border: 1px solid yellow; */
   background-color: #9b1c31;
-  background-image: url("./GoT/statsFire.png");
+  background-image: url("./assets/stats.png");
 }
 .statsContainer {
   height: 33%;
@@ -179,7 +179,7 @@ main {
 .quotesContainer {
   /* border: 1px solid rebeccapurple; */
   background-color: #04195b;
-  background-image: url("./GoT/quotesSnow3.png");
+  background-image: url("./assets/quotes.png");
 }
 #quotes {
   margin-bottom: 2%;

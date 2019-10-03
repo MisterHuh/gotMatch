@@ -8,52 +8,52 @@ var charList = [
   {
     author: "Tyrion Lannister",
     quote: "That's what I do." + "<br/>" + "I drink and I know things",
-    gif: "./GoT/tyrionGif.gif"
+    gif: "./assets/tyrionGif.gif"
   },
   {
     author: "Cersei Lannister",
     quote: "When you play the game of thrones," + "<br/>" + "you win or you die.",
-    gif: "./GoT/cerseiGif.gif"
+    gif: "./assets/cerseiGif.gif"
   },
   {
     author: "Daenerys Targaryen",
     quote: "My reign has just begun.",
-    gif: "./GoT/daenerysGif.gif"
+    gif: "./assets/daenerysGif.gif"
   },
   {
     author: "Arya Stark",
     quote: "A girl has no name",
-    gif: "./GoT/aryaGIf.gif"
+    gif: "./assets/aryaGIf.gif"
   },
   {
     author: "Jon Snow",
     quote: "I don't want it",
-    gif: "./GoT/jonGif.gif"
+    gif: "./assets/jonGif.gif"
   },
   {
     author: "Jamie Lannister",
     quote: "The things I do for love",
-    gif: "./GoT/jamieGif.gif"
+    gif: "./assets/jamieGif.gif"
   },
   {
     author: "Tormund Giantsbane",
     quote: "The big woman still here?",
-    gif: "./GoT/tormundGif.webp"
+    gif: "./assets/tormundGif.webp"
   },
   {
     author: "Hodor",
     quote: "Hodor!",
-    gif: "./GoT/hodorGif.gif"
+    gif: "./assets/hodorGif.gif"
   },
   {
     author: "Joffrey Baratheon",
     quote: "I'm telling mother!",
-    gif: "./GoT/joffreyGif.gif"
+    gif: "./assets/joffreyGif.gif"
   },
   {
     author: "Ned Stark",
     quote: "Winter is coming",
-    gif: "./GoT/firstGif.gif"
+    gif: "./assets/firstGif.gif"
   },
 ];
 
