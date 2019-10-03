@@ -1,187 +1,225 @@
-$( document ).ready( initializeApp ); // when document is loaded, call initializeApp()
+$(document).ready(initializeApp);
 
-var firstCardClicked = null;
-var secondCardClicked = null;
-var firstCardSource = null;
-var secondCardSource = null;
-var matches = 0;                // side bar - keeping track of matches STATS
-var max_matches = 9;            // side bar - win condtion; not part of STATS
-var attempts = 0;               // side bar - keeping track of the % of correct attempts STATS
-var games_played = 0;           // side bar - keeping track of games played STATS
+var firstCard, secondCard, firstCardSource, secondCardSource, accuracy, firstCardQuote, nextCard;
+var correctMatches = 0, attempts = 0, gamesPlayed = 0;
+var winConditionMatches = 9;
 
-function initializeApp() {    // runs when document is loaded
+var charList = [
+  {
+    author: "Tyrion Lannister",
+    quote: "That's what I do." + "<br/>" + "I drink and I know things",
+    gif: "./GoT/tyrionGif.gif"
+  },
+  {
+    author: "Cersei Lannister",
+    quote: "When you play the game of thrones," + "<br/>" + "you win or you die.",
+    gif: "./GoT/cerseiGif.gif"
+  },
+  {
+    author: "Daenerys Targaryen",
+    quote: "My reign has just begun.",
+    gif: "./GoT/daenerysGif.gif"
+  },
+  {
+    author: "Arya Stark",
+    quote: "A girl has no name",
+    gif: "./GoT/aryaGIf.gif"
+  },
+  {
+    author: "Jon Snow",
+    quote: "I don't want it",
+    gif: "./GoT/jonGif.gif"
+  },
+  {
+    author: "Jamie Lannister",
+    quote: "The things I do for love",
+    gif: "./GoT/jamieGif.gif"
+  },
+  {
+    author: "Tormund Giantsbane",
+    quote: "The big woman still here?",
+    gif: "./GoT/tormundGif.webp"
+  },
+  {
+    author: "Hodor",
+    quote: "Hodor!",
+    gif: "./GoT/hodorGif.gif"
+  },
+  {
+    author: "Joffrey Baratheon",
+    quote: "I'm telling mother!",
+    gif: "./GoT/joffreyGif.gif"
+  },
+  {
+    author: "Ned Stark",
+    quote: "Winter is coming",
+    gif: "./GoT/firstGif.gif"
+  },
+];
 
-  console.log("ready to roll")   // logs out mesage
-  // createSkeleton();               // calls createSkeleton()
-  // shuffleThemCards();             // calls shufleThemCards()
-
-  $(".lfz-bgi").on("click", handleCardClick); // onClick, trigger handleCardClick()
-
-  $(".winButton").on("click", resetStats);    // onClick, trigger resetStats()
-
+function initializeApp() {
+  console.log("rock and roll");
+  createStructure();
 }
 
-function handleCardClick(event) {
-  // console.log(event);
+function flipCard(event) {
   $(event.currentTarget).addClass("hidden");
-  console.log("FIRST: ", firstCardClicked);
-  console.log("SECOND: ", secondCardClicked);
-
-
-  if (firstCardClicked === null) {
-    firstCardClicked = $(event.target);
-    firstCardSource = firstCardClicked.next().css("background-image"); // pulls the source url for first card
-    console.log("THIRD firstCardClicked: ", firstCardClicked);
-    return firstCardClicked, firstCardSource
-    // console.log("firstCardSource: ", firstCardSource);
+  if (!firstCardSource) {
+    firstCard = $(event.target);
+    nextCard = firstCard.next()
+    firstCardSource = nextCard.css("background-image");
+    firstCardQuote = nextCard[0]["classList"][0]
   } else {
-    secondCardClicked = $(event.target);
-    secondCardSource = secondCardClicked.next().css("background-image"); // pulls the source url for second card
-    attempts++; // attempt counter added //
-    console.log("FOURTH secondCardClicked: ", secondCardClicked)
-    // console.log("secondCardSource: ", secondCardSource);
-    displayStats()
-
-    if (firstCardSource === secondCardSource) {   // nested conditional; can this be placed somewhere else?
-      displayStats()
-      matches++; // matches counter added //
-      // console.log("cards match!" + "\n" + "current count: " + matches + "\n" + "attempts: " + attempts);
-      // console.log("firstCardClicked: " + firstCardClicked + "\n" + "secondCardClicked: " + secondCardClicked + "\n" + "firstCardSource: " + firstCardSource + "\n" + "secondCardSource: " + secondCardSource)
-
-      /* re-set all cards */
-      firstCardClicked = null;
-      secondCardClicked = null;
-      firstCardSource = null;
-      secondCardSource = null;
-
-      console.log("SIXTH all cards resetted");
-
-    } else if (firstCardSource !== secondCardSource) {
-
-      /* re-set all cards + timeout */
-      setTimeout(removeHidden, 500);
-
-      console.log("cards don't match!" + "\n" + "current count: " + matches + "\n" + "attempts: " + attempts);
-
-      // console.log("all cards resetted");
+    $('.frontImages').off("click")
+    secondCard = $(event.target);
+    secondCardSource = secondCard.next().css("background-image");
+    attempts++;
+    if (firstCardSource === secondCardSource) {
+      findAuthor(firstCardQuote);
+      correctMatches++;
+      resetCards();
+    } else {
+      setTimeout(unflipCards, 750)
     }
+    displayStats();
   }
+  wonTheGame();
+}
 
-
-
-  /* "modal" popup via jQuery removeClass */
-  if (max_matches === matches) {
-    console.log("You Won!");
-    $(".winCondition").removeClass("hidden");
+function findAuthor(firstCardQuote) {
+  switch(firstCardQuote) {
+    case "tyrionLannister":
+      displayGifQuote(0);
+      break;
+    case "cerseiLannister":
+      displayGifQuote(1);
+      break;
+    case "daenerysTargaryen":
+      displayGifQuote(2);
+      break;
+    case "aryaStark":
+      displayGifQuote(3);
+      break;
+    case "jonSnow":
+      displayGifQuote(4);
+      break;
+    case "jamieLannister":
+      displayGifQuote(5);
+      break;
+    case "tormundGiantsbane":
+      displayGifQuote(6);
+      break;
+    case "hodor":
+      displayGifQuote(7);
+      break;
+    case "joffreyBaratheon":
+      displayGifQuote(8);
+      break;
+    default:
+      displayGifQuote(9)
   }
 }
 
-// var removeHidden = function() {
-//   console.log("FIFTH removeHidden activated");
-//   firstCardClicked.removeClass("hidden");
-//   secondCardClicked.removeClass("hidden");
+function displayGifQuote(index) {
+  $("img").remove();
+  var gifContainer = $("<img>");
+  var source = charList[index]["gif"]
+  var img = gifContainer.attr("src", source);
+  img.addClass("gifSize");
+  $("#gif").append(img);
 
-//   firstCardClicked = null;
-//   secondCardClicked = null;
+  var quotes, quoteAuthor;
+  $("#quotes").empty();
+  $("#author").empty();
+  $("#quotes").removeClass();
+  $("#author").removeClass();
+  quotes = charList[index]["quote"];
+  quoteAuthor = "~ " + charList[index]["author"];
+  if (index <= 1) {
+    $("#quotes").addClass("doubleLineQuotes");
+    $("#author").addClass("doubleLineQuotes");
+  } else {
+    $("#quotes").addClass("singleLineQuotes");
+    $("#author").addClass("singleLineQuotes");
+  }
+  $("#quotes").append(quotes);
+  $("#author").append(quoteAuthor);
+}
 
-//   firstCardSource = null;
-//   secondCardSource = null;
-// }
-
-function removeHidden() {
-  console.log("removeHidden activated");
-  firstCardClicked.removeClass("hidden");
-  secondCardClicked.removeClass("hidden");
-
-  firstCardClicked = null;
-  secondCardClicked = null;
-
+function resetCards() {
+  firstCard = null;
   firstCardSource = null;
+  secondCard = null;
   secondCardSource = null;
+  $(".frontImages").on("click", flipCard);
 }
 
-function calculateAccuracy() {
-  var accuracy = matches / attempts * 100;
-  var answer = accuracy.toFixed(2);
-  if (isNaN(answer)) {
-    answer = 0.00
-  }
-  return answer + "%";
+function unflipCards() {
+  firstCard.removeClass("hidden");
+  secondCard.removeClass("hidden");
+  resetCards();
 }
 
 function displayStats() {
-  // $("aside div:nth-child(2)").text(games_played);
-  $("aside div:nth-child(4)").text(attempts);
-  $("aside div:nth-child(6)").text(calculateAccuracy)
+  calculateAccuracy();
+  $("#attempts").text(attempts);
+  isNaN(accuracy) ? accuracy = 0 : accuracy;
+  $("#accuracy").text(accuracy + "%");
+  $("#gamesPlayed").text(gamesPlayed);
+}
+
+function calculateAccuracy() {
+  return accuracy = ((correctMatches / attempts) * 100).toFixed(0);
 }
 
 function resetStats() {
-  matches = 0;
+  accuracy = 0;
   attempts = 0;
-  games_played++;
-  $("aside div:nth-child(2)").text(games_played);
-  $("aside div:nth-child(4)").text(attempts);
-  $("aside div:nth-child(6)").text("0.00%")
-  // $(".lfz-bgi").removeClass("hidden");
-  $(".winCondition").addClass("hidden");
-  $("#container").empty();
-  createSkeleton();
-  shuffleThemCards();
+  correctMatches = 0;
+  $(".modalContainer").addClass("hidden");
+  createStructure();
+  displayStats();
 }
 
-var imageArray = ["image1", "image2", "image3", "image4", "image5", "image6", "image7", "image8", "image9", "image10", "image11", "image12", "image13", "image14", "image15", "image16", "image17", "image18"];
+function wonTheGame() {
+  if (correctMatches === winConditionMatches) {
+    gamesPlayed++;
+    $(".modalContainer").removeClass("hidden");
+    $('.frontImages').off("click")
+  }
+}
 
-function createSkeleton() {
+function randomCardOrder() {
+  var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
+  var randomArray = [];
+  var spliceIndex = imageArray.length;
+  for (var index = 0; index < 18; index++, spliceIndex--) {
+    var randomNumber = Math.floor(Math.random() * spliceIndex);
+    var randomIndex = imageArray.splice(randomNumber, 1);
+    randomArray.push(randomIndex + " backImages");
+  }
+  return randomArray;
+}
 
-  // this calls the randomly generated cards
-  var images = shuffleThemCards();
-
-  // #1 define the basic skeleton
+function createStructure() {
+  $("#cardWrapper").empty();
+  $("#quotes").empty();
+  $("#author").empty();
+  var images = randomCardOrder();
   for (var index = 0; index < 18; index++) {
-
-    var container = $("#container");
+    var container = $("#cardWrapper");
     var cardContainer = $("<div>");
     var lfzBgi = $("<div>");
     var frontImages = $("<div>");
-
-    // #2 add classes to the newly created <div>s
-    cardContainer.addClass("card-container");
-    lfzBgi.addClass("lfz-bgi");
+    cardContainer.addClass("cardContainer");
+    lfzBgi.addClass("frontImages");
     frontImages.addClass(images[index]);
-
-    // #3 append individual -> cardContainer, cardContainer -> DOM
-    cardContainer.append(lfzBgi)
+    cardContainer.append(lfzBgi);
     cardContainer.append(frontImages);
     container.append(cardContainer);
   }
-
-  // only add if necessary
-  var fixEverything = $(".lfz-bgi");
-  fixEverything.on("click", handleCardClick);
-  return
-}
-
-function shuffleThemCards() {
-
-  // creating a replica of the imageArray
-  // newArray = imageArray does NOT work
-  var newArray = [];
-  for (var i = 0; i < imageArray.length; i++) {
-    newArray.push(imageArray[i]);
-  }
-
-  var spliceIndex = imageArray.length; // counting down from 18? 17?
-  var randomArray = []; // randomly arranged sequence
-  for (var iteration = 0; iteration < imageArray.length; iteration++, spliceIndex--) {
-    var randomIndex = Math.floor(Math.random() * spliceIndex); // picking the "random'th" index
-
-    var spliceVal = newArray.splice(randomIndex, 1);
-    // from the newArray, remove the "random'th" index and store it into spliceVal
-    // this will guarantee that the "chosen" index will NOT be used again and be removed
-
-    randomArray.push(spliceVal);
-    // push the "random'th" index to the randomArray[];
-  }
-
-  return randomArray;
+  $(".frontImages").on("click", flipCard);
+  $(".modalButton").on("click", resetStats);
+  displayGifQuote(9);
+  displayStats();
 }
