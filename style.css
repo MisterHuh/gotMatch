@@ -4,7 +4,6 @@
   src: url("./assets/Game\ of\ Thrones.ttf");
 }
 body {
-  /* border: 1px solid black; */
   height:100vh;
   width: 100vw;
   background-image: url("./assets/bodyBackground.gif");
@@ -16,7 +15,6 @@ body {
   margin: 0;
 }
 .modalContainer {
-  /* border: 1px solid red */
   width: 26%;
   position: absolute;
   top: 33%;
@@ -45,11 +43,9 @@ body {
   padding: 2.5%;
 }
 header {
-  /* border: 1px solid hotpink; */
   height: 8vh;
 }
 .title {
-  /* border: 1px solid black; */
   text-align: center;
   line-height: 8vh;
   height: 100%;
@@ -60,14 +56,12 @@ header {
   padding-top: 1%;
 }
 main {
-  /* border: 1px solid yellow; */
   height: 90vh;
   display: flex;
   flex-direction: column;
   position: relative;
 }
 #cardWrapper {
-  /* border: 1px solid blue; */
   height: 88%;
   display: flex;
   flex-direction: row;
@@ -80,21 +74,18 @@ main {
   display: none;
 }
 .cardContainer {
-  /* border: 1px solid red; */
   position: relative;
   height: 30%;
   width: 13%;
   margin: 0.5% 1%;
 }
 .backImages {
-  /* border: 1px solid black; */
   height: 100%;
   background-size: cover;
   background-position: center;
   border-radius: 15px;
 }
 .frontImages {
-  /* border: 1px solid blue; */
   background-image: url("./assets/chair.jpg");
   position: absolute;
   height: 100%;
@@ -131,7 +122,6 @@ main {
   background-image: url("./assets/tyrion.png");
 }
 .bottomWrapper {
-  /* border: 1px solid rebeccapurple; */
   height: 12%;
   width: 100%;
   display: flex;
@@ -149,7 +139,6 @@ main {
   background-position: center;
 }
 .statsWrapper {
-  /* border: 1px solid yellow; */
   background-color: #9b1c31;
   background-image: url("./assets/stats.png");
 }
@@ -166,7 +155,6 @@ main {
   font-size: 150%
 }
 .gifContainer {
-  /* border: 1px solid black; */
   width: 10%;
   border-radius: 15px;
   margin: 0% 2%;
@@ -177,7 +165,6 @@ main {
   border-radius: 15px;
 }
 .quotesContainer {
-  /* border: 1px solid rebeccapurple; */
   background-color: #04195b;
   background-image: url("./assets/quotes.png");
 }
