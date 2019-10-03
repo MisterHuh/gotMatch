@@ -52,7 +52,7 @@ header {
   width: 100%;
   font-family: gameOfThrones;
   color: black;
-  font-size: 275%;
+  font-size: 350%;
   padding-top: 1%;
 }
 main {
@@ -229,6 +229,7 @@ main {
     }
     .title {
       padding-top: 1.5%;
+      font-size: 380%;
     }
     .bottomContainer {
       width: 36%;
@@ -254,7 +255,7 @@ main {
   and (orientation: portrait) {
     .title {
       padding-top: 3%;
-      font-size: 365%;
+      font-size: 450%;
     }
     .modalContainer {
       width: 50%;
