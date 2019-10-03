@@ -11,11 +11,13 @@ body {
   background-size: cover;
   background-color: #6699cc;
   position: fixed;
+  display: flex;
+  flex-direction: column;
   margin: 0;
 }
 .modalContainer {
   /* border: 1px solid red */
-  width: 30%;
+  width: 26%;
   position: absolute;
   top: 33%;
   left: 50%;
@@ -31,9 +33,6 @@ body {
   padding: 4%;
   background-image: url("./GoT/modal.jpg");
   color: black;
-  /* for gif background
-  background-image: url("./GoT/firstGif1.gif");
-  color: white; */
   background-size: cover;
   background-position: center;
   border-radius: 15px;
@@ -41,7 +40,7 @@ body {
 .modalButton {
   margin-top: 4%;
   font-weight: bold;
-  font-size: 75%;
+  font-size: 55%;
   text-align: center;
   padding: 2.5%;
 }
@@ -189,7 +188,7 @@ main {
 }
 .quotesContainer {
   /* border: 1px solid rebeccapurple; */
-  background-color: #015d75;
+  background-color: #04195b;
   background-image: url("./GoT/quotesSnow3.png");
 }
 #quotes {
@@ -213,13 +212,13 @@ main {
   and (orientation: portrait) {
     .title {
       font-size: 500%;
-      padding-top: 6%;
+      padding-top: 4%;
     }
     .modalContainer {
-      width: 43%;
+      width: 45%;
     }
     .cardContainer {
-      height: 20%;
+      height: 22%;
       width: 14%;
       margin: 5.5% 1%;
     }
@@ -227,7 +226,7 @@ main {
       width: 35%;
     }
     .stats {
-      top: 25%
+      top: 20%;
     }
     .gifContainer {
       width: 20%;
@@ -243,14 +242,13 @@ main {
     }
   }
 
-  /* Landscape */
+/* Landscape */
 @media only screen
-  /* and (min-device-width: 768px) */
   and (min-device-width: 1024px)
   and (max-device-height: 768px)
   and (orientation: Landscape) {
     .modalContainer {
-      width: 40%;
+      width: 45%;
     }
     .title {
       padding-top: 1.5%;
@@ -258,12 +256,19 @@ main {
     .bottomContainer {
       width: 36%;
     }
+    .stats {
+      top: 0%;
+    }
     .gifContainer {
       width: 12%;
     }
+    .doubleLineQuotes {
+      font-size: 90%;
+      top: 15%;
+    }
   }
 
-  /* ----------- iPhone X ----------- */
+/* ----------- iPhone X ----------- */
 
 /* Portrait */
 @media only screen
@@ -271,27 +276,46 @@ main {
   and (max-device-height: 812px)
   and (orientation: portrait) {
     .title {
-      padding-top: 6%;
+      padding-top: 3%;
       font-size: 365%;
     }
-    #cardWrapper {
-      /* margin-bottom: -3%; */
+    .modalContainer {
+      width: 50%;
     }
     .cardContainer {
-      height: 25%;
-      margin: 7.5% 1%;
+      height: 15%;
+      width: 25%;
+      margin: 1.5% 4%;
+    }
+    .bottomWrapper {
+      margin-top: 1%;
+    }
+    .bottomContainer {
+      width: 32%;
+      font-size: 120%
+    }
+    .stats {
+      top: 27%;
+    }
+    .gifContainer {
+      width: 24%;
+    }
+    .quotesContainer {
+      font-size: 120%;
+    }
+    #quotes {
+      margin-bottom: 4%;
     }
     .singleLineQuotes {
-      top: 30%;
+      top: 39%;
     }
     .doubleLineQuotes {
-      top: 24%;
+      top: 28%;
     }
   }
 
 /* Landscape */
 @media only screen
-  /* and (min-device-width: 375px) */
   and (min-device-width: 812px)
   and (max-device-height: 375px)
   and (orientation: Landscape) {
@@ -300,28 +324,29 @@ main {
       padding-top: 0.5%;
     }
     .modalContainer {
-      width: 33%;
+      width: 35%;
     }
     .modalText {
       font-size: 140%;
     }
     .modalButton {
-      font-size: 70%;
+      font-size: 60%;
     }
     .bottomContainer {
       font-size: 60%;
       width: 37%;
     }
-    .stats {
-      top: 0%;
-    }
     .gifContainer {
       width: 10%;
+    }
+    .singleLineQuotes {
+      top: 20%;
     }
     .doubleLineQuotes {
       top: 8%;
     }
   }
+
 /* ----------- iPhone 6, 7 and 8 ----------- */
 
 /* Portrait */
@@ -330,7 +355,7 @@ main {
   and (max-device-height: 667px)
   and (orientation: portrait) {
     .modalContainer {
-      width: 45%;
+      width: 50%;
       top: 30%;
     }
     header {
@@ -339,22 +364,24 @@ main {
     .title {
       line-height: 6vh;
       font-size: 450%;
-      padding-top: 6%;
+      padding-top: 1%;
     }
-    .cardWrapper {
+    #cardWrapper {
       padding: 1%;
+      height: 100%;
     }
     .cardContainer {
-      height: 21%;
-      width: 14%;
-      margin: 6.5% 1%;
+      height: 15%;
+      width: 25%;
+    }
+    .bottomWrapper {
+      font-size: 112%;
     }
     .bottomContainer {
-      font-size: 150%;
       width: 36%;
     }
     .stats {
-      top: 25%;
+      top: 11%;
     }
     .gifContainer {
       width: 21%;
@@ -363,18 +390,17 @@ main {
       margin-bottom: 4%;
     }
     .singleLineQuotes {
-      top: 33%;
+      top: 29%;
     }
     .doubleLineQuotes {
-      top: 20%
+      top: 14%
     }
   }
 
 /* Landscape */
 @media only screen
-  /* and (min-device-width: 375px) */
   and (min-device-width: 667px)
-  and (max-device-width: 375px)
+  and (max-device-height: 375px)
   and (orientation: Landscape) {
     .modalContainer {
       width: 35%;
@@ -394,11 +420,11 @@ main {
     .bottomWrapper {
       height: 15vh;
     }
-    .stats {
-      font-size: 90%
+    .gifContainer {
+      width: 16%;
     }
-    .quotesContainer {
-      font-size: 100%;
+    .singleLineQuotes {
+      top: 24%;
     }
     .doubleLineQuotes {
       font-size: 90%;

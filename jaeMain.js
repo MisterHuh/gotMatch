@@ -208,8 +208,8 @@ function wonTheGame() {
 }
 
 function randomCardOrder() {
-  // var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
-  var imageArray = ["cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "cerseiLannister", "cerseiLannister"]
+  var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
+  // var imageArray = ["cerseiLannister", "cerseiLannister", "cerseiLannister", "cerseiLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "daenerysTargaryen", "cerseiLannister", "cerseiLannister"]
   var randomArray = [];
   var spliceIndex = imageArray.length;
   for (var index = 0; index < 18; index++, spliceIndex--) {
