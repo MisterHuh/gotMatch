@@ -30,4 +30,4 @@ Please feel free to fork this repo, make changes, submit pull requests, and send
 * CSS3
 
 ## License
-[to be added]
+(MIT License)[https://opensource.org/licenses/mit-license.php]
