@@ -1,6 +1,7 @@
 # Game of Memory
 
-## Live Demo: [link here]
+## [Live Demo](http://www.jaehuh.network/)
+(desktop/image2)
 
 ##Getting Started
 [insert pic here]
