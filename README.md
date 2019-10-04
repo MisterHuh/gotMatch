@@ -4,7 +4,7 @@ Welcome to Game of Memory, where we test your attention to detail!
 Simply click on the card to reveal the character, and match all to win.
 
 ## [Live Demo](http://www.jaehuh.network/)
-![picture](/desktop/landingpage.png)
+![picture](/landingpage.png)
 
 ## Getting Started
 
@@ -30,4 +30,4 @@ Please feel free to fork this repo, make changes, submit pull requests, and send
 * CSS3
 
 ## License
-(MIT License)[https://opensource.org/licenses/mit-license.php]
+[MIT License](https://opensource.org/licenses/mit-license.php)
