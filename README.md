@@ -4,7 +4,7 @@ Welcome to Game of Memory, where we test your attention to detail!
 Simply click on the card to reveal the character, and match all to win.
 
 ## [Live Demo](http://www.jaehuh.network/)
-![picture](/desktop/landingpage)
+![picture](/desktop/landingpage.png)
 
 ## Getting Started
 
@@ -14,7 +14,8 @@ Simply click on the card to reveal the character, and match all to win.
 
 ```$ git clone https://github.com/[user_name]/gotMatch.git```
 
-2. Navigate to, and open the ______ directory.
+2. Navigate to, and open the `gotMatch` directory.
+
 3. Open the `index.html` and emjoy!
 
 ## Contributing
