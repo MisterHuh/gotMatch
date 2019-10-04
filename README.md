@@ -11,6 +11,7 @@ Simply click on the card to reveal the character, and match all to win.
 ### Initial Setup
 
 1. Fork this repo and clone your fork from the terminal.
+
 ```$ git clone https://github.com/[user_name]/gotMatch.git```
 
 2. Navigate to, and open the ______ directory.
