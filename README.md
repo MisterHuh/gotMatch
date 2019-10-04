@@ -1,12 +1,13 @@
 # Game of Memory
 
+Welcome to Game of Memory, where we test your attention to detail!
+Simply click on the card to reveal the character, and match all to win.
+
 ## [Live Demo](http://www.jaehuh.network/)
-(desktop/image2)
+![picture](/desktop/landingpage)
 
-##Getting Started
-[insert pic here]
+## Getting Started
 
-[after the pic, a short blurb about the game]
 ### Initial Setup
 
 1. Fork this repo and clone your fork from the terminal.
