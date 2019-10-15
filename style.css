@@ -88,8 +88,9 @@ main {
 }
 .backImages {
   height: 100%;
-  background-size: cover;
-  background-position: center top;
+  background-size: 100% 100%;
+  background-position: center bottom;
+  background-repeat: no-repeat;
   border-radius: 15px;
 }
 .frontImages {
@@ -196,20 +197,20 @@ transition: .8s ease;
 
  /* ----------- Thinkpad x250 ----------- */
 @media only screen
-  /* and (max-device-width: 1366px) and (max-device-height: 768px) */
+  and (min-device-width: 1366px) and (min-device-width: 667px)
+  /* and (min-device-width: 1366px) */
+  /* and (min-device-height: 667px) and (min-device-height: 1366px) */
   /* and (min-width: 1025px) and (max-width: 1280px) */
-  and (min-width: 1366px) {
-  /* and (orientation: landscape) { */
+  /* and (min-width: 1366px) and (max-height: 667px) */
+  /* and (min-device-width: 1200px) and (max-device-width: 1600px) */
+  /* and (-webkit-min-device-pixel-ratio: 1) */
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
         .title {
           font-size: 100%;
           color: hotpink;
-          border: 1px solid yellow;
-        }
-        header {
-          border: 1px solid black;
         }
   }
-
 
   /* ----------- iPad ----------- */
 
@@ -293,8 +294,8 @@ transition: .8s ease;
     }
     .cardContainer {
       height: 15%;
-      width: 25%;
-      margin: 1.5% 4%;
+      width: 20%;
+      margin: 1.5% 6.6%;
     }
     .bottomWrapper {
       margin-top: 1%;
@@ -382,6 +383,7 @@ transition: .8s ease;
     .cardContainer {
       height: 15%;
       width: 25%;
+      margin: 1.5% 4%;
     }
     .bottomWrapper {
       font-size: 112%;

@@ -143,6 +143,7 @@ function displayGifQuote(index) {
     $("#author").addClass("singleLineQuotes");
   }
   $("#quotes").append(quotes);
+  $("#quotes").fadeIn("slow");
   $("#author").append(quoteAuthor);
 }
 
