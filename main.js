@@ -189,12 +189,12 @@ function wonTheGame() {
   }
 }
 
-function playAudio() {
-  if (gamesPlayed === 0 ) {
-    var audio = new Audio("./assets/bgMusic.mp3");
-    audio.play();
-  }
-}
+// function playAudio() {
+//   if (gamesPlayed === 0 ) {
+//     var audio = new Audio("./assets/bgMusic.mp3");
+//     audio.play();
+//   }
+// }
 
 function randomCardOrder() {
   var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
@@ -229,5 +229,5 @@ function createStructure() {
   $(".modalButton").on("click", resetStats);
   displayGifQuote(9);
   displayStats();
-  playAudio();
+  // playAudio();
 }
