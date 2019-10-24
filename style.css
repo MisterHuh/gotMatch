@@ -102,7 +102,7 @@ main {
   background-position: center;
   border-radius: 15px;
   transition: .8s ease;
-  display: none;
+  /* display: none; */
 }
 .frontImages:hover{
 box-shadow: 0 0 0 8px #000000;
