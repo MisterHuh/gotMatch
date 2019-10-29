@@ -83,8 +83,8 @@ main {
 .cardContainer {
   position: relative;
   height: 30%;
-  width: 13%;
-  margin: 0.5% 1%;
+  width: 11%;
+  margin: 0.5% 2.2%;
 }
 .backImages {
   height: 100%;
@@ -197,18 +197,21 @@ transition: .8s ease;
 
  /* ----------- Thinkpad x250 ----------- */
 @media only screen
-  /* and (min-device-width: 1366px) and (max-device-width: 667px) */
-  /* and (min-device-width: 1366px) */
-  /* and (min-device-height: 667px) and (min-device-height: 1366px) */
   and (max-width: 1366px)
-  /* and (min-width: 1366px) and (max-height: 667px) */
-  /* and (min-device-width: 1200px) and (max-device-width: 1600px) */
-  /* and (-webkit-min-device-pixel-ratio: 1) */
-  /* and (-webkit-min-device-pixel-ratio: 2) */
   and (orientation: landscape) {
         .title {
-          font-size: 100%;
-          color: hotpink;
+          font-size: 290%;
+          line-height: 6vh;
+        }
+        .modalContainer {
+          width: 36%;
+        }
+        .cardContainer {
+          width: 11%;
+          margin: 0.5% 2.2%;
+        }
+        .bottomContainer {
+          font-size: 80%
         }
   }
 
