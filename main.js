@@ -3,6 +3,7 @@ $(document).ready(initializeApp);
 var firstCard, secondCard, firstCardSource, secondCardSource, accuracy, firstCardQuote, nextCard;
 var correctMatches = 0, attempts = 0, gamesPlayed = 0;
 var winConditionMatches = 9;
+var sound;
 
 var charList = [
   {
@@ -190,15 +191,30 @@ function wonTheGame() {
   }
 }
 
+function muteSound() {
+  var audio = document.getElementById("audio");
+
+  if (!sound) {
+    sound = true;
+    audio.play();
+  } else {
+    audio.muted = !audio.muted;
+  }
+}
+
 function startWithMusic() {
+  sound = true;
   var audio = document.getElementById("audio");
   audio.play();
-  startWithoutMusic();
+  $("#greetings").addClass("hidden");
+  $(".frontImages").on("click", flipCard);
 }
 
 function startWithoutMusic() {
+  sound = false;
   $("#greetings").addClass("hidden");
   $(".frontImages").on("click", flipCard);
+
 }
 
 function randomCardOrder() {
@@ -234,6 +250,7 @@ function createStructure() {
   $(".modalButton").on("click", resetStats);
   $(".sound").on("click", startWithMusic)
   $(".noSound").on("click", startWithoutMusic);
+  $(".title").on("click", muteSound);
   displayGifQuote(9);
   displayStats();
 }
