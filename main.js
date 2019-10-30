@@ -197,23 +197,23 @@ function muteSound() {
 
   var play = "./assets/soundOn.png";
   var mute = "./assets/soundMuted.png"
-  var soundButtonConatiner = $("<img>");
+  var soundButtonContainer = $("<img>");
 
   $("#mute").empty();
 
   if (!sound) {
     sound = true;
     audio.play();
-    soundButtonConatiner.attr("src", play)
+    soundButtonContainer.attr("src", play)
   } else {
     audio.muted = !audio.muted;
     if (audioStatus) {
-      soundButtonConatiner.attr("src", mute)
+      soundButtonContainer.attr("src", play)
     } else {
-      soundButtonConatiner.attr("src", play)
+      soundButtonContainer.attr("src", mute)
     }
   }
-  $("#mute").append(soundButtonConatiner)
+  $("#mute").append(soundButtonContainer)
 }
 
 function startWithMusic() {
@@ -235,19 +235,18 @@ function startWithoutMusic() {
 function renderSoundButton() {
   $("#mute").empty();
 
-  var soundButtonConatiner = $("<img>");
+  var soundButtonContainer = $("<img>");
 
   var play = "./assets/soundOn.png";
   var mute = "./assets/soundMuted.png"
-  var audioStatus = document.getElementById("audio").mute
 
   if (sound) {
-    soundButtonConatiner.attr("src", play)
+    soundButtonContainer.attr("src", play)
   } else {
-    soundButtonConatiner.attr("src", mute)
+    soundButtonContainer.attr("src", mute)
   }
 
-  $("#mute").append(soundButtonConatiner)
+  $("#mute").append(soundButtonContainer)
 }
 
 function randomCardOrder() {

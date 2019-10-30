@@ -112,12 +112,17 @@ header {
   font-family: gameOfThrones;
   color: black;
   font-size: 350%;
+  position: relative;
 }
 
 #mute {
   float: right;
   text-align: center;
   line-height: 10vh;
+  position: absolute;
+  top: 0%;
+  left: 98.5%;
+  /* width: 100%; */
 }
 
 main {
