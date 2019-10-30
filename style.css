@@ -69,19 +69,50 @@ body {
   transform: translate(-50%, -50%);
   border-radius: 25px;
   z-index: 1;
-}
-.modalText {
-  font-size: 120%;
   font-weight: bold;
   border: 3px ridge #dfe8e4;
   text-align: center;
-  padding: 4%;
-  background-image: url("./assets/modal.jpg");
   color: whitesmoke;
+  background-image: url("./assets/modal.jpg");
   background-size: cover;
   background-position: center;
-  border-radius: 15px;
+    text-shadow: 1px 1px black;
+
+}
+.modalText {
+  font-size: 120%;
+  padding: 4%;
   text-shadow: 1px 1px black;
+}
+.highScoreHeader {
+  font-size: 100%;
+  padding-bottom: 4%;
+}
+.highScoreWrapper {
+  border: 1px solid yellow;
+  display: flex;
+  flex-direction: row;
+  font-size: 90%;
+}
+.highScoreContainer {
+  border: 1px solid black;
+  width: 50%;
+}
+.highScoreText {
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+input {
+  margin-top: 4%;
+  height: 2vh;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: bold;
+  text-shadow: 1px 1px black;
+  color: white;
+}
+span {
+  margin-right: 2%;
+  margin-left: 2%;
 }
 .modalButton {
   border-radius: 15%;
@@ -89,9 +120,9 @@ body {
   background-color: rgba(255, 255, 255, 0.3);
   width: 33%;
   margin-top: 4%;
+  margin-bottom: 4%;
   margin-left: auto;
   margin-right: auto;
-  /* font-weight: bold; */
   font-size: 55%;
   text-align: center;
   padding: 2.5%;
@@ -99,11 +130,9 @@ body {
 }
 header {
   height: 8vh;
-    /* border: 1px solid black; */
 
 }
 .title {
-  /* border: 1px solid black; */
   text-align: center;
   line-height: 10vh;
   margin: auto;
@@ -122,7 +151,6 @@ header {
   position: absolute;
   top: 0%;
   left: 98.5%;
-  /* width: 100%; */
 }
 
 main {

@@ -7,13 +7,12 @@
   <script src="main.js"></script>
   <title>Game of Memory</title>
   <link rel="shortcut icon" href="./assets/titleLogo.ico" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 </head>
 <body>
 
   <audio src="./assets/bgMusic.mp3" id="audio"></audio>
 
-  <div id="greetings" class="welcomeModalContainer">
+  <div id="greetings" class="welcomeModalContainer hidden">
     <div class="welcomeModal">
       Welcome to Game of Memory, where we test your attention to detail!
       Simply click on the card to reveal the character, and match all to win.
@@ -24,18 +23,37 @@
       </div>
   </div>
 
-  <div class="modalContainer hidden">
-    <div class="modalText">Congratulations you won!!
-      <div class="modalButton">Click to play again!</div>
-    </div>
+  <div class="modalContainer">
+
+    <div class="modalText">Congratulations you won<span>!</span></div>
+
+    <div class="highScoreHeader">High Scores</div>
+
+      <div class="highScoreWrapper">
+        <div class="highScoreContainer">
+          <div class="highScoreText">Name</div>
+          <div class="highScoreText">Test 1</div>
+          <div class="highScoreText">Test 1</div>
+          <div class="highScoreText">Test 1</div>
+        </div>
+        <div class="highScoreContainer">
+          <div class="highScoreText">Attempts</div>
+          <div class="highScoreText">Test 1</div>
+          <div class="highScoreText">Test 1</div>
+          <div class="highScoreText">Test 1</div>
+        </div>
+      </div>
+
+      <input type="text">
+
+      <div class="modalButton">Submit <span>&</span> play again</div>
+
   </div>
 
   <header>
     <div class="title">
       Game of Memory
-        <!-- <div id="mute" class="fas fa-volume-mute hidden"></div>
-        <div id="play" class="fas fa-volume-up"></div> -->
-        <div id="mute"></div>
+      <div id="mute"></div>
     </div>
 
   </header>
