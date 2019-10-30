@@ -3,7 +3,7 @@ $(document).ready(initializeApp);
 var firstCard, secondCard, firstCardSource, secondCardSource, accuracy, firstCardQuote, nextCard;
 var correctMatches = 0, attempts = 0, gamesPlayed = 0;
 var winConditionMatches = 9;
-var sound;
+var sound = false;
 
 var charList = [
   {
@@ -193,13 +193,27 @@ function wonTheGame() {
 
 function muteSound() {
   var audio = document.getElementById("audio");
+  var audioStatus = document.getElementById("audio").muted
+
+  var play = "./assets/soundOn.png";
+  var mute = "./assets/soundMuted.png"
+  var soundButtonConatiner = $("<img>");
+
+  $("#mute").empty();
 
   if (!sound) {
     sound = true;
     audio.play();
+    soundButtonConatiner.attr("src", play)
   } else {
     audio.muted = !audio.muted;
+    if (audioStatus) {
+      soundButtonConatiner.attr("src", mute)
+    } else {
+      soundButtonConatiner.attr("src", play)
+    }
   }
+  $("#mute").append(soundButtonConatiner)
 }
 
 function startWithMusic() {
@@ -208,13 +222,32 @@ function startWithMusic() {
   audio.play();
   $("#greetings").addClass("hidden");
   $(".frontImages").on("click", flipCard);
+  renderSoundButton();
 }
 
 function startWithoutMusic() {
   sound = false;
   $("#greetings").addClass("hidden");
   $(".frontImages").on("click", flipCard);
+  renderSoundButton();
+}
 
+function renderSoundButton() {
+  $("#mute").empty();
+
+  var soundButtonConatiner = $("<img>");
+
+  var play = "./assets/soundOn.png";
+  var mute = "./assets/soundMuted.png"
+  var audioStatus = document.getElementById("audio").mute
+
+  if (sound) {
+    soundButtonConatiner.attr("src", play)
+  } else {
+    soundButtonConatiner.attr("src", mute)
+  }
+
+  $("#mute").append(soundButtonConatiner)
 }
 
 function randomCardOrder() {
@@ -250,7 +283,7 @@ function createStructure() {
   $(".modalButton").on("click", resetStats);
   $(".sound").on("click", startWithMusic)
   $(".noSound").on("click", startWithoutMusic);
-  $(".title").on("click", muteSound);
+  $("#mute").on("click", muteSound);
   displayGifQuote(9);
   displayStats();
 }

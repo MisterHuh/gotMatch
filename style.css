@@ -99,17 +99,27 @@ body {
 }
 header {
   height: 8vh;
+    /* border: 1px solid black; */
+
 }
 .title {
+  /* border: 1px solid black; */
   text-align: center;
   line-height: 10vh;
   margin: auto;
   height: 100%;
-  width: 100%;
+  width: 88%;
   font-family: gameOfThrones;
   color: black;
   font-size: 350%;
 }
+
+#mute {
+  float: right;
+  text-align: center;
+  line-height: 10vh;
+}
+
 main {
   height: 90vh;
   display: flex;
