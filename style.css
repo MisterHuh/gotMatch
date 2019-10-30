@@ -55,9 +55,11 @@ body {
   margin-bottom: 2%;
   border-radius: 15%;
 }
-.welcomeButton:hover {
+.welcomeButton:hover, .modalButton:hover {
   background-color: #e0fbfc;
   color: black;
+  text-shadow: 1px 1px #e0fbfc;
+
 }
 .modalContainer {
   width: 26%;
@@ -69,32 +71,31 @@ body {
   z-index: 1;
 }
 .modalText {
-  font-size: 190%;
+  font-size: 120%;
   font-weight: bold;
   border: 3px ridge #dfe8e4;
   text-align: center;
   padding: 4%;
-  /* background-color: white; */
   background-image: url("./assets/modal.jpg");
-  /* background-image: url("./assets/welcomeModal.gif"); */
-  /* opacity: 1; */
   color: whitesmoke;
   background-size: cover;
   background-position: center;
   border-radius: 15px;
-  text-shadow: 1px 1px silver;
+  text-shadow: 1px 1px black;
 }
 .modalButton {
   border-radius: 15%;
+  border: 1px solid white;
   background-color: rgba(255, 255, 255, 0.3);
-  width: 50%;
+  width: 33%;
   margin-top: 4%;
   margin-left: auto;
   margin-right: auto;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 55%;
   text-align: center;
   padding: 2.5%;
+  text-shadow: 1px 1px black;
 }
 header {
   height: 8vh;
