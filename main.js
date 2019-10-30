@@ -190,15 +190,9 @@ function wonTheGame() {
   }
 }
 
-// function playAudio() {
-//   if (gamesPlayed === 0 ) {
-//     var audio = new Audio("./assets/bgMusic.mp3");
-//     audio.play();
-//   }
-// }
-
 function randomCardOrder() {
   var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
+  var imageArray = ["cerseiLannister", "cerseiLannister", "cerseiLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "tyrionLannister", "daenerysTargaryen", "tyrionLannister", "cerseiLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "cerseiLannister", "cerseiLannister", "daenerysTargaryen", "tyrionLannister", "tyrionLannister"];
   var randomArray = [];
   var spliceIndex = imageArray.length;
   for (var index = 0; index < 18; index++, spliceIndex--) {
@@ -230,5 +224,4 @@ function createStructure() {
   $(".modalButton").on("click", resetStats);
   displayGifQuote(9);
   displayStats();
-  // playAudio();
 }
