@@ -29,8 +29,11 @@ body {
   border: 3px ridge #dfe8e4;
   text-align: center;
   padding: 4%;
-  background-image: url("./assets/modal.jpg");
-  color: black;
+  /* background-color: white; */
+  /* background-image: url("./assets/modal.jpg"); */
+  background-image: url("./assets/welcomeModal.gif");
+  opacity: 1;
+  color: whitesmoke;
   background-size: cover;
   background-position: center;
   border-radius: 15px;

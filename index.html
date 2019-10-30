@@ -11,7 +11,14 @@
 <body>
   <iframe src="./assets/bgMusic.mp3" allow="autoplay" id="audio" class="hidden"></iframe>
 
-  <div id="greetings"></div>
+  <div id="greetings" class="modalContainer">
+    <div class="modalText">
+      Welcome to Game of Memory, where we test your attention to detail!
+      Simply click on the card to reveal the character, and match all to win.
+      <div class="modalButton">Play with Sound</div>
+      <div class="modalButton">Play without Sound</div>
+    </div>
+  </div>
 
   <div class="modalContainer hidden">
     <div class="modalText">Congratulations you won!!
@@ -28,15 +35,9 @@
     <div class="bottomWrapper">
 
       <div class="statsWrapper bottomContainer">
-        <!-- <div class="statsContainer"> -->
-          <div class="stats"> Games Played : <div id="gamesPlayed">0</div></div>
-        <!-- </div> -->
-        <!-- <div class="statsContainer"> -->
-          <div class="stats">Attempts : <div id="attempts">0</div></div>
-        <!-- </div> -->
-        <!-- <div class="statsContainer"> -->
-          <div class="stats">Accuracy : <div id="accuracy">0</div></div>
-        <!-- </div> -->
+        <div class="stats"> Games Played : <div id="gamesPlayed">0</div></div>
+        <div class="stats">Attempts : <div id="attempts">0</div></div>
+        <div class="stats">Accuracy : <div id="accuracy">0</div></div>
       </div>
 
       <div class="gifContainer" id="gif"></div>
