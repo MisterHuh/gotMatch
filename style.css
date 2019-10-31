@@ -327,8 +327,6 @@ main {
 
 /* Portrait */
 @media only screen
-  /* and (max-width: 768px) */
-  /* and (max-height: 1024px) */
   and (min-device-width: 768px)
   and (max-device-height: 1024px)
   and (orientation: portrait) {
@@ -364,10 +362,6 @@ main {
       position: relative;
         top: 4%;
       }
-      /* .doubleLineQuotes {
-        position: relative;
-        top: 4%;
-      } */
   }
 
 /* Landscape */
@@ -375,12 +369,27 @@ main {
   and (max-device-width: 1024px)
   and (max-device-height: 768px)
   and (orientation: Landscape) {
+    .welcomeModalContainer {
+      width: 48%;
+      height: 50%;
+    }
+    .welcomeButton {
+      padding-top: 1.2%;
+      padding-bottom: 1.2%;
+    }
+    .sound, .noSound {
+      font-size: 90%;
+    }
     .modalContainer {
       width: 45%;
     }
     .title {
       padding-top: 1.5%;
       font-size: 380%;
+      line-height: 8vh;
+    }
+    .frontImages, .backImages {
+      background-size: 145% 100%;
     }
     .bottomContainer {
       width: 36%;
@@ -391,9 +400,11 @@ main {
     .gifContainer {
       width: 12%;
     }
+    .singleLineQuotes {
+      top: 6%;
+    }
     .doubleLineQuotes {
-      font-size: 90%;
-      top: 15%;
+      top: 4%;
     }
   }
 
