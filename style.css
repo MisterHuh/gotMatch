@@ -277,14 +277,14 @@ main {
   background-color: #04195b;
   background-image: url("./assets/quotes.png");
 }
-.singleLineQuotes {
-  /* position: relative; */
-  /* top: 28%; */
+/* .singleLineQuotes {
+  position: relative;
+  top: 28%;
 }
 .doubleLineQuotes {
-  /* position: relative; */
-  /* top: 14%; */
-}
+  position: relative;
+  top: 14%;
+} */
 
  /* ----------- Thinkpad x250 ----------- */
 @media only screen
@@ -313,18 +313,35 @@ main {
         .bottomContainer {
           font-size: 80%
         }
+        .singleLineQuotes {
+        position: relative;
+          top: 7%;
+        }
+        .doubleLineQuotes {
+          position: relative;
+          top: 4%;
+        }
   }
 
   /* ----------- iPad ----------- */
 
 /* Portrait */
 @media only screen
+  /* and (max-width: 768px) */
+  /* and (max-height: 1024px) */
   and (min-device-width: 768px)
   and (max-device-height: 1024px)
   and (orientation: portrait) {
+    .welcomeModalContainer {
+      height: 35%;
+      width: 60%;
+    }
+    #mute {
+      line-height: 15.5vh;
+    }
     .title {
-      font-size: 500%;
-      padding-top: 4%;
+      font-size: 440%;
+      padding-top: 3%;
     }
     .modalContainer {
       width: 45%;
@@ -337,21 +354,20 @@ main {
     .bottomContainer {
       width: 35%;
     }
-    .stats {
-      top: 20%;
-    }
     .gifContainer {
       width: 20%;
     }
-    #quotes {
-      margin-bottom: 3%;
+    .frontImages, .backImages {
+      background-size: 180% 100%;
     }
-    .singleLineQuotes {
-      top:35%;
-    }
-    .doubleLineQuotes {
-      top: 26%;
-    }
+    .singleLineQuotes, .doubleLineQuotes {
+      position: relative;
+        top: 4%;
+      }
+      /* .doubleLineQuotes {
+        position: relative;
+        top: 4%;
+      } */
   }
 
 /* Landscape */
