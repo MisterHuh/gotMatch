@@ -2,7 +2,7 @@ $(document).ready(initializeApp);
 
 var firstCard, secondCard, firstCardSource, secondCardSource, accuracy, firstCardQuote, nextCard;
 var correctMatches = 0, attempts = 0, gamesPlayed = 0;
-var winConditionMatches = 9;
+var winConditionMatches = 1;
 var sound = false;
 
 var charList = [
