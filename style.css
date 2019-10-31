@@ -418,6 +418,12 @@ main {
     .title {
       padding-top: 3%;
       font-size: 450%;
+      line-height: 7vh;
+    }
+    .welcomeModalContainer {
+      width: 95%;
+      height: 35%;
+      font-size: 155%;
     }
     .modalContainer {
       width: 50%;
@@ -438,19 +444,16 @@ main {
       top: 27%;
     }
     .gifContainer {
-      width: 24%;
+      width: 30%;
     }
     .quotesContainer {
       font-size: 120%;
     }
-    #quotes {
-      margin-bottom: 4%;
-    }
     .singleLineQuotes {
-      top: 39%;
+      top: 6%;
     }
     .doubleLineQuotes {
-      top: 28%;
+      top: 4%;
     }
   }
 
