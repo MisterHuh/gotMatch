@@ -150,7 +150,7 @@ header {
   line-height: 10vh;
   position: absolute;
   top: 0%;
-  left: 98.5%;
+  left: 98%;
 }
 
 main {
@@ -288,11 +288,14 @@ main {
 
  /* ----------- Thinkpad x250 ----------- */
 @media only screen
-  and (max-width: 1366px)
-  and (orientation: landscape) {
+  and (max-device-width: 1366px)
+  and (ori-deviceentation: landscape) {
         .title {
           font-size: 290%;
           line-height: 10vh;
+        }
+        #mute {
+          left: 98%;
         }
         .welcomeModal {
           padding: 3%;
@@ -327,7 +330,7 @@ main {
 
 /* Portrait */
 @media only screen
-  and (min-device-width: 768px)
+  and (max-device-width: 768px)
   and (max-device-height: 1024px)
   and (orientation: portrait) {
     .welcomeModalContainer {
@@ -370,8 +373,8 @@ main {
   and (max-device-height: 768px)
   and (orientation: Landscape) {
     .welcomeModalContainer {
-      width: 48%;
-      height: 50%;
+      width: 60%;
+      height: 62%;
     }
     .welcomeButton {
       padding-top: 1.2%;
@@ -395,15 +398,17 @@ main {
       width: 36%;
     }
     .stats {
-      top: 0%;
+      font-size: 90%
     }
     .gifContainer {
       width: 12%;
     }
     .singleLineQuotes {
+      font-size: 90%;
       top: 6%;
     }
     .doubleLineQuotes {
+      font-size: 90%;
       top: 4%;
     }
   }
@@ -412,7 +417,7 @@ main {
 
 /* Portrait */
 @media only screen
-  and (min-device-width: 375px)
+  and (max-device-width: 375px)
   and (max-device-height: 812px)
   and (orientation: portrait) {
     .title {
@@ -459,7 +464,7 @@ main {
 
 /* Landscape */
 @media only screen
-  and (min-device-width: 812px)
+  and (max-device-width: 812px)
   and (max-device-height: 375px)
   and (orientation: Landscape) {
     .title {
@@ -474,6 +479,9 @@ main {
     }
     .modalButton {
       font-size: 60%;
+    }
+    .cardContainer {
+      margin: 0.5% 2.5%
     }
     .bottomContainer {
       font-size: 60%;
