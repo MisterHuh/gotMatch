@@ -289,7 +289,7 @@ main {
  /* ----------- Thinkpad x250 ----------- */
 @media only screen
   and (max-device-width: 1366px)
-  and (ori-deviceentation: landscape) {
+  and (orientation: landscape) {
         .title {
           font-size: 290%;
           line-height: 10vh;
