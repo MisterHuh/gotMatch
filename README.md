@@ -4,7 +4,7 @@ Welcome to Game of Memory, where we test your attention to detail!
 
 Simply click on the card to reveal the character, and match all to win.
 
-## [Live Demo](http://https://gotmatch.jaehuh.network/)
+## [Live Demo](http://gotmatch.jaehuh.network/)
 ![picture](assets/readMe.gif)
 
 
