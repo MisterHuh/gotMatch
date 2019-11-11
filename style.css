@@ -474,16 +474,22 @@ main {
 
 /* Landscape */
 @media only screen
-  and (max-width: 812px)
-  /* and (max-device-width: 812px) */
+  /* and (max-width: 812px) */
+  and (max-device-width: 812px)
   /* and (max-device-height: 375px) */
   and (orientation: Landscape) {
+    .welcomeModalContainer {
+      height: 61%;
+      width: 36%;
+      font-size: 61%;
+    }
     .title {
       font-size: 200%;
       padding-top: 0.5%;
     }
     .modalContainer {
-      width: 35%;
+      width: 42%;
+      font-size: 75%;
     }
     .modalText {
       font-size: 140%;
@@ -501,12 +507,6 @@ main {
     }
     .gifContainer {
       width: 10%;
-    }
-    .singleLineQuotes {
-      top: 20%;
-    }
-    .doubleLineQuotes {
-      top: 8%;
     }
   }
 
