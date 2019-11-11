@@ -421,9 +421,12 @@ main {
   and (max-device-height: 812px)
   and (orientation: portrait) {
     .title {
-      padding-top: 3%;
+      padding-top: 13%;
       font-size: 450%;
       line-height: 7vh;
+    }
+    #mute {
+      line-height: 19.5vh;
     }
     .welcomeModalContainer {
       width: 95%;
@@ -435,8 +438,13 @@ main {
     }
     .cardContainer {
       height: 15%;
-      width: 20%;
-      margin: 1.5% 6.6%;
+      /* width: 20%; */
+      /* margin: 1.5% 6.6%; */
+      width: 13%;
+      margin: 12% 1%;
+    }
+    .backImages, .frontImages {
+      /* width: 70%; */
     }
     .bottomWrapper {
       margin-top: 1%;
