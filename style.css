@@ -20,7 +20,7 @@ body {
   background-size: cover;
   border: 3px ridge #dfe8e4;
   width: 30%;
-  height: 45%;
+  height: 47%;
 
   position: absolute;
   top: 32%;
@@ -277,14 +277,6 @@ main {
   background-color: #04195b;
   background-image: url("./assets/quotes.png");
 }
-/* .singleLineQuotes {
-  position: relative;
-  top: 28%;
-}
-.doubleLineQuotes {
-  position: relative;
-  top: 14%;
-} */
 
  /* ----------- Thinkpad x250 ----------- */
 @media only screen
@@ -303,8 +295,9 @@ main {
         }
         .welcomeModalContainer {
           font-size: 85%;
-          height: 58%;
+          height: 60%;
           width: 36%;
+          top: 45%;
         }
         .modalContainer {
           width: 36%;
@@ -317,7 +310,7 @@ main {
           font-size: 80%
         }
         .singleLineQuotes {
-        position: relative;
+          position: relative;
           top: 7%;
         }
         .doubleLineQuotes {
@@ -330,13 +323,13 @@ main {
 
 /* Portrait */
 @media only screen
-  /* and (max-width: 768px) */
   and (max-device-width: 768px)
-  /* and (max-device-height: 1024px) */
+  and (max-device-height: 1024px)
   and (orientation: portrait) {
     .welcomeModalContainer {
       height: 35%;
       width: 60%;
+      top: 40%;
     }
     #mute {
       line-height: 15.5vh;
@@ -370,9 +363,8 @@ main {
 
 /* Landscape */
 @media only screen
-  and (max-width: 1024px)
-  /* and (max-device-width: 1024px) */
-  /* and (max-device-height: 768px) */
+  and (max-device-width: 1024px)
+  and (max-device-height: 768px)
   and (orientation: Landscape) {
     .welcomeModalContainer {
       width: 60%;
@@ -419,9 +411,8 @@ main {
 
 /* Portrait */
 @media only screen
-  /* and (max-width: 375px) */
   and (max-device-width: 375px)
-  /* and (max-device-height: 812px) */
+  and (max-device-height: 812px)
   and (orientation: portrait) {
     .title {
       padding-top: 13%;
@@ -435,6 +426,7 @@ main {
       width: 95%;
       height: 35%;
       font-size: 155%;
+      top: 34%;
     }
     .modalContainer {
       width: 80%;
@@ -474,9 +466,8 @@ main {
 
 /* Landscape */
 @media only screen
-  /* and (max-width: 812px) */
   and (max-device-width: 812px)
-  /* and (max-device-height: 375px) */
+  and (max-device-height: 375px)
   and (orientation: Landscape) {
     .welcomeModalContainer {
       height: 61%;
@@ -498,7 +489,7 @@ main {
       font-size: 60%;
     }
     .cardContainer {
-      margin: 0.5% 3.5%;
+      margin: 0.5% 4.3%;
       width: 8vw;
     }
     .bottomContainer {
@@ -513,66 +504,30 @@ main {
 /* ----------- iPhone 6, 7 and 8 ----------- */
 
 /* Portrait */
-/* @media only screen */
-
-  /* and (max-width: 375px) */
-
-
-  /* and (min-device-width: 375px)
+  @media only screen
+  and (max-device-width: 375px)
   and (max-device-height: 667px)
   and (orientation: portrait) {
-    .modalContainer {
-      width: 50%;
-      top: 30%;
+    .welcomeModalContainer {
+      height: 42%;
+      top: 38%;
     }
-    header {
-      height: 6vh;
+    #mute {
+      line-height: 22.5vh;
     }
-    .title {
-      line-height: 6vh;
-      font-size: 450%;
-      padding-top: 1%;
-    }
-    #cardWrapper {
-      padding: 1%;
-      height: 100%;
-    }
-    .cardContainer {
-      height: 15%;
-      width: 25%;
-      margin: 1.5% 4%;
-    }
-    .bottomWrapper {
-      font-size: 112%;
-    }
-    .bottomContainer {
-      width: 36%;
-    }
-    .stats {
-      top: 11%;
-    }
-    .gifContainer {
-      width: 21%;
-    }
-    #quotes {
-      margin-bottom: 4%;
-    }
-    .singleLineQuotes {
-      top: 29%;
-    }
-    .doubleLineQuotes {
-      top: 14%
-    }
-  } */
+  }
 
 /* Landscape */
 @media only screen
-  and (max-width: 667px)
-  /* and (min-device-width: 667px) */
-  /* and (max-device-height: 375px) */
+  and (max-device-width: 667px)
+  and (max-device-height: 375px)
   and (orientation: Landscape) {
+    .welcomeModalContainer {
+      height: 52%;
+    }
     .modalContainer {
-      width: 35%;
+      width: 50%;
+      font-size: 100%;
     }
     .modalText {
       font-size: 130%;
@@ -583,19 +538,19 @@ main {
     .title {
       font-size: 220%;
     }
+    #mute {
+      line-height: 12vh;
+    }
     .cardContainer {
-      margin: 0.5% 1.5%;
+      margin: 0.5% 4.3%;
     }
     .bottomWrapper {
       height: 15vh;
     }
+    .bottomContainer {
+      width: 33%;
+    }
     .gifContainer {
       width: 16%;
-    }
-    .singleLineQuotes {
-      top: 24%;
-    }
-    .doubleLineQuotes {
-      font-size: 90%;
     }
   }
