@@ -181,6 +181,7 @@ function resetStats() {
   $(".modalContainer").addClass("hidden");
   createStructure();
   displayStats();
+  $(".frontImages").on("click", flipCard);
 }
 
 function wonTheGame() {
@@ -283,6 +284,7 @@ function createStructure() {
   $(".sound").on("click", startWithMusic)
   $(".noSound").on("click", startWithoutMusic);
   $("#mute").on("click", muteSound);
+  // $(".frontImages").on("click", flipCard);
   displayGifQuote(9);
   displayStats();
 }
