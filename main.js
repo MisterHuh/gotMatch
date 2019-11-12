@@ -214,7 +214,8 @@ function addScore() {
 
   var req = {
     method: "POST",
-    headers: { "Content-Type": "application/json"},
+    // headers: { "Content-Type": "application/json"},
+    headers: {"Access-Control-Allow-Origin": "*" },
     mode: "no-cors",
     body: JSON.stringify({
       name: name,
