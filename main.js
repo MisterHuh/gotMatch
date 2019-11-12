@@ -181,7 +181,7 @@ function resetStats() {
   $(".modalContainer").addClass("hidden");
   createStructure();
   displayStats();
-  $(".frontImages").on("click", flipCard);
+  renderSoundButton();
 }
 
 function wonTheGame() {
@@ -221,15 +221,11 @@ function startWithMusic() {
   sound = true;
   var audio = document.getElementById("audio");
   audio.play();
-  $("#greetings").addClass("hidden");
-  $(".frontImages").on("click", flipCard);
   renderSoundButton();
 }
 
 function startWithoutMusic() {
   sound = false;
-  $("#greetings").addClass("hidden");
-  $(".frontImages").on("click", flipCard);
   renderSoundButton();
 }
 
@@ -247,6 +243,8 @@ function renderSoundButton() {
     soundButtonContainer.attr("src", mute)
   }
 
+  $("#greetings").addClass("hidden");
+  $(".frontImages").on("click", flipCard);
   $("#mute").append(soundButtonContainer)
 }
 
@@ -283,8 +281,8 @@ function createStructure() {
   $(".modalButton").on("click", resetStats);
   $(".sound").on("click", startWithMusic)
   $(".noSound").on("click", startWithoutMusic);
+
   $("#mute").on("click", muteSound);
-  // $(".frontImages").on("click", flipCard);
   displayGifQuote(9);
   displayStats();
 }
