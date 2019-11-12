@@ -22,19 +22,29 @@ $bodyData = getBodyData();
 $name = $bodyData["name"];
 $attempts = $bodyData["attempts"];
 
+print($name);
+print($attempts);
+
 // var_dump($name);
 
 // $query = "INSERT INTO `highScores` (`name`, `attempts`)
 //           VALUES ('$name', '$attempts')";
 
-// $query = "INSERT INTO `highScores`
-//           SET `name` = '$name',
-//               `attempts` = '$attempts'";
+$query = "INSERT INTO `highScores`
+          SET `name` = '$name',
+              `attempts` = '$attempts'";
 
-$query = "INSERT INTO `highScores` (`name`)
-          VALUES ('$name')";
+// $query = "INSERT INTO `highScores` (`name`)
+//           VALUES ('$name')";
 
 $result = mysqli_query($conn, $query);
+
+/* error checking to make sure that the query updated at least 1 row */
+if (mysqli_affected_rows($conn) >= 1) { /* if at least 1 row was affected */
+  print("success");
+} else {
+  print("no rows were affected");
+}
 
 
 if (!$result) {
