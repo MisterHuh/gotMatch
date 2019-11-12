@@ -216,6 +216,7 @@ function addScore() {
     method: "POST",
     // headers: { "Content-Type": "application/json"},
     headers: {"Access-Control-Allow-Origin": "*" },
+    // headers: {"Access-Control-Allow-Headers": "x-requested-with"},
     mode: "no-cors",
     body: JSON.stringify({
       name: name,
