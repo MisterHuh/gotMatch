@@ -202,41 +202,47 @@ function removeUserInputModal() {
 }
 
 function addScore() {
-  var name = $("input:text").val();
+  var userName = $("input:text").val();
 
-  console.log("name is: ", name);
+  console.log("name is: ", userName);
   console.log("attempts is:", attempts)
 
-  var newEntry = {
-    name: name,
-    attempts: attempts
-  };
-
-  var req = {
-    method: "POST",
-    // headers: { "Content-Type": "application/json"},
-    headers: {"Access-Control-Allow-Origin": "*" },
-    // headers: {"Access-Control-Allow-Headers": "x-requested-with"},
-    mode: "no-cors",
-    body: JSON.stringify({
-      name: name,
-      attempts: attempts
-    })
-  };
-  fetch("/api/addScore.php", req)
-
-  // var sanitizedData = JSON.stringify(newEntry);
-
-  // var addScoreConfig = {
-  //   headers: { 'Access-Control-Allow-Origin': "*" },
-  //   type: "post",
-  //   datatype: "jsonp",
-  //   crossDomain: true,
-  //   data: sanitizedData,
-  //   url: "/api/addScore.php",
+  // var newEntry = {
+  //   name: name,
+  //   attempts: attempts
   // };
 
-  // $.ajax(addScoreConfig)
+  // var req = {
+  //   method: "POST",
+  //   // headers: { "Content-Type": "application/json"},
+  //   headers: {"Access-Control-Allow-Origin": "*" },
+  //   // headers: {"Access-Control-Allow-Headers": "x-requested-with"},
+  //   mode: "no-cors",
+  //   body: JSON.stringify({
+  //     name: name,
+  //     attempts: attempts
+  //   })
+  // };
+  // fetch("/api/addScore.php", req)
+
+  var sanitizedData = JSON.stringify({
+    name: userName,
+    attempts: attempts
+  });
+
+  console.log("sanitizedData is: ", sanitizedData)
+
+  var addScoreConfig = {
+    // headers: { 'Access-Control-Allow-Origin': "*" },
+    // headers: {"Access-Control-Allow-Headers": "x-requested-with"},
+    type: "post",
+    dataType: "jsonp",
+    crossDomain: true,
+    data: sanitizedData,
+    url: "/api/addScore.php",
+  };
+
+  $.ajax(addScoreConfig)
 
 }
 
@@ -299,7 +305,8 @@ function renderSoundButton() {
 
 function randomCardOrder() {
   // var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
-  var imageArray = ["cerseiLannister", "cerseiLannister", "cerseiLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "tyrionLannister", "daenerysTargaryen", "tyrionLannister", "cerseiLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "cerseiLannister", "cerseiLannister", "daenerysTargaryen", "tyrionLannister", "tyrionLannister"];
+  // var imageArray = ["cerseiLannister", "cerseiLannister", "cerseiLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "tyrionLannister", "daenerysTargaryen", "tyrionLannister", "cerseiLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "cerseiLannister", "cerseiLannister", "daenerysTargaryen", "tyrionLannister", "tyrionLannister"];
+  var imageArray = ["hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor"];
   var randomArray = [];
   var spliceIndex = imageArray.length;
   for (var index = 0; index < 18; index++, spliceIndex--) {
