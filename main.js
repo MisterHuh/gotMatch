@@ -182,6 +182,7 @@ function resetStats() {
   createStructure();
   displayStats();
   renderSoundButton();
+  $("#mute").on("click", muteSound);
 }
 
 function wonTheGame() {
