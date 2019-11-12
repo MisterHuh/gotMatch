@@ -1,20 +1,11 @@
-
 <?php
-
-// var_dump("TEST");
 
 require_once("functions.php");
 set_exception_handler("error_handler");
 require_once("db_connection.php");
 startup();
-getBodyData();
 
-$receivedData = (array) $data;
-
-var_dump($receivedData);
-
-// $item = file_get_contents('php://input');
-// $jsonBody = getBodyData($item);
+$bodyData = getBodyData();
 
 // include error checking for name
 // make sure it's a string. if not, throw error
@@ -28,15 +19,23 @@ var_dump($receivedData);
 // $name = $jsonBody["name"];
 // $attempts = $jsonBody["attempts"];
 
-$name = $receivedData["name"];
-$attempts = $receivedData["attempts"];
+$name = $bodyData["name"];
+$attempts = $bodyData["attempts"];
 
 // var_dump($name);
 
-$query = "INSERT INTO `highScores` (`name`, `attempts`)
-          VALUES ('$name', '$attempts')";
+// $query = "INSERT INTO `highScores` (`name`, `attempts`)
+//           VALUES ('$name', '$attempts')";
+
+// $query = "INSERT INTO `highScores`
+//           SET `name` = '$name',
+//               `attempts` = '$attempts'";
+
+$query = "INSERT INTO `highScores` (`name`)
+          VALUES ('$name')";
 
 $result = mysqli_query($conn, $query);
+
 
 if (!$result) {
   throw new Exception("error with query " . mysqli_error($conn));
