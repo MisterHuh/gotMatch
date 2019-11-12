@@ -206,7 +206,8 @@ function muteSound() {
   if (!sound) {
     sound = true;
     audio.play();
-    soundButtonContainer.attr("src", play)
+    soundButtonContainer.attr("src", play);
+    soundButtonContainer.attr("loop", true);
   } else {
     audio.muted = !audio.muted;
     if (audioStatus) {
