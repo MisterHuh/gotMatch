@@ -188,9 +188,15 @@ function resetStats() {
 function wonTheGame() {
   if (correctMatches === winConditionMatches) {
     gamesPlayed++;
-    $(".modalContainer").removeClass("hidden");
+    $(".userInputModal").removeClass("hidden");
+    $(".userInputButton").on("click", removeUserInputModal)
     $('.frontImages').off("click")
   }
+}
+
+function removeUserInputModal() {
+  $(".userInputModal").addClass("hidden");
+  $(".modalContainer").removeClass("hidden");
 }
 
 function muteSound() {

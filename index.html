@@ -12,7 +12,7 @@
 
   <audio loop src="./assets/bgMusic.mp3" id="audio"></audio>
 
-  <div id="greetings" class="welcomeModalContainer hidden">
+  <div id="greetings" class="welcomeModalContainer">
     <div class="welcomeModal">
       Welcome to Game of Memory, where we test your attention to detail!
       Simply click on the card to reveal the character, and match all to win.
@@ -23,7 +23,7 @@
       </div>
   </div>
 
-  <div class="userInputModal">
+  <div class="userInputModal hidden">
         <div class="userInputHeader">Congratulations you won<span>!</span></div>
 
         <div class="userInputFlex">
@@ -35,13 +35,13 @@
         </div>
   </div>
 
-  <div class="modalContainer ">
+  <div class="modalContainer hidden">
 
     <div class="highScoreHeader">High Scores</div>
 
       <div class="highScoreWrapper">
         <div class="highScoreContainer">
-          <div class="highScoreText">Rank</div>
+          <div class="highScoreSub">Rank</div>
           <div class="highScoreText">1</div>
           <div class="highScoreText">2</div>
           <div class="highScoreText">3</div>
@@ -49,21 +49,25 @@
           <div class="highScoreText">5</div>
         </div>
         <div class="highScoreContainer">
-          <div class="highScoreText">Name</div>
-          <div class="highScoreText">Arya Stark</div>
+          <div class="highScoreSub">Name</div>
+          <div class="highScoreText">Jae</div>
+          <div class="highScoreText">Arya</div>
           <div class="highScoreText">Hodor</div>
-          <div class="highScoreText">Ned Stark</div>
-          <div class="highScoreText">Tyrion Lannister</div>
-          <div class="highScoreText">Jae Huh</div>
+          <div class="highScoreText">Ned</div>
+          <div class="highScoreText">Tyrion</div>
         </div>
         <div class="highScoreContainer">
-          <div class="highScoreText">Attempts</div>
+          <div class="highScoreSub">Attempts</div>
           <div class="highScoreText">9</div>
           <div class="highScoreText">10</div>
           <div class="highScoreText">11</div>
           <div class="highScoreText">12</div>
           <div class="highScoreText">13</div>
         </div>
+      </div>
+
+      <div class="rankContainer">
+        Your rank is <span><div id=rank>2</div></span> out of <span><div id=totalRank>15</div></span>
       </div>
 
       <div class="modalButton">Play Again</div>
