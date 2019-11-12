@@ -168,12 +168,11 @@ input, .userInputButton {
   padding: 2.5%;
 }
 input {
+  font-size: 100%;
   margin-top: 4%;
-  height: 2vh;
+  width: 33%;
   background-color: rgba(255, 255, 255, 0.2);
   font-weight: bold;
-  text-shadow: 1px 1px black;
-  color: white;
 }
 span {
   margin-right: 2%;

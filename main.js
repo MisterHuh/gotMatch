@@ -203,23 +203,39 @@ function removeUserInputModal() {
 
 function addScore() {
   var name = $("input:text").val();
+
   console.log("name is: ", name);
+  console.log("attempts is:", attempts)
+
   var newEntry = {
     name: name,
     attempts: attempts
   };
 
-  var sanitizedData = JSON.stringify(newEntry);
-
-  var addScoreConfig = {
-    type: "POST",
-    datatype: "json",
-    data: sanitizedData,
-    url: "/api/addScore.php"
+  var req = {
+    method: "POST",
+    headers: { "Content-Type": "application/json"},
+    mode: "no-cors",
+    body: JSON.stringify({
+      name: name,
+      attempts: attempts
+    })
   };
+  fetch("/api/addScore.php", req)
 
-  $.ajax(addScoreConfig)
-    .done( () => getScores());
+  // var sanitizedData = JSON.stringify(newEntry);
+
+  // var addScoreConfig = {
+  //   headers: { 'Access-Control-Allow-Origin': "*" },
+  //   type: "post",
+  //   datatype: "jsonp",
+  //   crossDomain: true,
+  //   data: sanitizedData,
+  //   url: "/api/addScore.php",
+  // };
+
+  // $.ajax(addScoreConfig)
+
 }
 
 function muteSound() {
