@@ -195,8 +195,31 @@ function wonTheGame() {
 }
 
 function removeUserInputModal() {
+  addScore()
+
   $(".userInputModal").addClass("hidden");
   $(".modalContainer").removeClass("hidden");
+}
+
+function addScore() {
+  var name = $("input:text").val();
+  console.log("name is: ", name);
+  var newEntry = {
+    name: name,
+    attempts: attempts
+  };
+
+  var sanitizedData = JSON.stringify(newEntry);
+
+  var addScoreConfig = {
+    type: "POST",
+    datatype: "json",
+    data: sanitizedData,
+    url: "/api/addScore.php"
+  };
+
+  $.ajax(addScoreConfig)
+    .done( () => getScores());
 }
 
 function muteSound() {
