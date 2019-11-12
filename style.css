@@ -55,13 +55,59 @@ body {
   margin-bottom: 2%;
   border-radius: 15%;
 }
-.welcomeButton:hover, .modalButton:hover {
+.welcomeButton:hover, .userInputButton:hover, .modalButton:hover {
   background-color: #e0fbfc;
   color: black;
   text-shadow: 1px 1px #e0fbfc;
 }
+  .userInputModal {
+  background-image: url("./assets/userInput.gif");
+  background-size: cover;
+  /* background-repeat: no-repeat; */
+  border: 3px ridge #dfe8e4;
+  width: 30%;
+  height: 36%;
+  text-align: center;
+
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  z-index: 1;
+}
+.userInputHeader {
+  font-size: 120%;
+  padding: 3% 4% 0% 4%;
+  text-shadow: 1px 1px black;
+}
+.userInputFlex {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+input, .userInputButton {
+  margin: auto;
+  padding: 1%;
+}
+.userInputButton {
+  border-radius: 15%;
+  border: 1px solid yellow;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 33%;
+  margin-top: 4%;
+  margin-bottom: 4%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 100%;
+  text-align: center;
+  /* padding: 2.5%; */
+}
 .modalContainer {
-  width: 26%;
+  height: 36%;
+  width: 30%;
   position: absolute;
   top: 33%;
   left: 50%;
@@ -75,12 +121,6 @@ body {
   background-image: url("./assets/modal.jpg");
   background-size: cover;
   background-position: center;
-    text-shadow: 1px 1px black;
-
-}
-.modalText {
-  font-size: 120%;
-  padding: 4%;
   text-shadow: 1px 1px black;
 }
 .highScoreHeader {
@@ -101,19 +141,6 @@ body {
   margin-top: 4%;
   margin-bottom: 4%;
 }
-input {
-  margin-top: 4%;
-  height: 2vh;
-  background-color: rgba(255, 255, 255, 0.2);
-  font-weight: bold;
-  text-shadow: 1px 1px black;
-  color: white;
-}
-span {
-  margin-right: 2%;
-  margin-left: 2%;
-  display: inline;
-}
 .modalButton {
   border-radius: 15%;
   border: 1px solid white;
@@ -126,7 +153,20 @@ span {
   font-size: 55%;
   text-align: center;
   padding: 2.5%;
+  /* text-shadow: 1px 1px black; */
+}
+input {
+  margin-top: 4%;
+  height: 2vh;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: bold;
   text-shadow: 1px 1px black;
+  color: white;
+}
+span {
+  margin-right: 2%;
+  margin-left: 2%;
+  display: inline;
 }
 header {
   height: 8vh;
@@ -482,10 +522,10 @@ main {
       width: 42%;
       font-size: 75%;
     }
-    .modalText {
+    .userInputHeader {
       font-size: 140%;
     }
-    .modalButton {
+    .userInputHeader {
       font-size: 60%;
     }
     .cardContainer {
@@ -529,10 +569,10 @@ main {
       width: 50%;
       font-size: 100%;
     }
-    .modalText {
+    .userInputHeader {
       font-size: 130%;
     }
-    .modalButton {
+    .userInputHeader {
       font-size: 65%;
     }
     .title {

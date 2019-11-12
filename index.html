@@ -12,7 +12,7 @@
 
   <audio loop src="./assets/bgMusic.mp3" id="audio"></audio>
 
-  <div id="greetings" class="welcomeModalContainer">
+  <div id="greetings" class="welcomeModalContainer hidden">
     <div class="welcomeModal">
       Welcome to Game of Memory, where we test your attention to detail!
       Simply click on the card to reveal the character, and match all to win.
@@ -23,30 +23,50 @@
       </div>
   </div>
 
-  <div class="modalContainer hidden">
+  <div class="userInputModal">
+        <div class="userInputHeader">Congratulations you won<span>!</span></div>
 
-    <div class="modalText">Congratulations you won<span>!</span></div>
+        <div class="userInputFlex">
+
+            <input type="text">
+
+            <div class="userInputButton">Submit</div>
+
+        </div>
+  </div>
+
+  <div class="modalContainer ">
 
     <div class="highScoreHeader">High Scores</div>
 
       <div class="highScoreWrapper">
         <div class="highScoreContainer">
+          <div class="highScoreText">Rank</div>
+          <div class="highScoreText">1</div>
+          <div class="highScoreText">2</div>
+          <div class="highScoreText">3</div>
+          <div class="highScoreText">4</div>
+          <div class="highScoreText">5</div>
+        </div>
+        <div class="highScoreContainer">
           <div class="highScoreText">Name</div>
-          <div class="highScoreText">Jamie Lannister</div>
-          <div class="highScoreText">Jon Snow</div>
+          <div class="highScoreText">Arya Stark</div>
           <div class="highScoreText">Hodor</div>
+          <div class="highScoreText">Ned Stark</div>
+          <div class="highScoreText">Tyrion Lannister</div>
+          <div class="highScoreText">Jae Huh</div>
         </div>
         <div class="highScoreContainer">
           <div class="highScoreText">Attempts</div>
           <div class="highScoreText">9</div>
           <div class="highScoreText">10</div>
           <div class="highScoreText">11</div>
+          <div class="highScoreText">12</div>
+          <div class="highScoreText">13</div>
         </div>
       </div>
 
-      <input type="text">
-
-      <div class="modalButton">Submit <span>&</span> play again</div>
+      <div class="modalButton">Play Again</div>
 
   </div>
 
