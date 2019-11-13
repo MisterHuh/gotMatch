@@ -231,6 +231,7 @@ function addScore() {
 }
 
 function retrieveScore () {
+  $("input").val("");
   var retrieveScoreConfig = {
     dataType: "json",
     url: "api/retrieveScore.php",

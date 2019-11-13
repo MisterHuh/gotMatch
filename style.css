@@ -105,7 +105,7 @@ input, .userInputButton {
   text-align: center;
 }
 .modalContainer {
-  height: 44%;
+  height: 45%;
   width: 30%;
   position: absolute;
   top: 33%;
@@ -138,11 +138,15 @@ input, .userInputButton {
 }
 .highScoreSub {
   font-size: 125%;
+  color: black;
+  text-shadow: 1px 1px #dfe8e4;
+  margin-bottom: 10%;
 }
 .highScoreText {
   margin-top: 6%;
   margin-bottom: 6%;
   font-size: 100%;
+  text-shadow: 1px 1px black;
 }
 .rankContainer {
   /* border: 1px solid black; */
