@@ -2,7 +2,7 @@ $(document).ready(initializeApp);
 
 var firstCard, secondCard, firstCardSource, secondCardSource, accuracy, firstCardQuote, nextCard, currentPlayer;
 var correctMatches = 0, attempts = 0, gamesPlayed = 0;
-var winConditionMatches = 1;
+var winConditionMatches = 9;
 var sound = false;
 
 var charList = [
@@ -273,13 +273,6 @@ function renderScoreTable(response) {
       return;
     }
   }
-
-  // console.log("current player is: ", currentPlayer);
-  // console.log("your rank is: ", findRank);
-  // console.log("total rank is: ", highScoreLength);
-
-  // $("#totalRank").text(highScoreLength);
-  // $("#rank").text(findRank);
 }
 
 function muteSound() {
@@ -340,9 +333,9 @@ function renderSoundButton() {
 }
 
 function randomCardOrder() {
-  // var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
+  var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
   // var imageArray = ["cerseiLannister", "cerseiLannister", "cerseiLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "tyrionLannister", "daenerysTargaryen", "tyrionLannister", "cerseiLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "cerseiLannister", "cerseiLannister", "daenerysTargaryen", "tyrionLannister", "tyrionLannister"];
-  var imageArray = ["hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor"];
+  // var imageArray = ["hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor"];
   var randomArray = [];
   var spliceIndex = imageArray.length;
   for (var index = 0; index < 18; index++, spliceIndex--) {
