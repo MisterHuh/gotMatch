@@ -23,7 +23,7 @@ body {
   height: 47%;
 
   position: absolute;
-  top: 32%;
+  top: 33%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 25px;
@@ -108,7 +108,7 @@ input, .userInputButton {
   height: 45%;
   width: 30%;
   position: absolute;
-  top: 33%;
+  top: 32.5%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 25px;

@@ -20,8 +20,6 @@ if ($bodyData["attempts"]) {  /* if $bodyData exists, carry on */
   throw new Exception("attempts required to add to high scores");
 }
 
-// var_dump($attempts);
-
 /* if not, throw new Exception */
 if ($bodyData["name"]) {    /* if $bodyData exists, carry on */
   $name = $bodyData["name"];
