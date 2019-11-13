@@ -202,39 +202,18 @@ function removeUserInputModal() {
 }
 
 function addScore() {
-  var userName = $("input:text").val();
-
-  console.log("name is: ", userName);
-  console.log("attempts is:", attempts)
-
-  // var newEntry = {
-  //   name: name,
-  //   attempts: attempts
-  // };
-
-  // var req = {
-  //   method: "POST",
-  //   // headers: { "Content-Type": "application/json"},
-  //   headers: {"Access-Control-Allow-Origin": "*" },
-  //   // headers: {"Access-Control-Allow-Headers": "x-requested-with"},
-  //   mode: "no-cors",
-  //   body: JSON.stringify({
-  //     name: name,
-  //     attempts: attempts
-  //   })
-  // };
-  // fetch("/api/addScore.php", req)
+  var userName = $("input").val();
 
   var sanitizedData = JSON.stringify({
     name: userName,
     attempts: attempts
   });
 
+  console.log("name is: ", userName);
+  console.log("attempts is:", attempts);
   console.log("sanitizedData is: ", sanitizedData)
 
   var addScoreConfig = {
-    // headers: { 'Access-Control-Allow-Origin': "*" },
-    // headers: {"Access-Control-Allow-Headers": "x-requested-with"},
     type: "post",
     dataType: "jsonp",
     crossDomain: true,

@@ -13,13 +13,12 @@ function error_handler($error) {
 
 function startup() {
   header("Content-Type: application/json");
-  // header('Access-Control-Allow-Origin: *');
 }
 
 function getBodyData() {
   $json = file_get_contents('php://input');
-  $data = json_decode($json, true);
-  return $data;
+  $bodyData = json_decode($json, true);
+  return $bodyData;
 }
 
 ?>

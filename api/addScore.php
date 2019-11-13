@@ -6,26 +6,39 @@ require_once("db_connection.php");
 startup();
 
 $bodyData = getBodyData();
+$name = $bodyData["name"];
+// $attempts = $bodyData["attempts"];
+
+// print($name);
+// print($attempts);
+
+/* if not, throw new Exception */
+if ($bodyData["attempts"]) {  /* if $bodyData exists, carry on */
+  $attempts = $bodyData["attempts"];
+  if (gettype($attempts) !== "integer") { /* if $attempts is not a number, throw error */
+    throw new Exception("attempts must be a number");
+  }
+  if (intval($attempts) < 1) { /* if intval($attempts) is less than zero, throw error */
+    throw new Exception("attempts must be greater than 0");
+  }
+} else {                /* if $bodyData doesn't exist, throw error */
+  throw new Exception("attempts required to add to cart");
+}
 
 // include error checking for name
 // make sure it's a string. if not, throw error
 // if name doesn't exist, throw error
 
-// include error checking for attempts
-// make sure it's a number, if not, throw error
-// make sure it's a number and NOT a 0; if not, throw error
-// if it doesn't exist, throw error
+if ($bodyData["name"]) {    /* if $bodyData exists, carry on */
+  $name = $bodyData["name"];
+  if (gettype($name) !== "string") {  /* if $name is not a string, throw error */
+    throw new Exception("name cannot contain a number");
+  };
+} else {
+  throw new Exception("name required to add to cart");
+}
 
-// $name = $jsonBody["name"];
-// $attempts = $jsonBody["attempts"];
-
-$name = $bodyData["name"];
-$attempts = $bodyData["attempts"];
-
-print($name);
-print($attempts);
-
-// var_dump($name);
+var_dump($name);
 
 // $query = "INSERT INTO `highScores` (`name`, `attempts`)
 //           VALUES ('$name', '$attempts')";
@@ -39,12 +52,11 @@ $query = "INSERT INTO `highScores`
 
 $result = mysqli_query($conn, $query);
 
-/* error checking to make sure that the query updated at least 1 row */
-if (mysqli_affected_rows($conn) >= 1) { /* if at least 1 row was affected */
-  print("success");
-} else {
-  print("no rows were affected");
-}
+// if (mysqli_affected_rows($conn) >= 1) {
+//   print("success");
+// } else {
+//   print("no rows were affected");
+// }
 
 
 if (!$result) {
