@@ -20,7 +20,7 @@ if ($bodyData["attempts"]) {  /* if $bodyData exists, carry on */
   throw new Exception("attempts required to add to high scores");
 }
 
-var_dump($attempts);
+// var_dump($attempts);
 
 /* if not, throw new Exception */
 if ($bodyData["name"]) {    /* if $bodyData exists, carry on */
@@ -38,11 +38,11 @@ $query = "INSERT INTO `highScores`
 
 $result = mysqli_query($conn, $query);
 
-if (mysqli_affected_rows($conn) >= 1) {
-  print("success");
-} else {
-  print("no rows were affected");
-}
+// if (mysqli_affected_rows($conn) >= 1) {
+//   print("success");
+// } else {
+//   print("no rows were affected");
+// }
 
 
 if (!$result) {

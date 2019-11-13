@@ -18,12 +18,6 @@ while ($row = mysqli_fetch_assoc($result)) {
   $output[] = $row;
 };
 
-if (mysqli_affected_rows($conn) >= 1) {
-  print("success");
-} else {
-  print("no rows were affected");
-}
-
 if ($output === []) {
   print("[]");
   exit();
