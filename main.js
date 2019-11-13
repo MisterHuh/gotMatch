@@ -214,15 +214,9 @@ function addScore() {
   console.log("attempts is:", attempts);
   console.log("sanitizedData is: ", sanitizedData)
 
-  // var test = [];
-  // test.push($.post("/api/addScore.php", JSON.stringify(sanitizedData)));
-  // test.push($.post("/api/addScore.php", sanitizedData));
-  // Promise.allSettled(test);
-
   var addScoreConfig = {
     type: "post",
     dataType: "jsonp",
-    // crossDomain: true,
     data: sanitizedData,
     url: "api/addScore.php",
     success: function (response) {
@@ -241,6 +235,7 @@ function retrieveScore () {
     dataType: "json",
     url: "api/retrieveScore.php",
     success: function(response) {
+      renderScoreTable(response);
       console.log("retrieved SCORES are: ",  response);
     },
     error: function() {
@@ -249,7 +244,15 @@ function retrieveScore () {
   }
 
   $.ajax(retrieveScoreConfig);
+}
 
+function renderScoreTable(response) {
+  for (var index = 0; index <=4; index++) {
+    var name = ".name" + index;
+    var score = ".score" + index;
+    $(name).text(response[index]["name"])
+    $(score).text(response[index]["attempts"])
+  }
 }
 
 function muteSound() {

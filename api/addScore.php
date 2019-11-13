@@ -38,13 +38,6 @@ $query = "INSERT INTO `highScores`
 
 $result = mysqli_query($conn, $query);
 
-// if (mysqli_affected_rows($conn) >= 1) {
-//   print("success");
-// } else {
-//   print("no rows were affected");
-// }
-
-
 if (!$result) {
   throw new Exception("error with query " . mysqli_error($conn));
 }
