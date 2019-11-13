@@ -214,12 +214,23 @@ function addScore() {
   console.log("attempts is:", attempts);
   console.log("sanitizedData is: ", sanitizedData)
 
+  // var test = [];
+  // test.push($.post("/api/addScore.php", JSON.stringify(sanitizedData)));
+  // test.push($.post("/api/addScore.php", sanitizedData));
+  // Promise.allSettled(test);
+
   var addScoreConfig = {
     type: "post",
     dataType: "jsonp",
     crossDomain: true,
     data: sanitizedData,
-    url: "/api/addScore.php",
+    url: "api/addScore.php",
+    success: function (response) {
+      console.log("added SCORES are: ", response);
+    },
+    error: function () {
+      console.log("addScore did not work");
+    }
   };
 
   $.ajax(addScoreConfig)
@@ -229,13 +240,17 @@ function retrieveScore () {
   console.log("retrieveScore reached");
   var retrieveScoreConfig = {
     dataType: "json",
-    url: "/api/retrieveScore.php",
+    url: "api/retrieveScore.php",
     success: function(response) {
-      console.log("retrieved scores are: ",  response);
+      console.log("retrieved SCORES are: ",  response);
+    },
+    error: function() {
+      console.log("retrieveScore did not work");
     }
   }
 
   $.ajax(retrieveScoreConfig);
+
 }
 
 function muteSound() {
