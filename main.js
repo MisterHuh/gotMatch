@@ -203,8 +203,6 @@ function removeUserInputModal() {
 }
 
 function addScore() {
-  // var userName = $("input").val();
-  // currentPlayer = userName;
   currentPlayer = $("input").val();
 
 
@@ -260,22 +258,28 @@ function renderScoreTable(response) {
   var highScoreLength = response.length;
 
   var findRank = 1;
-  for (var rankIndex = 0; rankIndex < highScoreLength; rankIndex++) {
-
+  for (var rankIndex = 0; rankIndex < response.length; rankIndex++) {
     if (currentPlayer !== response[rankIndex]["name"]) {
       console.log(response[rankIndex]["name"]);
       findRank++;
     } else {
-      return findRank;
+      console.log("current player is: ", currentPlayer);
+      console.log("your rank is: ", findRank);
+      console.log("total rank is: ", highScoreLength);
+
+      $("#totalRank").text(highScoreLength);
+      $("#rank").text(findRank);
+
+      return;
     }
   }
 
-  console.log("current player is: ", currentPlayer);
-  console.log("your rank is: ", findRank);
-  console.log("total rank is: ", highScoreLength);
+  // console.log("current player is: ", currentPlayer);
+  // console.log("your rank is: ", findRank);
+  // console.log("total rank is: ", highScoreLength);
 
-  $("#totalRank").text(highScoreLength);
-  $("#rank").text(findRank);
+  // $("#totalRank").text(highScoreLength);
+  // $("#rank").text(findRank);
 }
 
 function muteSound() {
