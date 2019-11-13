@@ -195,7 +195,8 @@ function wonTheGame() {
 }
 
 function removeUserInputModal() {
-  addScore()
+  addScore();
+  retrieveScore();
 
   $(".userInputModal").addClass("hidden");
   $(".modalContainer").removeClass("hidden");
@@ -222,7 +223,19 @@ function addScore() {
   };
 
   $.ajax(addScoreConfig)
+}
 
+function retrieveScore () {
+  console.log("retrieveScore reached");
+  var retrieveScoreConfig = {
+    dataType: "json",
+    url: "/api/retrieveScore.php",
+    success: function(response) {
+      console.log("retrieved scores are: ",  response);
+    }
+  }
+
+  $.ajax(retrieveScoreConfig);
 }
 
 function muteSound() {

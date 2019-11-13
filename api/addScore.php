@@ -6,7 +6,7 @@ require_once("db_connection.php");
 startup();
 
 $bodyData = getBodyData();
-$name = $bodyData["name"];
+// $name = $bodyData["name"];
 // $attempts = $bodyData["attempts"];
 
 // print($name);
@@ -22,8 +22,10 @@ if ($bodyData["attempts"]) {  /* if $bodyData exists, carry on */
     throw new Exception("attempts must be greater than 0");
   }
 } else {                /* if $bodyData doesn't exist, throw error */
-  throw new Exception("attempts required to add to cart");
+  throw new Exception("attempts required to add to high scores");
 }
+
+print($attempts);
 
 // include error checking for name
 // make sure it's a string. if not, throw error
@@ -35,10 +37,10 @@ if ($bodyData["name"]) {    /* if $bodyData exists, carry on */
     throw new Exception("name cannot contain a number");
   };
 } else {
-  throw new Exception("name required to add to cart");
+  throw new Exception("name required to add to high scores");
 }
 
-var_dump($name);
+// var_dump($name);
 
 // $query = "INSERT INTO `highScores` (`name`, `attempts`)
 //           VALUES ('$name', '$attempts')";
@@ -52,11 +54,11 @@ $query = "INSERT INTO `highScores`
 
 $result = mysqli_query($conn, $query);
 
-// if (mysqli_affected_rows($conn) >= 1) {
-//   print("success");
-// } else {
-//   print("no rows were affected");
-// }
+if (mysqli_affected_rows($conn) >= 1) {
+  print("success");
+} else {
+  print("no rows were affected");
+}
 
 
 if (!$result) {
