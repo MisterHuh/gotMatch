@@ -423,6 +423,19 @@ main {
       position: relative;
       top: 4%;
     }
+    .userInputModal {
+      height: 34%;
+      width: 72%;
+    }
+    .userInputHeader {
+      margin-top: 4%;
+    }
+    .modalContainer {
+      width: 80%;
+      height: 49%;
+      top: 49%;
+      font-size: 150%;
+    }
   }
 
 /* Landscape */
