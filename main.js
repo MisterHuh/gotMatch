@@ -1,8 +1,9 @@
 $(document).ready(initializeApp);
 
-var firstCard, secondCard, firstCardSource, secondCardSource, accuracy, firstCardQuote, nextCard;
+var firstCard, secondCard, firstCardSource, secondCardSource, accuracy, firstCardQuote, nextCard, currentPlayer;
 var correctMatches = 0, attempts = 0, gamesPlayed = 0;
-var winConditionMatches = 9;
+var winConditionMatches = 1;
+var sound = false;
 
 var charList = [
   {
@@ -180,25 +181,161 @@ function resetStats() {
   $(".modalContainer").addClass("hidden");
   createStructure();
   displayStats();
+  renderSoundButton();
+  $("#mute").on("click", muteSound);
 }
 
 function wonTheGame() {
   if (correctMatches === winConditionMatches) {
     gamesPlayed++;
-    $(".modalContainer").removeClass("hidden");
+    $(".userInputModal").removeClass("hidden");
+    $(".userInputButton").on("click", removeUserInputModal)
     $('.frontImages').off("click")
   }
 }
 
-// function playAudio() {
-//   if (gamesPlayed === 0 ) {
-//     var audio = new Audio("./assets/bgMusic.mp3");
-//     audio.play();
-//   }
-// }
+function removeUserInputModal() {
+  addScore();
+  retrieveScore();
+
+  $(".userInputModal").addClass("hidden");
+  $(".modalContainer").removeClass("hidden");
+}
+
+function addScore() {
+  currentPlayer = $("input").val();
+
+
+  var sanitizedData = JSON.stringify({
+    name: currentPlayer,
+    attempts: attempts
+  });
+
+  console.log("name is: ", currentPlayer);
+  console.log("attempts is:", attempts);
+  console.log("sanitizedData is: ", sanitizedData)
+
+  var addScoreConfig = {
+    type: "post",
+    dataType: "jsonp",
+    data: sanitizedData,
+    url: "api/addScore.php",
+    success: function (response) {
+      console.log("added SCORES are: ", response);
+    },
+    error: function () {
+      console.log("addScore did not work");
+    }
+  };
+  $.ajax(addScoreConfig)
+}
+
+function retrieveScore () {
+  $("input").val("");
+
+  var retrieveScoreConfig = {
+    dataType: "json",
+    url: "api/retrieveScore.php",
+    success: function(response) {
+      renderScoreTable(response);
+      console.log("retrieved SCORES are: ",  response);
+    },
+    error: function() {
+      console.log("retrieveScore did not work");
+    }
+  }
+  $.ajax(retrieveScoreConfig);
+}
+
+function renderScoreTable(response) {
+  for (var index = 0; index <=4; index++) {
+    var name = ".name" + index;
+    var score = ".score" + index;
+    $(name).text(response[index]["name"])
+    $(score).text(response[index]["attempts"])
+  }
+
+  var highScoreLength = response.length;
+
+  var findRank = 1;
+  for (var rankIndex = 0; rankIndex < response.length; rankIndex++) {
+    if (currentPlayer !== response[rankIndex]["name"]) {
+      console.log(response[rankIndex]["name"]);
+      findRank++;
+    } else {
+      console.log("current player is: ", currentPlayer);
+      console.log("your rank is: ", findRank);
+      console.log("total rank is: ", highScoreLength);
+
+      $("#totalRank").text(highScoreLength);
+      $("#rank").text(findRank);
+
+      return;
+    }
+  }
+}
+
+function muteSound() {
+  var audio = document.getElementById("audio");
+  var audioStatus = document.getElementById("audio").muted
+
+  var play = "./assets/soundOn.png";
+  var mute = "./assets/soundMuted.png"
+  var soundButtonContainer = $("<img>");
+
+  $("#mute").empty();
+
+  if (!sound) {
+    sound = true;
+    audio.play();
+    soundButtonContainer.attr("src", play);
+    soundButtonContainer.attr("loop", true);
+  } else {
+    audio.muted = !audio.muted;
+    if (audioStatus) {
+      soundButtonContainer.attr("src", play)
+    } else {
+      soundButtonContainer.attr("src", mute)
+    }
+  }
+  $("#mute").append(soundButtonContainer)
+}
+
+function startWithMusic() {
+  sound = true;
+  var audio = document.getElementById("audio");
+  audio.play();
+  renderSoundButton();
+}
+
+function startWithoutMusic() {
+  sound = false;
+  renderSoundButton();
+}
+
+function renderSoundButton() {
+  $("#mute").empty();
+
+  var soundButtonContainer = $("<img>");
+
+  var play = "./assets/soundOn.png";
+  var mute = "./assets/soundMuted.png"
+
+  if (sound) {
+    soundButtonContainer.attr("src", play)
+  } else {
+    soundButtonContainer.attr("src", mute)
+  }
+
+  $("#greetings").addClass("hidden");
+  $(".frontImages").on("click", flipCard);
+  $("#mute").append(soundButtonContainer)
+}
 
 function randomCardOrder() {
-  var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
+  // var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
+  var imageArray = ["cerseiLannister", "cerseiLannister", "cerseiLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "tyrionLannister", "daenerysTargaryen", "tyrionLannister", "cerseiLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "cerseiLannister", "cerseiLannister", "daenerysTargaryen", "tyrionLannister", "tyrionLannister"];
+  var imageArray = ["hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor"];
   var randomArray = [];
   var spliceIndex = imageArray.length;
   for (var index = 0; index < 18; index++, spliceIndex--) {
@@ -226,9 +363,11 @@ function createStructure() {
     cardContainer.append(frontImages);
     container.append(cardContainer);
   }
-  $(".frontImages").on("click", flipCard);
   $(".modalButton").on("click", resetStats);
+  $(".sound").on("click", startWithMusic)
+  $(".noSound").on("click", startWithoutMusic);
+
+  $("#mute").on("click", muteSound);
   displayGifQuote(9);
   displayStats();
-  // playAudio();
 }

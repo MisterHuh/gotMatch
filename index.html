@@ -5,40 +5,101 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="main.js"></script>
+  <title>Game of Memory</title>
+  <link rel="shortcut icon" href="./assets/titleLogo.ico" />
 </head>
 <body>
-  <iframe src="./assets/bgMusic.mp3" allow="autoplay" id="audio" class="hidden"></iframe>
 
-  <div id="greetings"></div>
+  <audio loop src="./assets/bgMusic.mp3" id="audio"></audio>
+
+  <div id="greetings" class="welcomeModalContainer">
+    <div class="welcomeModal">
+      Welcome to Game of Memory, where we test your attention to detail!
+      Simply click on the card to reveal the character, and match all to win.
+      </div>
+      <div class="welcomeButtonFlex">
+        <div class="welcomeButton sound">Play with Sound</div>
+        <div class="welcomeButton noSound">Play without Sound</div>
+      </div>
+  </div>
+
+  <div class="userInputModal hidden">
+        <div class="userInputHeader">Congratulations you won<span>!</span></div>
+
+        <div class="userInputFlex">
+
+            <input type="text" maxLength="10">
+
+            <div class="userInputButton">Submit</div>
+
+        </div>
+  </div>
 
   <div class="modalContainer hidden">
-    <div class="modalText">Congratulations you won!!
-      <div class="modalButton">Click to play again!</div>
-    </div>
+
+    <div class="highScoreHeader">High Scores</div>
+
+      <div class="highScoreWrapper">
+        <div class="highScoreContainer">
+          <div class="highScoreSub">Rank</div>
+          <div class="highScoreText">1</div>
+          <div class="highScoreText">2</div>
+          <div class="highScoreText">3</div>
+          <div class="highScoreText">4</div>
+          <div class="highScoreText">5</div>
+        </div>
+        <div class="highScoreContainer">
+          <div class="highScoreSub">Name</div>
+          <div class="highScoreText name0">Test</div>
+          <div class="highScoreText name1">ASFAAA</div>
+          <div class="highScoreText name2">Ellis</div>
+          <div class="highScoreText name3">Arya</div>
+          <div class="highScoreText name4">Hodor</div>
+        </div>
+        <div class="highScoreContainer">
+          <div class="highScoreSub">Attempts</div>
+          <div class="highScoreText score0">9</div>
+          <div class="highScoreText score1">10</div>
+          <div class="highScoreText score2">8</div>
+          <div class="highScoreText score3">9</div>
+          <div class="highScoreText score4">11</div>
+        </div>
+      </div>
+
+      <div class="rankContainer">
+        Your rank is <span><div id=rank>2</div></span> out of <span><div id=totalRank>15</div></span>
+      </div>
+
+      <div class="modalButton">Play Again</div>
+
   </div>
 
   <header>
-    <div class="title">Game of Memory</div class="title">
+    <div class="title">
+      Game of Memory
+      <div id="mute"></div>
+    </div>
+
   </header>
+
   <main>
     <div id="cardWrapper"></div>
+
     <div class="bottomWrapper">
+
       <div class="statsWrapper bottomContainer">
-        <div class="statsContainer">
-          <div class="stats"> Games Played : <div id="gamesPlayed">0</div></div>
-        </div>
-        <div class="statsContainer">
-          <div class="stats">Attempts : <div id="attempts">0</div></div>
-        </div>
-        <div class="statsContainer">
-          <div class="stats">Accuracy : <div id="accuracy">0</div></div>
-        </div>
+        <div class="stats"> Games Played <span>:</span> <div id="gamesPlayed">0</div></div>
+        <div class="stats">Attempts <span>:</span> <div id="attempts">0</div></div>
+        <div class="stats">Accuracy <span>:</span> <div id="accuracy">0</div></div>
       </div>
+
       <div class="gifContainer" id="gif"></div>
+
       <div class="quotesContainer bottomContainer">
-        <div id="quotes"></div>
-        <div id="author"></div>
+        <div id="quotes" class="stats"></div>
+        <div id="author" class="stats"></div>
       </div>
+
     </div>
   </main>
 </body>
