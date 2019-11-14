@@ -4,6 +4,7 @@
   src: url("./assets/Game\ of\ Thrones.ttf");
 }
 body {
+  font-family: gameOfThrones;
   height:100vh;
   width: 100vw;
   background-image: url("./assets/bodyBackground.gif");
@@ -14,8 +15,13 @@ body {
   flex-direction: column;
   margin: 0;
 }
-.modalContainer {
-  width: 26%;
+.welcomeModalContainer {
+  background-image: url("./assets/welcomeModal.gif");
+  background-size: cover;
+  border: 3px ridge #dfe8e4;
+  width: 30%;
+  height: 47%;
+
   position: absolute;
   top: 33%;
   left: 50%;
@@ -23,38 +29,182 @@ body {
   border-radius: 25px;
   z-index: 1;
 }
-.modalText {
-  font-size: 190%;
+.welcomeModal {
+  padding: 2%;
+  margin-bottom: 0.5%;
+  font-size: 120%;
+  text-align: center;
+  color: whitesmoke;
+  text-shadow: 1px 1px black;
+}
+.welcomeButtonFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+.welcomeButton {
+  padding-top: 0.2%;
+  padding-bottom: 0.2%;
+  font-size: 90%;
+  margin: auto;
+  width: 40%;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  margin-bottom: 2%;
+  border-radius: 15%;
+}
+.welcomeButton:hover, .userInputButton:hover, .modalButton:hover {
+  background-color: #e0fbfc;
+  color: black;
+  text-shadow: 1px 1px #e0fbfc;
+}
+  .userInputModal {
+  background-image: url("./assets/userInput.gif");
+  background-size: cover;
+  border: 3px ridge #dfe8e4;
+  width: 30%;
+  height: 36%;
+  text-align: center;
+
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  z-index: 1;
+}
+.userInputHeader {
+  font-size: 120%;
+  padding: 3% 4% 0% 4%;
+  text-shadow: 1px 1px black;
+}
+.userInputFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+input, .userInputButton {
+  margin: auto;
+  padding: 1%;
+}
+.userInputButton {
+  border-radius: 15%;
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 33%;
+  margin-top: 4%;
+  margin-bottom: 4%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 100%;
+  text-align: center;
+}
+.highScoreModal {
+  height: 47%;
+  width: 30%;
+  position: absolute;
+  top: 33.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  z-index: 1;
   font-weight: bold;
   border: 3px ridge #dfe8e4;
   text-align: center;
-  padding: 4%;
+  color: whitesmoke;
   background-image: url("./assets/modal.jpg");
-  color: black;
   background-size: cover;
   background-position: center;
-  border-radius: 15px;
+  text-shadow: 1px 1px black;
 }
+.highScoreHeader {
+  font-size: 150%;
+  padding: 4%;
+  color: black;
+  text-shadow: 1px 1px #dfe8e4;
+}
+.highScoreWrapper {
+  display: flex;
+  flex-direction: row;
+  font-size: 90%;
+}
+.highScoreContainer {
+  width: 50%;
+}
+.highScoreSub {
+  font-size: 125%;
+  color: black;
+  text-shadow: 1px 1px #dfe8e4;
+  margin-bottom: 10%;
+}
+.highScoreText {
+  margin-top: 6%;
+  margin-bottom: 6%;
+  font-size: 125%;
+  text-shadow: 1px 1px black;
+}
+.rankContainer {
+  text-align: center;
+  padding: 2%;
+}
+#rank, #totalRank {
+  display: inline;
+  font-size: 150%;
+}
+
 .modalButton {
+  border-radius: 15%;
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 33%;
   margin-top: 4%;
-  font-weight: bold;
-  font-size: 55%;
+  margin-bottom: 4%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 100%;
   text-align: center;
   padding: 2.5%;
 }
+input {
+  font-size: 100%;
+  margin-top: 4%;
+  width: 33%;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: bold;
+}
+span {
+  margin-right: 2%;
+  margin-left: 2%;
+  display: inline;
+}
 header {
   height: 8vh;
+
 }
 .title {
   text-align: center;
-  line-height: 8vh;
+  line-height: 10vh;
+  margin: auto;
   height: 100%;
-  width: 100%;
+  width: 88%;
   font-family: gameOfThrones;
   color: black;
   font-size: 350%;
-  padding-top: 1%;
+  position: relative;
 }
+
+#mute {
+  float: right;
+  text-align: center;
+  line-height: 10vh;
+  position: absolute;
+  top: 0%;
+  left: 98%;
+}
+
 main {
   height: 90vh;
   display: flex;
@@ -76,13 +226,14 @@ main {
 .cardContainer {
   position: relative;
   height: 30%;
-  width: 13%;
-  margin: 0.5% 1%;
+  width: 11%;
+  margin: 0.5% 2.2%;
 }
 .backImages {
   height: 100%;
-  background-size: cover;
-  background-position: center;
+  background-size: 100% 100%;
+  background-position: center bottom;
+  background-repeat: no-repeat;
   border-radius: 15px;
 }
 .frontImages {
@@ -93,6 +244,10 @@ main {
   background-size: cover;
   background-position: center;
   border-radius: 15px;
+  transition: all .2s ease-in-out;
+}
+.frontImages:hover {
+  transform: scale(1.08);
 }
 .aryaStark {
   background-image: url("./assets/arya.png");
@@ -125,10 +280,18 @@ main {
   height: 12%;
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  text-shadow: 2px 2px silver;
 }
 .bottomContainer {
-  width: 37%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 34%;
   text-align: center;
   font-size: 100%;
   font-family: gameOfThrones;
@@ -142,22 +305,19 @@ main {
   background-color: #9b1c31;
   background-image: url("./assets/stats.png");
 }
-.statsContainer {
-  height: 33%;
-}
 .stats {
-  display: inline-block;
-  position: relative;
-  top: 5%;
+  margin: auto;
+  display: inline;
+  width: 100%;
 }
 #gamesPlayed, #attempts, #accuracy {
   display: inline-block;
   font-size: 150%
 }
 .gifContainer {
-  width: 10%;
+  height: 100%;
+  width: 8%;
   border-radius: 15px;
-  margin: 0% 2%;
 }
 .gifSize {
   height: 100%;
@@ -168,31 +328,89 @@ main {
   background-color: #04195b;
   background-image: url("./assets/quotes.png");
 }
-#quotes {
-  margin-bottom: 2%;
-}
-.singleLineQuotes {
-  position: relative;
-  top: 28%;
-}
-.doubleLineQuotes {
-  position: relative;
-  top: 14%;
-}
+
+ /* ----------- Thinkpad x250 ----------- */
+@media only screen
+  and (max-device-width: 1366px)
+  and (orientation: landscape) {
+        .title {
+          font-size: 290%;
+          line-height: 10vh;
+        }
+        #mute {
+          left: 98%;
+        }
+        .welcomeModal {
+          padding: 3%;
+          font-size: 98%;
+        }
+        .welcomeModalContainer {
+          font-size: 85%;
+          height: 60%;
+          width: 36%;
+          top: 47%;
+        }
+        .highScoreModal {
+          width: 40%;
+          height: 67%;
+          top: 47%;
+        }
+        .cardContainer {
+          width: 11%;
+          margin: 0.5% 2.2%;
+        }
+        .bottomContainer {
+          font-size: 80%
+        }
+        .singleLineQuotes {
+          position: relative;
+          top: 7%;
+        }
+        .doubleLineQuotes {
+          position: relative;
+          top: 4%;
+        }
+        .userInputModal {
+          width: 44%;
+          height: 56%;
+          top: 47%;
+        }
+  }
 
   /* ----------- iPad ----------- */
 
 /* Portrait */
 @media only screen
-  and (min-device-width: 768px)
+  and (max-device-width: 768px)
   and (max-device-height: 1024px)
   and (orientation: portrait) {
-    .title {
-      font-size: 500%;
-      padding-top: 4%;
+    .welcomeModalContainer {
+      height: 35%;
+      width: 60%;
+      top: 40%;
     }
-    .modalContainer {
-      width: 45%;
+    .welcomeButton {
+      background-color: black;
+    }
+    #mute {
+      line-height: 15.5vh;
+    }
+    .title {
+      font-size: 440%;
+      padding-top: 3%;
+    }
+    .userInputModal {
+      height: 32.5%;
+      width: 72%;
+    }
+    .userInputHeader {
+      margin-top: 4%;
+    }
+    .highScoreModal {
+      width: 80%;
+      height: 46%;
+      top: 49%;
+      font-size: 130%;
     }
     .cardContainer {
       height: 22%;
@@ -202,47 +420,70 @@ main {
     .bottomContainer {
       width: 35%;
     }
-    .stats {
-      top: 20%;
-    }
     .gifContainer {
       width: 20%;
     }
-    #quotes {
-      margin-bottom: 3%;
+    .frontImages, .backImages {
+      background-size: 180% 100%;
     }
-    .singleLineQuotes {
-      top:35%;
-    }
-    .doubleLineQuotes {
-      top: 26%;
+    .singleLineQuotes, .doubleLineQuotes {
+      position: relative;
+      top: 4%;
     }
   }
 
 /* Landscape */
 @media only screen
-  and (min-device-width: 1024px)
+  and (max-device-width: 1024px)
   and (max-device-height: 768px)
   and (orientation: Landscape) {
-    .modalContainer {
-      width: 45%;
+    .welcomeModalContainer {
+      width: 60%;
+      height: 66.5%;
+    }
+    .welcomeButton {
+      padding-top: 1.2%;
+      padding-bottom: 1.2%;
+      background-color: black;
+    }
+    .sound, .noSound {
+      font-size: 90%;
+    }
+    .userInputModal {
+      height: 60%;
+      width: 70%;
+    }
+    .userInputHeader {
+      margin-top: 2%;
+    }
+    .highScoreModal {
+      width: 65%;
+      font-size: 118%;
     }
     .title {
       padding-top: 1.5%;
       font-size: 380%;
+      line-height: 8vh;
+    }
+    .frontImages, .backImages {
+      background-size: 145% 100%;
     }
     .bottomContainer {
       width: 36%;
     }
     .stats {
-      top: 0%;
+      font-size: 90%
     }
     .gifContainer {
       width: 12%;
     }
+    .singleLineQuotes {
+      font-size: 90%;
+      top: 6%;
+    }
     .doubleLineQuotes {
       font-size: 90%;
-      top: 15%;
+      top: 4%;
     }
   }
 
@@ -250,20 +491,47 @@ main {
 
 /* Portrait */
 @media only screen
-  and (min-device-width: 375px)
+  and (max-device-width: 375px)
   and (max-device-height: 812px)
   and (orientation: portrait) {
     .title {
-      padding-top: 3%;
+      padding-top: 13%;
       font-size: 450%;
+      line-height: 7vh;
     }
-    .modalContainer {
-      width: 50%;
+    #mute {
+      line-height: 19.5vh;
+    }
+    .welcomeModalContainer {
+      width: 95%;
+      height: 35%;
+      font-size: 155%;
+      top: 46%;
+    }
+    .userInputModal {
+      width: 93%;
+      height: 26%;
+      top: 45%;
+      font-size: 200%;
+    }
+    .userInputHeader {
+      margin-top: 3%;
+    }
+    .highScoreModal {
+      width: 92%;
+      font-size: 200%;
+      height: 40%;
+    }
+    .highScoreHeader {
+      margin-top: 3%;
+    }
+    #cardWrapper {
+      height: 83%;
     }
     .cardContainer {
       height: 15%;
-      width: 25%;
-      margin: 1.5% 4%;
+      width: 12%;
+      margin: 10% 2%;
     }
     .bottomWrapper {
       margin-top: 1%;
@@ -276,39 +544,52 @@ main {
       top: 27%;
     }
     .gifContainer {
-      width: 24%;
+      width: 30%;
     }
     .quotesContainer {
       font-size: 120%;
     }
-    #quotes {
-      margin-bottom: 4%;
-    }
     .singleLineQuotes {
-      top: 39%;
+      top: 6%;
     }
     .doubleLineQuotes {
-      top: 28%;
+      top: 4%;
     }
   }
 
 /* Landscape */
 @media only screen
-  and (min-device-width: 812px)
+  and (max-device-width: 812px)
   and (max-device-height: 375px)
   and (orientation: Landscape) {
+    .welcomeModalContainer {
+      height: 61%;
+      width: 36%;
+      font-size: 61%;
+    }
     .title {
       font-size: 200%;
       padding-top: 0.5%;
     }
-    .modalContainer {
-      width: 35%;
+    .highScoreModal {
+      width: 42%;
+      font-size: 75%;
+      height: 73%;
     }
-    .modalText {
-      font-size: 140%;
+    .userInputModal {
+      height: 65%;
+      width: 50%;
+      font-size: 200%;
     }
-    .modalButton {
-      font-size: 60%;
+    .userInputButton {
+      font-size: 90%;
+    }
+    .userInputHeader {
+      font-size: 69%;
+    }
+    .cardContainer {
+      margin: 0.5% 4.3%;
+      width: 8vw;
     }
     .bottomContainer {
       font-size: 60%;
@@ -317,94 +598,66 @@ main {
     .gifContainer {
       width: 10%;
     }
-    .singleLineQuotes {
-      top: 20%;
-    }
-    .doubleLineQuotes {
-      top: 8%;
-    }
   }
 
 /* ----------- iPhone 6, 7 and 8 ----------- */
 
 /* Portrait */
-@media only screen
-  and (min-device-width: 375px)
+  @media only screen
+  and (max-device-width: 375px)
   and (max-device-height: 667px)
   and (orientation: portrait) {
-    .modalContainer {
-      width: 50%;
-      top: 30%;
+    .welcomeModalContainer {
+      height: 42%;
+      top: 38%;
     }
-    header {
-      height: 6vh;
+    .userInputModal {
+      height: 31%;
     }
-    .title {
-      line-height: 6vh;
-      font-size: 450%;
-      padding-top: 1%;
+    .highScoreModal {
+      height: 48%;
+      top: 50%;
     }
-    #cardWrapper {
-      padding: 1%;
-      height: 100%;
-    }
-    .cardContainer {
-      height: 15%;
-      width: 25%;
-    }
-    .bottomWrapper {
-      font-size: 112%;
-    }
-    .bottomContainer {
-      width: 36%;
-    }
-    .stats {
-      top: 11%;
-    }
-    .gifContainer {
-      width: 21%;
-    }
-    #quotes {
-      margin-bottom: 4%;
-    }
-    .singleLineQuotes {
-      top: 29%;
-    }
-    .doubleLineQuotes {
-      top: 14%
+    #mute {
+      line-height: 22.5vh;
     }
   }
 
 /* Landscape */
 @media only screen
-  and (min-device-width: 667px)
+  and (max-device-width: 667px)
   and (max-device-height: 375px)
   and (orientation: Landscape) {
-    .modalContainer {
-      width: 35%;
+    .welcomeModalContainer {
+      height: 52%;
     }
-    .modalText {
-      font-size: 130%;
+    .highScoreModal {
+      width: 50%;
+      height: 74%;
+      font-size: 100%;
     }
-    .modalButton {
+    .userInputModal {
+      height: 55%;
+    }
+    .userInputHeader {
       font-size: 65%;
     }
     .title {
       font-size: 220%;
     }
+    #mute {
+      line-height: 12vh;
+    }
     .cardContainer {
-      margin: 0.5% 1.5%;
+      margin: 0.5% 4.3%;
     }
     .bottomWrapper {
       height: 15vh;
     }
+    .bottomContainer {
+      width: 33%;
+    }
     .gifContainer {
       width: 16%;
-    }
-    .singleLineQuotes {
-      top: 24%;
-    }
-    .doubleLineQuotes {
-      font-size: 90%;
     }
   }
