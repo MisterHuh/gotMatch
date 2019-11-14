@@ -514,10 +514,9 @@ main {
       font-size: 155%;
       top: 46%;
     }
-
     .userInputModal {
-      width: 90%;
-      height: 24.5%;
+      width: 93%;
+      height: 26%;
       top: 45%;
       font-size: 200%;
     }
@@ -525,9 +524,9 @@ main {
       margin-top: 3%;
     }
     .modalContainer {
-      width: 80%;
+      width: 92%;
       font-size: 200%;
-      height: 37%;
+      height: 40%;
     }
     .highScoreHeader {
       margin-top: 3%;
@@ -618,6 +617,13 @@ main {
       height: 42%;
       top: 38%;
     }
+    .userInputModal {
+      height: 31%;
+    }
+    .modalContainer {
+      height: 48%;
+      top: 50%;
+    }
     #mute {
       line-height: 22.5vh;
     }
@@ -633,10 +639,14 @@ main {
     }
     .modalContainer {
       width: 50%;
+      height: 74%;
       font-size: 100%;
     }
     .userInputHeader {
-      font-size: 130%;
+      /* font-size: 130%; */
+    }
+    .userInputModal {
+      height: 55%;
     }
     .userInputHeader {
       font-size: 65%;
