@@ -218,8 +218,8 @@ function addScore() {
     success: function () {
       console.log(true);
     },
-    error: function () {
-      // console.log(false);
+    error: function (response) {
+      console.log("response is: ", response);
     }
   };
   $.ajax(addScoreConfig)
