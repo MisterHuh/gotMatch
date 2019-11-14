@@ -395,6 +395,9 @@ main {
       width: 60%;
       top: 40%;
     }
+    .welcomeButton {
+      background-color: black;
+    }
     #mute {
       line-height: 15.5vh;
     }
@@ -402,8 +405,18 @@ main {
       font-size: 440%;
       padding-top: 3%;
     }
+    .userInputModal {
+      height: 32.5%;
+      width: 72%;
+    }
+    .userInputHeader {
+      margin-top: 4%;
+    }
     .modalContainer {
-      width: 45%;
+      width: 80%;
+      height: 46%;
+      top: 49%;
+      font-size: 150%;
     }
     .cardContainer {
       height: 22%;
@@ -423,19 +436,6 @@ main {
       position: relative;
       top: 4%;
     }
-    .userInputModal {
-      height: 34%;
-      width: 72%;
-    }
-    .userInputHeader {
-      margin-top: 4%;
-    }
-    .modalContainer {
-      width: 80%;
-      height: 49%;
-      top: 49%;
-      font-size: 150%;
-    }
   }
 
 /* Landscape */
@@ -445,17 +445,25 @@ main {
   and (orientation: Landscape) {
     .welcomeModalContainer {
       width: 60%;
-      height: 62%;
+      height: 66.5%;
     }
     .welcomeButton {
       padding-top: 1.2%;
       padding-bottom: 1.2%;
+      background-color: black;
     }
     .sound, .noSound {
       font-size: 90%;
     }
+    .userInputModal {
+      height: 60%;
+      width: 70%;
+    }
+    .userInputHeader {
+      margin-top: 2%;
+    }
     .modalContainer {
-      width: 45%;
+      width: 65%;
     }
     .title {
       padding-top: 1.5%;
