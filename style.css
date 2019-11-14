@@ -63,7 +63,6 @@ body {
   .userInputModal {
   background-image: url("./assets/userInput.gif");
   background-size: cover;
-  /* background-repeat: no-repeat; */
   border: 3px ridge #dfe8e4;
   width: 30%;
   height: 36%;
@@ -82,7 +81,6 @@ body {
   text-shadow: 1px 1px black;
 }
 .userInputFlex {
-  /* border: 1px solid black; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -104,7 +102,7 @@ input, .userInputButton {
   font-size: 100%;
   text-align: center;
 }
-.modalContainer {
+.highScoreModal {
   height: 47%;
   width: 30%;
   position: absolute;
@@ -129,13 +127,11 @@ input, .userInputButton {
   text-shadow: 1px 1px #dfe8e4;
 }
 .highScoreWrapper {
-  /* border: 1px solid yellow; */
   display: flex;
   flex-direction: row;
   font-size: 90%;
 }
 .highScoreContainer {
-  /* border: 1px solid black; */
   width: 50%;
 }
 .highScoreSub {
@@ -151,7 +147,6 @@ input, .userInputButton {
   text-shadow: 1px 1px black;
 }
 .rankContainer {
-  /* border: 1px solid black; */
   text-align: center;
   padding: 2%;
 }
@@ -250,7 +245,6 @@ main {
   background-position: center;
   border-radius: 15px;
   transition: all .2s ease-in-out;
-  /* display: none; */
 }
 .frontImages:hover {
   transform: scale(1.08);
@@ -356,7 +350,7 @@ main {
           width: 36%;
           top: 47%;
         }
-        .modalContainer {
+        .highScoreModal {
           width: 40%;
           height: 67%;
           top: 47%;
@@ -412,7 +406,7 @@ main {
     .userInputHeader {
       margin-top: 4%;
     }
-    .modalContainer {
+    .highScoreModal {
       width: 80%;
       height: 46%;
       top: 49%;
@@ -462,7 +456,7 @@ main {
     .userInputHeader {
       margin-top: 2%;
     }
-    .modalContainer {
+    .highScoreModal {
       width: 65%;
       font-size: 118%;
     }
@@ -523,7 +517,7 @@ main {
     .userInputHeader {
       margin-top: 3%;
     }
-    .modalContainer {
+    .highScoreModal {
       width: 92%;
       font-size: 200%;
       height: 40%;
@@ -577,7 +571,7 @@ main {
       font-size: 200%;
       padding-top: 0.5%;
     }
-    .modalContainer {
+    .highScoreModal {
       width: 42%;
       font-size: 75%;
       height: 73%;
@@ -620,7 +614,7 @@ main {
     .userInputModal {
       height: 31%;
     }
-    .modalContainer {
+    .highScoreModal {
       height: 48%;
       top: 50%;
     }
@@ -637,13 +631,10 @@ main {
     .welcomeModalContainer {
       height: 52%;
     }
-    .modalContainer {
+    .highScoreModal {
       width: 50%;
       height: 74%;
       font-size: 100%;
-    }
-    .userInputHeader {
-      /* font-size: 130%; */
     }
     .userInputModal {
       height: 55%;

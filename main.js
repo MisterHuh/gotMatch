@@ -2,7 +2,7 @@ $(document).ready(initializeApp);
 
 var firstCard, secondCard, firstCardSource, secondCardSource, accuracy, firstCardQuote, nextCard, currentPlayer;
 var correctMatches = 0, attempts = 0, gamesPlayed = 0;
-var winConditionMatches = 1;
+var winConditionMatches = 9;
 var sound = false;
 
 var charList = [
@@ -178,7 +178,7 @@ function resetStats() {
   accuracy = 0;
   attempts = 0;
   correctMatches = 0;
-  $(".modalContainer").addClass("hidden");
+  $(".highScoreModal").addClass("hidden");
   createStructure();
   displayStats();
   renderSoundButton();
@@ -199,32 +199,27 @@ function removeUserInputModal() {
   retrieveScore();
 
   $(".userInputModal").addClass("hidden");
-  $(".modalContainer").removeClass("hidden");
+  $(".highScoreModal").removeClass("hidden");
 }
 
 function addScore() {
   currentPlayer = $("input").val();
-
 
   var sanitizedData = JSON.stringify({
     name: currentPlayer,
     attempts: attempts
   });
 
-  console.log("name is: ", currentPlayer);
-  console.log("attempts is:", attempts);
-  console.log("sanitizedData is: ", sanitizedData)
-
   var addScoreConfig = {
     type: "post",
     dataType: "jsonp",
     data: sanitizedData,
     url: "api/addScore.php",
-    success: function (response) {
-      console.log("added SCORES are: ", response);
+    success: function () {
+      console.log(true);
     },
     error: function () {
-      console.log("addScore did not work");
+      // console.log(false);
     }
   };
   $.ajax(addScoreConfig)
@@ -238,10 +233,9 @@ function retrieveScore () {
     url: "api/retrieveScore.php",
     success: function(response) {
       renderScoreTable(response);
-      console.log("retrieved SCORES are: ",  response);
     },
     error: function() {
-      console.log("retrieveScore did not work");
+      console.log(false);
     }
   }
   $.ajax(retrieveScoreConfig);
@@ -260,16 +254,10 @@ function renderScoreTable(response) {
   var findRank = 1;
   for (var rankIndex = 0; rankIndex < response.length; rankIndex++) {
     if (currentPlayer !== response[rankIndex]["name"]) {
-      console.log(response[rankIndex]["name"]);
       findRank++;
     } else {
-      console.log("current player is: ", currentPlayer);
-      console.log("your rank is: ", findRank);
-      console.log("total rank is: ", highScoreLength);
-
       $("#totalRank").text(highScoreLength);
       $("#rank").text(findRank);
-
       return;
     }
   }
@@ -333,9 +321,7 @@ function renderSoundButton() {
 }
 
 function randomCardOrder() {
-  // var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
-  var imageArray = ["cerseiLannister", "cerseiLannister", "cerseiLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "tyrionLannister", "daenerysTargaryen", "tyrionLannister", "cerseiLannister", "tyrionLannister", "daenerysTargaryen", "daenerysTargaryen", "cerseiLannister", "cerseiLannister", "daenerysTargaryen", "tyrionLannister", "tyrionLannister"];
-  var imageArray = ["hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor", "hodor"];
+  var imageArray = ["aryaStark", "cerseiLannister", "hodor", "jamieLannister", "tormundGiantsbane", "daenerysTargaryen", "jonSnow", "joffreyBaratheon", "tyrionLannister", "aryaStark", "tyrionLannister", "joffreyBaratheon", "daenerysTargaryen", "hodor", "cerseiLannister", "tormundGiantsbane", "jonSnow", "jamieLannister"];
   var randomArray = [];
   var spliceIndex = imageArray.length;
   for (var index = 0; index < 18; index++, spliceIndex--) {
