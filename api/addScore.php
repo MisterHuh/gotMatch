@@ -38,6 +38,4 @@ if (!$result) {
   throw new Exception("error with query " . mysqli_error($conn));
 }
 
-print ("insertion successful");
-
 ?>
