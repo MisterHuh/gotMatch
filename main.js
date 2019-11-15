@@ -185,6 +185,18 @@ function resetStats() {
   $("#mute").on("click", muteSound);
 }
 
+function winAverage() {
+  correctMatches = 9;
+  attempts = 20;
+  wonTheGame();
+}
+
+function topScore() {
+  correctMatches = 9;
+  attempts = 9;
+  wonTheGame();
+}
+
 function wonTheGame() {
   if (correctMatches === winConditionMatches) {
     gamesPlayed++;
@@ -218,8 +230,8 @@ function addScore() {
     success: function () {
       console.log(true);
     },
-    error: function () {
-      // console.log(false);
+    error: function (response) {
+      console.log(true);
     }
   };
   $.ajax(addScoreConfig)

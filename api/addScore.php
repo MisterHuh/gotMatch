@@ -7,23 +7,21 @@ startup();
 
 $bodyData = getBodyData();
 
-/* if not, throw new Exception */
-if ($bodyData["attempts"]) {  /* if $bodyData exists, carry on */
+if ($bodyData["attempts"]) {
   $attempts = $bodyData["attempts"];
-  if (gettype($attempts) !== "integer") { /* if $attempts is not a number, throw error */
+  if (gettype($attempts) !== "integer") {
     throw new Exception("attempts must be a number");
   }
-  if (intval($attempts) < 1) { /* if intval($attempts) is less than zero, throw error */
+  if (intval($attempts) < 1) {
     throw new Exception("attempts must be greater than 0");
   }
-} else {                /* if $bodyData doesn't exist, throw error */
+} else {
   throw new Exception("attempts required to add to high scores");
 }
 
-/* if not, throw new Exception */
-if ($bodyData["name"]) {    /* if $bodyData exists, carry on */
+if ($bodyData["name"]) {
   $name = $bodyData["name"];
-  if (gettype($name) !== "string") {  /* if $name is not a string, throw error */
+  if (gettype($name) !== "string") {
     throw new Exception("name cannot contain a number");
   };
 } else {
@@ -39,5 +37,7 @@ $result = mysqli_query($conn, $query);
 if (!$result) {
   throw new Exception("error with query " . mysqli_error($conn));
 }
+
+print ("insertion successful");
 
 ?>

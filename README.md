@@ -2,6 +2,8 @@
 
 Welcome to Game of Memory, where we test your attention to detail!
 
+You can winAverage or topScore if you dare.
+
 Simply click on the card to reveal the character, and match all to win.
 
 ## [Live Demo](http://gotmatch.jaehuh.network/)
@@ -30,6 +32,8 @@ Please feel free to fork this repo, make changes, submit pull requests, and send
 * jQuery
 * HTML5
 * CSS3
+* MySQL + phpMyAdmin
+* PHP
 
 ## License
 [MIT License](https://opensource.org/licenses/mit-license.php)
