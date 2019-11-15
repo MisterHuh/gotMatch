@@ -106,7 +106,7 @@ input, .userInputButton {
   height: 47%;
   width: 30%;
   position: absolute;
-  top: 33.5%;
+  top: 33%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 25px;

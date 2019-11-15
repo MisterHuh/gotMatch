@@ -230,8 +230,8 @@ function addScore() {
     success: function () {
       console.log(true);
     },
-    error: function (response) {
-      console.log(true);
+    error: function () {
+      // console.log(true);
     }
   };
   $.ajax(addScoreConfig)
