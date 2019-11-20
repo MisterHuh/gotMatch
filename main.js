@@ -214,27 +214,34 @@ function removeUserInputModal() {
   $(".highScoreModal").removeClass("hidden");
 }
 
-function addScore() {
+function addScore(event) {
   currentPlayer = $("input").val();
+  console.log("currentPlayer is: ", currentPlayer);
 
-  var sanitizedData = JSON.stringify({
-    name: currentPlayer,
-    attempts: attempts
-  });
+  if (currentPlayer) {
+    var sanitizedData = JSON.stringify({
+      name: currentPlayer,
+      attempts: attempts
+    });
 
-  var addScoreConfig = {
-    type: "post",
-    dataType: "jsonp",
-    data: sanitizedData,
-    url: "api/addScore.php",
-    success: function () {
-      console.log(true);
-    },
-    error: function () {
-      // console.log(true);
-    }
-  };
-  $.ajax(addScoreConfig)
+    console.log("sanitizedData is:", sanitizedData);
+
+    var addScoreConfig = {
+      type: "POST",
+      dataType: "jsonp",
+      data: sanitizedData,
+      url: "api/addScore.php",
+      success: function () {
+        // console.log(true);
+      },
+      error: function () {
+        // console.log(true);
+      }
+    };
+    $.ajax(addScoreConfig);
+  }
+
+
 }
 
 function retrieveScore () {
@@ -245,6 +252,7 @@ function retrieveScore () {
     url: "api/retrieveScore.php",
     success: function(response) {
       renderScoreTable(response);
+      retrieveScoreConfig = null;
       console.log("response is: ", response);
     },
     error: function() {
@@ -259,7 +267,6 @@ function renderScoreTable(response) {
   var highScoreLength = response.length;
   var currentTimeStamp = getCurrentTimeStamp();
   var indexTracker = 1;
-  // var scoreTracker = 1;
 
   for (var index = 0; index < highScoreLength; index++) {
     var rawDate = response[index]["date"];
@@ -295,16 +302,17 @@ function renderScoreTable(response) {
     }
   }
 
-  var findRank = 1;
-  for (var rankIndex = 0; rankIndex < highScoreLength; rankIndex++) {
+  // var findRank = 1;
+  // for (var rankIndex = 0; rankIndex < highScoreLength; rankIndex++) {
 
-    if (currentPlayer === response[rankIndex]["name"]) {
-      $("#totalRank").text(highScoreLength);
-      $("#rank").text(findRank);
-    } else {
-      findRank++;
-    }
-  }
+  //   if (currentPlayer !== response[rankIndex]["name"]) {
+  //       findRank++;
+  //   }
+  //   $("#totalRank").empty();
+  //   $("#rank").empty();
+  //   $("#totalRank").text(highScoreLength);
+  //   $("#rank").text(findRank);
+  // }
 
 
 }
