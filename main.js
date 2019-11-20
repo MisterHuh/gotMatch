@@ -256,68 +256,50 @@ function retrieveScore () {
 
 function renderScoreTable(response) {
 
-  // for (var index = 0; index <=4; index++) {
-  //   var name = ".name" + index;
-  //   var score = ".score" + index;
-  //   $(name).text(response[index]["name"])
-  //   $(score).text(response[index]["attempts"])
-  // }
-
   var highScoreLength = response.length;
   var currentTimeStamp = getCurrentTimeStamp();
   var nameTracker = 1;
   var scoreTracker = 1;
-  // var scoreTracker = 0;
 
   for (var index = 0; index < highScoreLength; index++) {
-
     var rawDate = response[index]["date"];
     var matchingDate = rawDate.substring(0,10);
 
     if (matchingDate === currentTimeStamp) {
 
       if (nameTracker && scoreTracker < 6 ) {
-        var name = ".name" + nameTracker;
-        var score = ".score" + scoreTracker;
+        var nameIndex = ".name" + nameTracker;
+        var scoreIndex = ".score" + scoreTracker;
 
-        var testName = response[index]["name"];
-        console.log("name is: ", testName);
+        var name = response[index]["name"];
+        var score = response[index]["attempts"];
 
-        var testScore = response[index]["attempts"];
-        console.log("name is: ", testScore);
+        $(nameIndex).text(name);
+        $(scoreIndex).text(score);
 
-        $(name).text(response[index]["name"]);
-        $(score).text(response[index]["attempts"]);
         nameTracker++;
         scoreTracker++;
       }
-
     }
-
-    console.log("rawDate: ", rawDate);
-    console.log("matchingDate: ", matchingDate);
-
   }
 
-
-  // for (var index = 0; index <= 4; index++) {
-  //   var name = ".name" + index;
-  //   var score = ".score" + index;
-  //   $(name).text(response[index]["name"])
-  //   $(score).text(response[index]["attempts"])
-
-
-  // }
-
   var findRank = 1;
-  for (var rankIndex = 0; rankIndex < response.length; rankIndex++) {
-    if (currentPlayer !== response[rankIndex]["name"]) {
-      findRank++;
-    } else {
+  for (var rankIndex = 0; rankIndex < highScoreLength; rankIndex++) {
+
+    if (currentPlayer === response[rankIndex]["name"]) {
       $("#totalRank").text(highScoreLength);
       $("#rank").text(findRank);
-      return;
+    } else {
+      findRank++;
     }
+
+    // if (currentPlayer !== response[rankIndex]["name"]) {
+    //   findRank++;
+    // } else {
+    //   $("#totalRank").text(highScoreLength);
+    //   $("#rank").text(findRank);
+      // return;
+    // }
   }
 
 
