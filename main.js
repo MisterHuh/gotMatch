@@ -258,8 +258,8 @@ function renderScoreTable(response) {
 
   var highScoreLength = response.length;
   var currentTimeStamp = getCurrentTimeStamp();
-  var nameTracker = 1;
-  var scoreTracker = 1;
+  var indexTracker = 1;
+  // var scoreTracker = 1;
 
   for (var index = 0; index < highScoreLength; index++) {
     var rawDate = response[index]["date"];
@@ -267,9 +267,9 @@ function renderScoreTable(response) {
 
     if (matchingDate === currentTimeStamp) {
 
-      if (nameTracker && scoreTracker < 6 ) {
-        var nameIndex = ".name" + nameTracker;
-        var scoreIndex = ".score" + scoreTracker;
+      if (indexTracker < 6 ) {
+        var nameIndex = ".name" + indexTracker;
+        var scoreIndex = ".score" + indexTracker;
 
         var name = response[index]["name"];
         var score = response[index]["attempts"];
@@ -277,9 +277,21 @@ function renderScoreTable(response) {
         $(nameIndex).text(name);
         $(scoreIndex).text(score);
 
-        nameTracker++;
-        scoreTracker++;
+        indexTracker++;
       }
+    }
+  }
+
+  if (indexTracker < 6) {
+    for (indexTracker; indexTracker < 6; indexTracker++) {
+      var nameFiller = ".name" + indexTracker;
+      var scoreFiller = ".score" + indexTracker;
+
+      var nameFillerText = "-";
+      var scoreFillerText = "-";
+
+      $(nameFiller).text(nameFillerText);
+      $(scoreFiller).text(scoreFillerText);
     }
   }
 
@@ -292,14 +304,6 @@ function renderScoreTable(response) {
     } else {
       findRank++;
     }
-
-    // if (currentPlayer !== response[rankIndex]["name"]) {
-    //   findRank++;
-    // } else {
-    //   $("#totalRank").text(highScoreLength);
-    //   $("#rank").text(findRank);
-      // return;
-    // }
   }
 
 
@@ -310,10 +314,6 @@ function getCurrentTimeStamp() {
   var year = dateObj.getUTCFullYear();
   var month = dateObj.getUTCMonth() + 1;
   var day = dateObj.getUTCDate();
-  // var hour = dateObj.getUTCHours();
-  // var mins = dateObj.getUTCMinutes();
-  // var seconds = dateObj.getUTCSeconds();
-  // var currentTimeStamp = year + "-" + month + "-" + day + " " + hour + ":" + mins + ":" + seconds;
   var currentTimeStamp = year + "-" + month + "-" + day;
   return currentTimeStamp;
 }
