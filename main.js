@@ -297,12 +297,12 @@ function renderScoreTable(response) {
 
 function getCurrentTimeStamp() {
   var dateObj = new Date();
-  var year = dateObj.getFullYear();
-  var month = dateObj.getMonth() + 1;
-  var day = dateObj.getDate();
-  var hours = dateObj.getHours();
-  var mins = dateObj.getMinutes();
-  var secs = dateObj.getSeconds();
+  var year = dateObj.getUTCFullYear();
+  var month = dateObj.getUTCMonth() + 1;
+  var day = dateObj.getUTCDate();
+  var hours = dateObj.getUTCHours();
+  var mins = dateObj.getUTCMinutes();
+  var secs = dateObj.getUTCSeconds();
   var currentTimeStamp = year + "-" + month + "-" + day;
   return currentTimeStamp;
 }

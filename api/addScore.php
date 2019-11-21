@@ -28,9 +28,12 @@ if ($bodyData["name"]) {
   throw new Exception("name required to add to high scores");
 }
 
+$timeStamp = gmdate("Y/m/d H:i:s");
+
 $query = "INSERT INTO `highScores`
           SET `name` = '$name',
-              `attempts` = '$attempts'";
+              `attempts` = '$attempts',
+              `date` = '$timeStamp'";
 
 $result = mysqli_query($conn, $query);
 
