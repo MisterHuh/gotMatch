@@ -106,7 +106,7 @@ input, .userInputButton {
   text-align: center;
 }
 .highScoreModal {
-  height: 47%;
+  height: 41%;
   width: 30%;
   position: absolute;
   top: 33%;
@@ -411,7 +411,7 @@ main {
     }
     .highScoreModal {
       width: 80%;
-      height: 46%;
+      height: 40%;
       top: 49%;
       font-size: 130%;
     }
@@ -523,7 +523,7 @@ main {
     .highScoreModal {
       width: 92%;
       font-size: 200%;
-      height: 40%;
+      height: 35%;
     }
     .highScoreHeader {
       margin-top: 3%;
@@ -577,7 +577,7 @@ main {
     .highScoreModal {
       width: 42%;
       font-size: 75%;
-      height: 73%;
+      height: 65%;
     }
     .userInputModal {
       height: 65%;
@@ -618,7 +618,7 @@ main {
       height: 31%;
     }
     .highScoreModal {
-      height: 48%;
+      height: 43%;
       top: 50%;
     }
     #mute {
@@ -636,7 +636,7 @@ main {
     }
     .highScoreModal {
       width: 50%;
-      height: 74%;
+      height: 66%;
       font-size: 100%;
     }
     .userInputModal {
