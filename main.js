@@ -216,15 +216,12 @@ function removeUserInputModal() {
 
 function addScore(event) {
   currentPlayer = $("input").val();
-  console.log("currentPlayer is: ", currentPlayer);
 
   if (currentPlayer) {
     var sanitizedData = JSON.stringify({
       name: currentPlayer,
       attempts: attempts
     });
-
-    console.log("sanitizedData is:", sanitizedData);
 
     var addScoreConfig = {
       type: "POST",
@@ -251,9 +248,8 @@ function retrieveScore () {
     dataType: "json",
     url: "api/retrieveScore.php",
     success: function(response) {
-      renderScoreTable(response);
+      renderScoreTable(response, currentPlayer);
       retrieveScoreConfig = null;
-      console.log("response is: ", response);
     },
     error: function() {
       console.log(false);
@@ -302,18 +298,19 @@ function renderScoreTable(response) {
     }
   }
 
-  // var findRank = 1;
-  // for (var rankIndex = 0; rankIndex < highScoreLength; rankIndex++) {
-
-  //   if (currentPlayer !== response[rankIndex]["name"]) {
+  // var testCurrentPlayer = currentPlayer;
+  // if (testCurrentPlayer) {
+  //   var findRank = 1;
+  //   for (var rankIndex = 0; rankIndex < highScoreLength; rankIndex++) {
+  //     if (currentPlayer !== response[rankIndex]["name"]) {
   //       findRank++;
+  //     }
   //   }
   //   $("#totalRank").empty();
   //   $("#rank").empty();
   //   $("#totalRank").text(highScoreLength);
   //   $("#rank").text(findRank);
   // }
-
 
 }
 
