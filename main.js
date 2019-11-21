@@ -248,8 +248,10 @@ function retrieveScore () {
     dataType: "json",
     url: "api/retrieveScore.php",
     success: function(response) {
-      renderScoreTable(response, currentPlayer);
+      renderScoreTable(response);
       retrieveScoreConfig = null;
+      console.log("response is: ", response);
+      console.log("currentPlayer from renderScoreTable: ", currentPlayer)
     },
     error: function() {
       console.log(false);
@@ -285,18 +287,18 @@ function renderScoreTable(response) {
     }
   }
 
-  if (indexTracker < 6) {
-    for (indexTracker; indexTracker < 6; indexTracker++) {
-      var nameFiller = ".name" + indexTracker;
-      var scoreFiller = ".score" + indexTracker;
+  // if (indexTracker < 6) {
+  //   for (indexTracker; indexTracker < 6; indexTracker++) {
+  //     var nameFiller = ".name" + indexTracker;
+  //     var scoreFiller = ".score" + indexTracker;
 
-      var nameFillerText = "-";
-      var scoreFillerText = "-";
+  //     var nameFillerText = "-";
+  //     var scoreFillerText = "-";
 
-      $(nameFiller).text(nameFillerText);
-      $(scoreFiller).text(scoreFillerText);
-    }
-  }
+  //     $(nameFiller).text(nameFillerText);
+  //     $(scoreFiller).text(scoreFillerText);
+  //   }
+  // }
 
   // var testCurrentPlayer = currentPlayer;
   // if (testCurrentPlayer) {
@@ -316,10 +318,18 @@ function renderScoreTable(response) {
 
 function getCurrentTimeStamp() {
   var dateObj = new Date();
-  var year = dateObj.getUTCFullYear();
-  var month = dateObj.getUTCMonth() + 1;
-  var day = dateObj.getUTCDate();
+  var year = dateObj.getFullYear();
+  var month = dateObj.getMonth() + 1;
+  var day = dateObj.getDate();
+  var hours = dateObj.getHours();
+  var mins = dateObj.getMinutes();
+  var secs = dateObj.getSeconds();
   var currentTimeStamp = year + "-" + month + "-" + day;
+  var testTimeStamp = year + "-" + month + "-" + day + " " + hours + ":" + mins + ":" + secs;
+  console.log("tesetTimeStamp is: ", testTimeStamp);
+
+  var offset = new Date().getTimezoneOffset();
+
   return currentTimeStamp;
 }
 
