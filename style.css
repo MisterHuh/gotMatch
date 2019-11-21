@@ -15,6 +15,9 @@ body {
   flex-direction: column;
   margin: 0;
 }
+.welcomeButton, .userInputButton, .modalButton, #mute, .frontImages {
+  cursor: pointer;
+}
 .welcomeModalContainer {
   background-image: url("./assets/welcomeModal.gif");
   background-size: cover;
@@ -352,7 +355,7 @@ main {
         }
         .highScoreModal {
           width: 40%;
-          height: 67%;
+          height: 60%;
           top: 47%;
         }
         .cardContainer {

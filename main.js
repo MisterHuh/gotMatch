@@ -214,27 +214,31 @@ function removeUserInputModal() {
   $(".highScoreModal").removeClass("hidden");
 }
 
-function addScore() {
+function addScore(event) {
   currentPlayer = $("input").val();
 
-  var sanitizedData = JSON.stringify({
-    name: currentPlayer,
-    attempts: attempts
-  });
+  if (currentPlayer) {
+    var sanitizedData = JSON.stringify({
+      name: currentPlayer,
+      attempts: attempts
+    });
 
-  var addScoreConfig = {
-    type: "post",
-    dataType: "jsonp",
-    data: sanitizedData,
-    url: "api/addScore.php",
-    success: function () {
-      console.log(true);
-    },
-    error: function () {
-      // console.log(true);
-    }
-  };
-  $.ajax(addScoreConfig)
+    var addScoreConfig = {
+      type: "POST",
+      dataType: "jsonp",
+      data: sanitizedData,
+      url: "api/addScore.php",
+      success: function () {
+        // console.log(true);
+      },
+      error: function () {
+        // console.log(true);
+      }
+    };
+    $.ajax(addScoreConfig);
+  }
+
+
 }
 
 function retrieveScore () {
@@ -245,6 +249,7 @@ function retrieveScore () {
     url: "api/retrieveScore.php",
     success: function(response) {
       renderScoreTable(response);
+      retrieveScoreConfig = null;
     },
     error: function() {
       console.log(false);
@@ -254,25 +259,52 @@ function retrieveScore () {
 }
 
 function renderScoreTable(response) {
-  for (var index = 0; index <=4; index++) {
-    var name = ".name" + index;
-    var score = ".score" + index;
-    $(name).text(response[index]["name"])
-    $(score).text(response[index]["attempts"])
-  }
 
   var highScoreLength = response.length;
+  var currentTimeStamp = getCurrentTimeStamp();
+  var indexTracker = 1;
 
-  var findRank = 1;
-  for (var rankIndex = 0; rankIndex < response.length; rankIndex++) {
-    if (currentPlayer !== response[rankIndex]["name"]) {
-      findRank++;
-    } else {
-      $("#totalRank").text(highScoreLength);
-      $("#rank").text(findRank);
-      return;
+  for (var index = 0; index < highScoreLength; index++) {
+    var rawDate = response[index]["date"];
+    var matchingDate = rawDate.substring(0,10);
+
+    if (matchingDate === currentTimeStamp) {
+
+      if (indexTracker < 6 ) {
+        var nameIndex = ".name" + indexTracker;
+        var scoreIndex = ".score" + indexTracker;
+
+        var name = response[index]["name"];
+        var score = response[index]["attempts"];
+
+        $(nameIndex).text(name);
+        $(scoreIndex).text(score);
+
+        indexTracker++;
+      }
     }
   }
+
+  if (indexTracker < 6) {
+    for (indexTracker; indexTracker < 6; indexTracker++) {
+      var nameFiller = ".name" + indexTracker;
+      var scoreFiller = ".score" + indexTracker;
+      $(nameFiller).text("-");
+      $(scoreFiller).text("-");
+    }
+  }
+}
+
+function getCurrentTimeStamp() {
+  var dateObj = new Date();
+  var year = dateObj.getFullYear();
+  var month = dateObj.getMonth() + 1;
+  var day = dateObj.getDate();
+  var hours = dateObj.getHours();
+  var mins = dateObj.getMinutes();
+  var secs = dateObj.getSeconds();
+  var currentTimeStamp = year + "-" + month + "-" + day;
+  return currentTimeStamp;
 }
 
 function muteSound() {

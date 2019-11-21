@@ -5,7 +5,7 @@ set_exception_handler("error_handler");
 require_once("db_connection.php");
 startup();
 
-$query = "SELECT * FROM `highScores` ORDER BY `attempts` ASC";
+$query = "SELECT * FROM highScores ORDER BY attempts ASC, date ASC";
 
 $result = mysqli_query($conn, $query);
 
