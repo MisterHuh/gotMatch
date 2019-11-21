@@ -289,12 +289,8 @@ function renderScoreTable(response) {
     for (indexTracker; indexTracker < 6; indexTracker++) {
       var nameFiller = ".name" + indexTracker;
       var scoreFiller = ".score" + indexTracker;
-
-      var nameFillerText = "-";
-      var scoreFillerText = "-";
-
-      $(nameFiller).text(nameFillerText);
-      $(scoreFiller).text(scoreFillerText);
+      $(nameFiller).text("-");
+      $(scoreFiller).text("-");
     }
   }
 }
