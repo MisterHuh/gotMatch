@@ -250,8 +250,6 @@ function retrieveScore () {
     success: function(response) {
       renderScoreTable(response);
       retrieveScoreConfig = null;
-      console.log("response is: ", response);
-      console.log("currentPlayer from renderScoreTable: ", currentPlayer)
     },
     error: function() {
       console.log(false);
@@ -287,33 +285,18 @@ function renderScoreTable(response) {
     }
   }
 
-  // if (indexTracker < 6) {
-  //   for (indexTracker; indexTracker < 6; indexTracker++) {
-  //     var nameFiller = ".name" + indexTracker;
-  //     var scoreFiller = ".score" + indexTracker;
+  if (indexTracker < 6) {
+    for (indexTracker; indexTracker < 6; indexTracker++) {
+      var nameFiller = ".name" + indexTracker;
+      var scoreFiller = ".score" + indexTracker;
 
-  //     var nameFillerText = "-";
-  //     var scoreFillerText = "-";
+      var nameFillerText = "-";
+      var scoreFillerText = "-";
 
-  //     $(nameFiller).text(nameFillerText);
-  //     $(scoreFiller).text(scoreFillerText);
-  //   }
-  // }
-
-  // var testCurrentPlayer = currentPlayer;
-  // if (testCurrentPlayer) {
-  //   var findRank = 1;
-  //   for (var rankIndex = 0; rankIndex < highScoreLength; rankIndex++) {
-  //     if (currentPlayer !== response[rankIndex]["name"]) {
-  //       findRank++;
-  //     }
-  //   }
-  //   $("#totalRank").empty();
-  //   $("#rank").empty();
-  //   $("#totalRank").text(highScoreLength);
-  //   $("#rank").text(findRank);
-  // }
-
+      $(nameFiller).text(nameFillerText);
+      $(scoreFiller).text(scoreFillerText);
+    }
+  }
 }
 
 function getCurrentTimeStamp() {
@@ -325,11 +308,6 @@ function getCurrentTimeStamp() {
   var mins = dateObj.getMinutes();
   var secs = dateObj.getSeconds();
   var currentTimeStamp = year + "-" + month + "-" + day;
-  var testTimeStamp = year + "-" + month + "-" + day + " " + hours + ":" + mins + ":" + secs;
-  console.log("tesetTimeStamp is: ", testTimeStamp);
-
-  var offset = new Date().getTimezoneOffset();
-
   return currentTimeStamp;
 }
 
